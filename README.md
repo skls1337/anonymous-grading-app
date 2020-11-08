@@ -1,6 +1,21 @@
-# Getting Started with Create React App
+# Echipa i7 mai putin Seby care are i5, dar are pe laptop i7
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+*Objective:* Developing a web application which allows student projects to be graded by anonymous juries of colleagues.
+
+
+## Description
+The application allows students projects to be graded by anonymous juries of peers.
+The application is built on a Single Page Application architecture and is accessible from the browser on the desktop, mobile devices or tablets (depending on user preference).
+
+## Functionality 
+- Student member in a project team (PM) can add a project and define a series of partial project deliverables. By registering, the studen automatically becomes eligible as an evaluator.
+- PM can add a demonstrative video or a link to a server hosting the deployed project for any partial deliverable.
+- When a partial deliverable is due, any student who is not a PM for a particular project can be randomly selected to be part of the project jury. A student which is a member of said jury can grade the project. 
+- The grade for the project is anonymous and the total grade is calculated by omitting the lowest and highest grades and then averaging the remaining ones. The grades are 1-10 with at most 2 fractional digits.
+- The professor can see the results of the evaluation for each project, without being able to see the identity of the jury members.
+- The application has a system of permissions. Only a member of the jury can add/modify grades and they can only modify their own grades. Grades can only be modified for a limited period of time.
+ 
+
 
 ## Available Scripts
 
