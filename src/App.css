@@ -1,0 +1,773 @@
+:root {
+	--web-view-ids: Index,Index__1;
+	--web-view-name: Index;
+	--web-view-id: Index;
+	--web-scale-to-fit: false;
+	--web-scale-to-fit-type: default;
+	--web-enable-scale-up: true;
+	--web-scale-on-resize: true;
+	--web-show-scale-controls: true;
+	--web-scale-on-double-click: false;
+	--web-center-horizontally: true;
+	--web-center-vertically: true;
+	--web-actual-size-on-double-click: false;
+	--web-navigate-on-keypress: false;
+	--web-refresh-for-changes: false;
+	--web-add-image-compare: false;
+	--web-show-by-media-query: false;
+	--web-application: true;
+	--web-show-navigation-controls: false;
+	--web-enable-deep-linking: true;
+	--web-is-overlay: false;
+}
+#Index,
+#Index__1 {
+	display: none;
+}
+@media (min-width: 0px) {
+	.mediaViewInfo {
+		--web-view-name: Index;
+		--web-view-id: Index;
+		--web-enable-scale-up: true;
+		--web-scale-on-resize: true;
+		--web-show-scale-controls: true;
+		--web-center-horizontally: true;
+		--web-center-vertically: true;
+		--web-application: true;
+		--web-enable-deep-linking: true;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		border: none;
+	}
+	#Index {
+		position: absolute;
+		display: block;
+		width: 1920px;
+		height: 1080px;
+		background-color: rgba(255,255,255,1);
+		overflow: hidden;
+		--web-view-name: Index;
+		--web-view-id: Index;
+		--web-enable-scale-up: true;
+		--web-scale-on-resize: true;
+		--web-show-scale-controls: true;
+		--web-center-horizontally: true;
+		--web-center-vertically: true;
+		--web-application: true;
+		--web-enable-deep-linking: true;
+	}
+	@keyframes fadein {
+	
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	
+	}
+	#Ellipse_12 {
+		fill: rgba(255,196,0,1);
+	}
+	.Ellipse_12 {
+		position: absolute;
+		overflow: visible;
+		width: 632px;
+		height: 632px;
+		left: -230px;
+		top: 715px;
+	}
+	#Polygon_1 {
+		fill: rgba(174,17,17,0.8);
+	}
+	.Polygon_1 {
+		overflow: visible;
+		position: absolute;
+		width: 721px;
+		height: 579px;
+		transform: matrix(1,0,0,1,1532.0001,-210) rotate(13deg);
+		transform-origin: center;
+		left: 0px;
+		top: 0px;
+	}
+	#Rectangle_8 {
+		fill: rgba(255,255,255,1);
+	}
+	.Rectangle_8 {
+		filter: drop-shadow(0px 6px 26px rgba(0, 0, 0, 0.239));
+		position: absolute;
+		overflow: visible;
+		width: 1803px;
+		height: 968px;
+		left: 86px;
+		top: 102px;
+	}
+	#Rectangle_9_l {
+		opacity: 0.9;
+		fill: url(#Rectangle_9_l);
+	}
+	.Rectangle_9_l {
+		filter: drop-shadow(0px 6px 26px rgba(0, 0, 0, 0.239));
+		position: absolute;
+		overflow: visible;
+		width: 710px;
+		height: 968px;
+		left: 86px;
+		top: 102px;
+	}
+	#Ellipse_13 {
+		opacity: 0.2;
+		fill: rgba(255,196,0,1);
+	}
+	.Ellipse_13 {
+		position: absolute;
+		overflow: visible;
+		width: 632px;
+		height: 632px;
+		left: -230px;
+		top: 715px;
+	}
+	#Welcome_singi_n {
+		position: absolute;
+		width: 440px;
+		height: 360px;
+		left: 182px;
+		top: 352px;
+		overflow: visible;
+	}
+	#Welcome_Back {
+		left: 0px;
+		top: 0px;
+		position: absolute;
+		overflow: hidden;
+		width: 441px;
+		height: 73px;
+		text-align: center;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 60px;
+		color: rgba(255,255,255,1);
+	}
+	#To_keep_connected_with_us_plea {
+		left: 13px;
+		top: 121px;
+		position: absolute;
+		overflow: visible;
+		width: 428px;
+		height: 78px;
+		text-align: center;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 25px;
+		color: rgba(255,255,255,1);
+	}
+	#Rectangle_14 {
+		fill: transparent;
+		stroke: rgba(255,255,255,1);
+		stroke-width: 3px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Rectangle_14 {
+		position: absolute;
+		overflow: visible;
+		width: 345px;
+		height: 85px;
+		left: 48px;
+		top: 275px;
+		transition: all 0.4s snap;
+		--web-animation: fadein 0.4s snap;
+		--web-action-type: view;
+		--web-action-target: Index__1;
+		cursor: pointer;
+	}
+	#SIGN_IN {
+		left: 172px;
+		top: 300px;
+		position: absolute;
+		overflow: visible;
+		width: 99px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 27px;
+		color: rgba(255,255,255,1);
+	}
+	#Create_account {
+		position: absolute;
+		width: 545px;
+		height: 677px;
+		left: 1027px;
+		top: 213px;
+		overflow: visible;
+	}
+	#Create_Account {
+		left: 45px;
+		top: 0px;
+		position: absolute;
+		overflow: hidden;
+		width: 440px;
+		height: 73px;
+		text-align: center;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 60px;
+		color: rgba(170,20,255,1);
+	}
+	#Ellipse_14 {
+		fill: rgba(255,255,255,1);
+		stroke: rgba(170,20,255,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Ellipse_14 {
+		position: absolute;
+		overflow: visible;
+		width: 100px;
+		height: 100px;
+		left: 84px;
+		top: 112px;
+	}
+	#Ellipse_15 {
+		fill: rgba(255,255,255,1);
+		stroke: rgba(170,20,255,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Ellipse_15 {
+		position: absolute;
+		overflow: visible;
+		width: 100px;
+		height: 100px;
+		left: 223px;
+		top: 112px;
+	}
+	#Ellipse_16 {
+		fill: rgba(255,255,255,1);
+		stroke: rgba(170,20,255,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Ellipse_16 {
+		position: absolute;
+		overflow: visible;
+		width: 100px;
+		height: 100px;
+		left: 362px;
+		top: 112px;
+	}
+	#png-clipart-google-logo-comput {
+		position: absolute;
+		width: 60px;
+		height: 38px;
+		left: 243px;
+		top: 143px;
+		overflow: visible;
+	}
+	#facebook-logo-svg-png-icon-fre {
+		position: absolute;
+		width: 50px;
+		height: 51px;
+		left: 109px;
+		top: 137px;
+		overflow: visible;
+	}
+	#linkedin-icon-black-linkedin-l {
+		position: absolute;
+		width: 44px;
+		height: 45.131px;
+		left: 392px;
+		top: 136px;
+		overflow: visible;
+	}
+	#Rectangle_10 {
+		fill: rgba(219,219,219,0.612);
+	}
+	.Rectangle_10 {
+		position: absolute;
+		overflow: visible;
+		width: 545px;
+		height: 71px;
+		left: 0px;
+		top: 299px;
+	}
+	#Rectangle_11 {
+		fill: rgba(219,219,219,0.612);
+	}
+	.Rectangle_11 {
+		position: absolute;
+		overflow: visible;
+		width: 545px;
+		height: 71px;
+		left: 0px;
+		top: 385px;
+	}
+	#Rectangle_12 {
+		fill: rgba(219,219,219,0.612);
+	}
+	.Rectangle_12 {
+		position: absolute;
+		overflow: visible;
+		width: 545px;
+		height: 71px;
+		left: 0px;
+		top: 471px;
+	}
+	#Rectangle_13 {
+		fill: rgba(170,20,255,1);
+	}
+	.Rectangle_13 {
+		position: absolute;
+		overflow: visible;
+		width: 345px;
+		height: 85px;
+		left: 100px;
+		top: 592px;
+	}
+	#SIGN_UP {
+		left: 221px;
+		top: 617px;
+		position: absolute;
+		overflow: visible;
+		width: 105px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 27px;
+		color: rgba(255,255,255,1);
+	}
+	#or_use_your_email_for_registra {
+		left: 65px;
+		top: 246px;
+		position: absolute;
+		overflow: visible;
+		width: 420px;
+		height: 28px;
+		text-align: center;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		color: rgba(135,135,135,1);
+	}
+	#Name {
+		left: 65px;
+		top: 318px;
+		position: absolute;
+		overflow: visible;
+		width: 105px;
+		height: 34px;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		color: rgba(135,135,135,1);
+	}
+	#Email {
+		left: 65px;
+		top: 404px;
+		position: absolute;
+		overflow: visible;
+		width: 105px;
+		height: 34px;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		color: rgba(135,135,135,1);
+	}
+	#Password {
+		left: 65px;
+		top: 490px;
+		position: absolute;
+		overflow: visible;
+		width: 105px;
+		height: 34px;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		color: rgba(135,135,135,1);
+	}
+}
+@media (min-width: 0px) {
+	.mediaViewInfo {
+		--web-view-name: Index – 1;
+		--web-view-id: Index__1;
+		--web-scale-on-resize: true;
+		--web-application: true;
+		--web-enable-deep-linking: true;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		border: none;
+	}
+	#Index__1 {
+		position: absolute;
+		display: block;
+		width: 1920px;
+		height: 1080px;
+		background-color: rgba(255,255,255,1);
+		overflow: hidden;
+		--web-view-name: Index – 1;
+		--web-view-id: Index__1;
+		--web-scale-on-resize: true;
+		--web-application: true;
+		--web-enable-deep-linking: true;
+	}
+	@keyframes fadein {
+	
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	
+	}
+	#Ellipse_12_bb {
+		fill: rgba(255,196,0,1);
+	}
+	.Ellipse_12_bb {
+		position: absolute;
+		overflow: visible;
+		width: 632px;
+		height: 632px;
+		left: -230px;
+		top: 715px;
+	}
+	#Polygon_1_bc {
+		fill: rgba(174,17,17,0.8);
+	}
+	.Polygon_1_bc {
+		overflow: visible;
+		position: absolute;
+		width: 721px;
+		height: 579px;
+		transform: matrix(1,0,0,1,1532.0001,-210) rotate(13deg);
+		transform-origin: center;
+		left: 0px;
+		top: 0px;
+	}
+	#Rectangle_8_bd {
+		fill: rgba(255,255,255,1);
+	}
+	.Rectangle_8_bd {
+		filter: drop-shadow(0px 6px 26px rgba(0, 0, 0, 0.239));
+		position: absolute;
+		overflow: visible;
+		width: 1803px;
+		height: 968px;
+		left: 86px;
+		top: 102px;
+	}
+	#Rectangle_9_bf {
+		opacity: 0.9;
+		fill: url(#Rectangle_9_bf);
+	}
+	.Rectangle_9_bf {
+		filter: drop-shadow(0px 6px 26px rgba(0, 0, 0, 0.239));
+		width: 632px;
+		height: 890px;
+		position: absolute;
+		overflow: visible;
+		transform: matrix(1,0,0,1,1179,102) rotate(180deg);
+		transform-origin: center;
+	}
+	#Ellipse_13_bg {
+		opacity: 0.2;
+		fill: rgba(255,196,0,1);
+	}
+	.Ellipse_13_bg {
+		position: absolute;
+		overflow: visible;
+		width: 632px;
+		height: 632px;
+		left: -230px;
+		top: 715px;
+	}
+	#Welcome_singi_n_bh {
+		position: absolute;
+		width: 440px;
+		height: 360px;
+		left: 1282px;
+		top: 352px;
+		overflow: visible;
+	}
+	#Greetings {
+		left: 0px;
+		top: 0px;
+		position: absolute;
+		overflow: hidden;
+		width: 441px;
+		height: 90px;
+		text-align: center;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 60px;
+		color: rgba(255,255,255,1);
+	}
+	#Enter_your_personal_details_an {
+		left: 13px;
+		top: 121px;
+		position: absolute;
+		overflow: visible;
+		width: 428px;
+		height: 78px;
+		text-align: center;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 25px;
+		color: rgba(255,255,255,1);
+	}
+	#Rectangle_14_bk {
+		fill: transparent;
+		stroke: rgba(255,255,255,1);
+		stroke-width: 3px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Rectangle_14_bk {
+		position: absolute;
+		overflow: visible;
+		width: 345px;
+		height: 85px;
+		left: 48px;
+		top: 275px;
+		transition: all 0.4s snap;
+		--web-animation: fadein 0.4s snap;
+		--web-action-type: view;
+		--web-action-target: Index;
+		cursor: pointer;
+	}
+	#SIGN_UP_bl {
+		left: 169px;
+		top: 300px;
+		position: absolute;
+		overflow: visible;
+		width: 105px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 27px;
+		color: rgba(255,255,255,1);
+	}
+	#Create_account_bm {
+		position: absolute;
+		width: 545px;
+		height: 677px;
+		left: 337px;
+		top: 213px;
+		overflow: visible;
+	}
+	#Sign_in {
+		left: 45px;
+		top: 0px;
+		position: absolute;
+		overflow: hidden;
+		width: 440px;
+		height: 90px;
+		text-align: center;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 60px;
+		color: rgba(170,20,255,1);
+	}
+	#Ellipse_14_bo {
+		fill: rgba(255,255,255,1);
+		stroke: rgba(170,20,255,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Ellipse_14_bo {
+		position: absolute;
+		overflow: visible;
+		width: 100px;
+		height: 100px;
+		left: 84px;
+		top: 112px;
+	}
+	#Ellipse_15_bp {
+		fill: rgba(255,255,255,1);
+		stroke: rgba(170,20,255,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Ellipse_15_bp {
+		position: absolute;
+		overflow: visible;
+		width: 100px;
+		height: 100px;
+		left: 223px;
+		top: 112px;
+	}
+	#Ellipse_16_bq {
+		fill: rgba(255,255,255,1);
+		stroke: rgba(170,20,255,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Ellipse_16_bq {
+		position: absolute;
+		overflow: visible;
+		width: 100px;
+		height: 100px;
+		left: 362px;
+		top: 112px;
+	}
+	#png-clipart-google-logo-comput_br {
+		position: absolute;
+		width: 60px;
+		height: 38px;
+		left: 243px;
+		top: 143px;
+		overflow: visible;
+	}
+	#facebook-logo-svg-png-icon-fre_bs {
+		position: absolute;
+		width: 50px;
+		height: 51px;
+		left: 109px;
+		top: 137px;
+		overflow: visible;
+	}
+	#linkedin-icon-black-linkedin-l_bt {
+		position: absolute;
+		width: 44px;
+		height: 45.131px;
+		left: 392px;
+		top: 136px;
+		overflow: visible;
+	}
+	#Rectangle_10_bu {
+		fill: rgba(219,219,219,0.612);
+	}
+	.Rectangle_10_bu {
+		position: absolute;
+		overflow: visible;
+		width: 545px;
+		height: 71px;
+		left: 0px;
+		top: 299px;
+	}
+	#Rectangle_11_bv {
+		fill: rgba(219,219,219,0.612);
+	}
+	.Rectangle_11_bv {
+		position: absolute;
+		overflow: visible;
+		width: 545px;
+		height: 71px;
+		left: 0px;
+		top: 385px;
+	}
+	#Rectangle_13_bw {
+		fill: rgba(170,20,255,1);
+	}
+	.Rectangle_13_bw {
+		position: absolute;
+		overflow: visible;
+		width: 345px;
+		height: 85px;
+		left: 100px;
+		top: 592px;
+	}
+	#SIGN_IN_bx {
+		left: 224px;
+		top: 617px;
+		position: absolute;
+		overflow: visible;
+		width: 99px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 27px;
+		color: rgba(255,255,255,1);
+	}
+	#or_use_your_email_and_password {
+		left: 65px;
+		top: 246px;
+		position: absolute;
+		overflow: visible;
+		width: 420px;
+		height: 28px;
+		text-align: center;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		color: rgba(135,135,135,1);
+	}
+	#Email_bz {
+		left: 65px;
+		top: 318px;
+		position: absolute;
+		overflow: visible;
+		width: 105px;
+		height: 34px;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		color: rgba(135,135,135,1);
+	}
+	#Password_b {
+		left: 65px;
+		top: 404px;
+		position: absolute;
+		overflow: visible;
+		width: 105px;
+		height: 34px;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		color: rgba(135,135,135,1);
+  }
+}
