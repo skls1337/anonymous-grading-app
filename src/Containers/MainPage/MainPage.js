@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 
+import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
+import SubPage from '../SubPage/SubPage';
+import Navbar from '../../Components/MainPage/Navbar/Navbar'
+
 class MainPage extends Component {
     render () {
         return (
-            <p>I am main page</p>
+            <Auxiliary>
+                <Navbar/>
+                <p>Profile presentation</p>
+                <SubPage />
+            </Auxiliary>
         );
     }
 }

@@ -1,0 +1,26 @@
+.Navbar {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    border-bottom: 1px solid #000;
+    cursor: pointer;
+}
+
+
+.Navbar a {
+    margin: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.Navbar .LogOut {
+    margin-left: auto;
+}
+
+.Navbar a:hover,
+.Navbar a:active {
+    color: rgb(59, 121, 255);
+}

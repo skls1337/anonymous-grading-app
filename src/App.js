@@ -10,8 +10,8 @@ class App extends Component {
 		return (
 			<Auxiliary>
 				<BrowserRouter>
-					<Route path='/' exact component={LoginPage} />
-					<Route path='/main-page' exact component={MainPage} />
+					<Route path='/main-page' exact component={LoginPage} />
+					<Route path='/' exact component={MainPage} />
 				</BrowserRouter>
 			</Auxiliary>
 		);
