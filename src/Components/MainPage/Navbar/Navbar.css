@@ -9,6 +9,8 @@
     font-weight: 600;
     font-size: 20px;
     background-color: #3ec4bd;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .Navbar a {
@@ -25,6 +27,7 @@
 .Navbar img {
     max-width:100%;
     max-height:100%;
+    -webkit-user-drag: none;
 }
 
 .Navbar a:hover,
@@ -32,8 +35,8 @@
     color: #DEF2F1;
 }
 
-@media (max-width: 625px) {
+@media (max-width: 700px) {
     .Navbar {
-        width: 625px;
+        width: 700px;
     }
 }

@@ -21,12 +21,15 @@ class App extends Component {
 		return (
 			<Auxiliary>
 				<BrowserRouter>
-					<Route exact path={"/start" | "/"}>
-						{this.state.isUserAuth ? <Redirect to="/home" /> : <Redirect to="/start/login" />}
+					<Route exact path={" "}>
+						{this.state.isUserAuth ? <Redirect to="/home/profile" /> : <Redirect to="/start/login" />}
+					</Route>
+					<Route exact path={"/home"}>
+						<Redirect to="/home/profile"/>
 					</Route>
 
 					<Route path='/start' render={(props) => <Background />} />
-					<Route path='/home' exact render={(props) => <MainPage log={this.userAuthHandler} />} />
+					<Route path='/home' render={(props) => <MainPage log={this.userAuthHandler} />} />
 				</BrowserRouter>
 			</Auxiliary>
 		);

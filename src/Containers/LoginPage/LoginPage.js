@@ -7,12 +7,7 @@ import google from '../../Assets/drawables/google.png'
 import linkedin from '../../Assets/drawables/linkedin.png'
 
 const loginPage = (props) => {
-    var onLogin = 0;
-    function toRegister() {
-        onLogin = 1;
-    }
     return (
-
         <div className={classes.Login}>
             <div className={classes.All}>
                 <div id="Partea Dreapta" className={classes.Dreapta}>
@@ -21,7 +16,7 @@ const loginPage = (props) => {
                     <p className={classes.DescDreapta}>Enter your personal details and journey with us</p>
 
                     <Link to="/start/register">
-                        <button className={classes.ButonDreapta} onClick={toRegister}>
+                        <button className={classes.ButonDreapta}>
                             SIGN UP
                         </button>
                     </Link>

@@ -3,6 +3,7 @@
     background-color: #17252A;
     padding-bottom: 400%;
     position: fixed;
+    border-radius: 0 30px;
 }
 
 .Profile img {
@@ -11,6 +12,8 @@
     border-radius: 50%;
     width: 45%;
     background-size: cover;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .Text {
@@ -27,18 +30,15 @@
 
 .Profile button {
     width: 50%;
-    margin: 20px;
-    margin-top: 400px;
-    margin-left: 40%;
+    margin: 400px auto;
     background-color: #DEF2F1;
     border-width: 2px;
     border-style: dashed;
     border-color: #DEF2F1;
     color: #17252A;
     outline: none;
-    display: inline-block;
+    display: block;
     padding: 20px 5px;
-    border-radius: 0.12em;
     box-sizing: border-box;
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
@@ -47,6 +47,8 @@
     text-align: center;
     transition: all 0.2s;
     cursor: pointer;
+    border-radius: 30px;
+    user-select: none;
 }
 
 .Profile button:hover {
@@ -57,7 +59,7 @@
 @media all and (max-width: 965px) {
     .Profile button {
         display: block;
-        margin: 10px auto;
+        margin-top: 10px ;
         width: 100px;
     }
 }
@@ -65,6 +67,6 @@
 @media (max-height: 1000px) {
     .Profile button {
         margin-top: 10px;
-        margin-left: 10px;
     }
 }
+
