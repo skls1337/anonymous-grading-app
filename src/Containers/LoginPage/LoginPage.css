@@ -297,7 +297,7 @@
 		animation-name: bounceInUp1;
 		-webkit-animation-duration: 1s;
 		animation-duration: 1s;
-		animation-delay: 1s;
+		animation-delay: 0.85s;
 		-webkit-animation-fill-mode: both;
 		animation-fill-mode: both;
 	}
