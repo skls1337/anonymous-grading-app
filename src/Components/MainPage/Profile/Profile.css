@@ -1,6 +1,6 @@
 .Profile {
     width: 20%;
-    background-color: #DEF2F1;
+    background-color: #17252A;
     padding-bottom: 400%;
     position: fixed;
 }
@@ -16,7 +16,7 @@
 .Text {
     display: block;
     font-size: 200%;
-    color: #17252A;
+    color: #DEF2F1;
     margin: auto;
     text-align: center;
 }
@@ -30,11 +30,11 @@
     margin: 20px;
     margin-top: 400px;
     margin-left: 40%;
-    background-color: #17252A;
+    background-color: #DEF2F1;
     border-width: 2px;
     border-style: dashed;
-    border-color: #17252A;
-    color: #DEF2F1;
+    border-color: #DEF2F1;
+    color: #17252A;
     outline: none;
     display: inline-block;
     padding: 20px 5px;
@@ -50,8 +50,8 @@
 }
 
 .Profile button:hover {
-    color: #17252A;
-    background-color: #DEF2F1;
+    color: #DEF2F1;
+    background-color: #17252A;
 }
 
 @media all and (max-width: 965px) {
@@ -65,6 +65,6 @@
 @media (max-height: 950px) {
     .Profile button {
         margin-top: 10px;
-        margin-left: 10px auto;
+        margin-left: 10px;
     }
 }
