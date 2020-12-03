@@ -20,7 +20,7 @@ class MainPage extends Component {
     render () {
         return (
             <Auxiliary>
-                <Navbar />
+                <Navbar log={this.props.log}/>
                 <div className={classes.MainPage}>
                     <Profile img={this.state.user.Img} name={this.state.user.Name} group={this.state.user.Group} year={this.state.user.Year}/>
                     <div className={classes.Placeholder}></div>

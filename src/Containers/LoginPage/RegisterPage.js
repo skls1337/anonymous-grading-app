@@ -1,8 +1,11 @@
 import React from 'react';
-import classes from './RegisterPage.css'
-import facebook from '../../Assets/drawables/facebook.png'
-import google from '../../Assets/drawables/google.png'
-import linkedin from '../../Assets/drawables/linkedin.png'
+import { Link } from 'react-router-dom';
+
+import classes from './RegisterPage.css';
+import facebook from '../../Assets/drawables/facebook.png';
+import google from '../../Assets/drawables/google.png';
+import linkedin from '../../Assets/drawables/linkedin.png';
+
 const registerPage=(props)=>{
     return(
        
@@ -12,9 +15,11 @@ const registerPage=(props)=>{
                         <p className={classes.Welcome}>Welcome Back!
                          <p className={classes.DescDreapta}>To keep connected with us please login with your personal info</p>
                         </p>
-                        <button className={classes.ButonDreapta}>
-                            SIGN IN
-                     </button>
+                        <Link to="/start/login">
+                            <button className={classes.ButonDreapta}>
+                                SIGN IN
+                            </button>
+                        </Link>
                     </div>
            
            <div className={classes.Stanga}>
