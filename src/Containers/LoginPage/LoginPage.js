@@ -3,10 +3,12 @@ import classes from './LoginPage.css'
 import facebook from '../../Assets/drawables/facebook.png'
 import google from '../../Assets/drawables/google.png'
 import linkedin from '../../Assets/drawables/linkedin.png'
+
  const loginPage=(props)=>{
         return(
+           
             <div className={classes.Login}>
-<div className={classes.All}>
+            <div className={classes.All}>
                 <div id="Partea Dreapta" className={classes.Dreapta}>
                             <p className={classes.Welcome}>Welcome Back!
                              <p className={classes.DescDreapta}>To keep connected with us please login with your personal info</p>
@@ -52,6 +54,7 @@ import linkedin from '../../Assets/drawables/linkedin.png'
                 </div>
                 </div>
                 </div>
+                
             
      )
 }
