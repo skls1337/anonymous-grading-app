@@ -9,7 +9,7 @@
     font-weight: 600;
     font-size: 20px;
     background-color: #3ec4bd;
-
+    position:fixed;
 }
 
 .Navbar a {

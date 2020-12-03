@@ -3,12 +3,16 @@
     margin-right: 8%;
     margin-top: 60px;
     font-size: x-large;
+    display: inline-block;
+    overflow: auto;
+}
+
+.Project .Text p {
+    background-color: #FEFFFF;
+    
 }
 
 .Project p {
-    background-color: #FEFFFF;
     border-radius: 30px;
     padding: 10px;
-    width: 100%;
-   
 }

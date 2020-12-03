@@ -4,6 +4,7 @@
     padding-bottom: 400%;
     position: fixed;
     border-radius: 0 30px;
+    margin-top: 60px;
     -webkit-animation-name: bounceInLeft;
     animation-name: bounceInLeft;
     -webkit-animation-duration: 1s;
@@ -11,27 +12,27 @@
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
-    @keyframes bounceInLeft {
+
+@keyframes bounceInLeft {
     0%, 60%, 75%, 90%, 100% {
-    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
     }
     0% {
-    opacity: 0;
-    -webkit-transform: translate3d(-3000px, 0, 0);
-    transform: translate3d(-3000px, 0, 0);
+        opacity: 0;
+        -webkit-transform: translate3d(-3000px, 0, 0);
+        transform: translate3d(-3000px, 0, 0);
     }
-  
     75% {
-    -webkit-transform: translate3d(0px, 0, 0);
-    transform: translate3d(-10px, 0, 0);
+        -webkit-transform: translate3d(0px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
     }
-  
     100% {
-    -webkit-transform: none;
-    transform: none;
+        -webkit-transform: none;
+        transform: none;
     }
-    } 
+}
+
 .Profile img {
     display: block;
     margin: 20% auto;
@@ -48,7 +49,6 @@
     color: #DEF2F1;
     margin: auto;
     text-align: center;
-    
 }
 
 .Text p {
@@ -86,7 +86,7 @@
 @media all and (max-width: 965px) {
     .Profile button {
         display: block;
-        margin-top: 10px ;
+        margin-top: 10px;
         width: 100px;
     }
 }
@@ -96,4 +96,3 @@
         margin-top: 10px;
     }
 }
-

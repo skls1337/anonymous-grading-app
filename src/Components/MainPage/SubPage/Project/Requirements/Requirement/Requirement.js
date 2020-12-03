@@ -2,12 +2,11 @@ import React from 'react';
 
 import classes from './Requirement.css';
 
-const requirement = () => {
+const requirement = (props) => {
     return(
         <div className={classes.Requirement}>
-            <p>interactive check</p>
-            <p>Requirement</p>
-            <p>status</p>
+            <p>{props.children}</p>
+            <p>{props.status}</p>
         </div>
     );
 }

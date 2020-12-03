@@ -6,8 +6,9 @@ import classes from './Project.css';
 const project = () => {
     return(
         <div className={classes.Project}>
-            <p>Project Title: </p>
-            <p>Description: </p>
+            <div className={classes.Text}>
+                <p>Description: </p>
+            </div>
             <Requirements />
             <p>Deadlines</p>
         </div>
