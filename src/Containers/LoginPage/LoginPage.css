@@ -9,123 +9,76 @@
 		font-weight: bold;
 		width: 33%;
 		height: 100%;
-		background-image: linear-gradient( #B821D5,#1A116B);
+		background-image: linear-gradient(#3EC4BD,#1A116B);
 		position: absolute;
 		overflow: visible;
 		border-radius: 0px 30px 30px 0px;
-		opacity: 0.8;
+		opacity: 0.9;
 		margin-left:67%;
-		animation: animationFrames ease 1s;
-		animation-iteration-count: 1;
-		transform-origin: 50% 50%;
-		animation-fill-mode:forwards; /*when the spec is finished*/
-		-webkit-animation: animationFrames ease 1s;
-		-webkit-animation-iteration-count: 1;
-		-webkit-transform-origin: 50% 50%;
-		-webkit-animation-fill-mode:forwards; /*Chrome 16+, Safari 4+*/ 
-		-moz-animation: animationFrames ease 1s;
-		-moz-animation-iteration-count: 1;
-		-moz-transform-origin: 50% 50%;
-		-moz-animation-fill-mode:forwards; /*FF 5+*/
-		-o-animation: animationFrames ease 1s;
-		-o-animation-iteration-count: 1;
-		-o-transform-origin: 50% 50%;
-		-o-animation-fill-mode:forwards; /*Not implemented yet*/
-		-ms-animation: animationFrames ease 1s;
-		-ms-animation-iteration-count: 1;
-		-ms-transform-origin: 50% 50%;
-		-ms-animation-fill-mode:forwards; /*IE 10+*/
+		-webkit-animation-name: bounceInLeft;
+		animation-name: bounceInLeft;
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+		
 	}
-	@keyframes animationFrames{
+	@-webkit-keyframes bounceInLeft {
+		0%, 60%, 75%, 90%, 100% {
+		-webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		}
 		0% {
-		  opacity:0;
-		  transform:  translate(-1500px,0px)  ;
+		opacity: 0;
+		-webkit-transform: translate3d(-3000px, 0, 0);
+		transform: translate3d(-3000px, 0, 0);
 		}
 		60% {
-		  opacity:1;
-		  transform:  translate(30px,0px)  ;
+		opacity: 1;
+		-webkit-transform: translate3d(25px, 0, 0);
+		transform: translate3d(25px, 0, 0);
 		}
-		80% {
-		  transform:  translate(-10px,0px)  ;
+		75% {
+		-webkit-transform: translate3d(-10px, 0, 0);
+		transform: translate3d(-10px, 0, 0);
+		}
+		90% {
+		-webkit-transform: translate3d(5px, 0, 0);
+		transform: translate3d(5px, 0, 0);
 		}
 		100% {
-		  opacity:1;
-		  transform:  translate(0px,0px)  ;
+		-webkit-transform: none;
+		transform: none;
 		}
-	  }
-	  
-	  @-moz-keyframes animationFrames{
+		}
+		@keyframes bounceInLeft {
+		0%, 60%, 75%, 90%, 100% {
+		-webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		}
 		0% {
-		  opacity:0;
-		  -moz-transform:  translate(-1500px,0px)  ;
+		opacity: 0;
+		-webkit-transform: translate3d(-3000px, 0, 0);
+		transform: translate3d(-3000px, 0, 0);
 		}
 		60% {
-		  opacity:1;
-		  -moz-transform:  translate(30px,0px)  ;
+		opacity: 1;
+		-webkit-transform: translate3d(25px, 0, 0);
+		transform: translate3d(25px, 0, 0);
 		}
-		80% {
-		  -moz-transform:  translate(-10px,0px)  ;
+		75% {
+		-webkit-transform: translate3d(-10px, 0, 0);
+		transform: translate3d(-10px, 0, 0);
 		}
-		100% {
-		  opacity:1;
-		  -moz-transform:  translate(0px,0px)  ;
-		}
-	  }
-	  
-	  @-webkit-keyframes animationFrames {
-		0% {
-		  opacity:0;
-		  -webkit-transform:  translate(-1500px,0px)  ;
-		}
-		60% {
-		  opacity:1;
-		  -webkit-transform:  translate(30px,0px)  ;
-		}
-		80% {
-		  -webkit-transform:  translate(-10px,0px)  ;
+		90% {
+		-webkit-transform: translate3d(5px, 0, 0);
+		transform: translate3d(5px, 0, 0);
 		}
 		100% {
-		  opacity:1;
-		  -webkit-transform:  translate(0px,0px)  ;
+		-webkit-transform: none;
+		transform: none;
 		}
-	  }
-	  
-	  @-o-keyframes animationFrames {
-		0% {
-		  opacity:0;
-		  -o-transform:  translate(-1500px,0px)  ;
-		}
-		60% {
-		  opacity:1;
-		  -o-transform:  translate(30px,0px)  ;
-		}
-		80% {
-		  -o-transform:  translate(-10px,0px)  ;
-		}
-		100% {
-		  opacity:1;
-		  -o-transform:  translate(0px,0px)  ;
-		}
-	  }
-	  
-	  @-ms-keyframes animationFrames {
-		0% {
-		  opacity:0;
-		  -ms-transform:  translate(-1500px,0px)  ;
-		}
-		60% {
-		  opacity:1;
-		  -ms-transform:  translate(30px,0px)  ;
-		}
-		80% {
-		  -ms-transform:  translate(-10px,0px)  ;
-		}
-		100% {
-		  opacity:1;
-		  -ms-transform:  translate(0px,0px)  ;
-		}
-	  }
-
+		} 
 	.Welcome{
 	
 		color:white;
@@ -206,7 +159,7 @@
 		font-family: 'Segoe UI', sans-serif;
 		font-weight: bold;
 		margin-top:50px;
-		color:#AA14FF;
+		color:#3EC4BD;
 		font-size: 40px;
 		width: 33% ;
 		height: 100%;
@@ -322,7 +275,7 @@
 		font-family: 'Segoe UI', sans-serif;
 		font-weight: bold;
 		cursor:pointer;
-		background-color: #AA14FF;
+		background-color: #3EC4BD;
 		justify-content: center;
 		border: none;
 		border-radius:25px;
@@ -420,13 +373,13 @@
 	.Circle{
 	height: 80px;
 	  width: 80px;
-	  border-color: #AA14FF;
+	  border-color: #3EC4BD;
 	  border-radius: 50%;
 	  fill:"none";
 	  display: inline-block;
 	  margin-top: 30px;
-	  
-	  background-color: Transparent;
+
+	  background-color: white;
 	  border-style: groove;
 	  border-width: 1px;
 	  margin-left: 20px;
