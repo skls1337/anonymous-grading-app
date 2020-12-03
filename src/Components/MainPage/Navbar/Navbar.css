@@ -9,26 +9,9 @@
     font-weight: 600;
     font-size: 20px;
     background-color: #3ec4bd;
-    user-select: none;
-    -webkit-user-drag: none;
-    -webkit-animation-name: slideInDown;
-    animation-name: slideInDown;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
+
 }
-@keyframes slideInDown {
-    0% {
-    -webkit-transform: translateY(-100%);
-    transform: translateY(-100%);
-    visibility: visible;
-    }
-    100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    }
-    } 
+
 .Navbar a {
     margin: 20px;
     text-decoration: none;
