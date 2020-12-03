@@ -1,23 +1,132 @@
 .All{
-	animation-name: slideIn;
-		animation-duration: 1s;
-		animation-delay: 0.5s;
-		animation-fill-mode: forwards;
+	display: flex;
+	flex-direction: row;
 	}
 	.Dreapta{
 		font-family: 'Segoe UI', sans-serif;
 		font-weight: bold;
 		width: 33%;
 		height: 100%;
-		background-image: linear-gradient( #B821D5,#1A116B);
+		background-image: linear-gradient( #1A116B,#B821D5);
 		position: absolute;
 		overflow: visible;
-		border-radius: 0px 30px 30px 0px;
+		border-radius: 30px 0px 0px 30px;
 		opacity: 0.8;
-		margin-left:67%;
-		animation: animationFrames ease 1s;
-		animation-iteration-count: 1;
-		transform-origin: 50% 50%;
+		-webkit-animation-name: slideInRight;
+		animation-name: slideInRight;
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+	@-webkit-keyframes slideInRight {
+		0% {
+		-webkit-transform: translateX(100%);
+		transform: translateX(100%);
+		visibility: visible;
+		}
+		100% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+		}
+		}
+		@keyframes slideInRight {
+		0% {
+		-webkit-transform: translateX(100%);
+		transform: translateX(100%);
+		visibility: visible;
+		}
+		100% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+		}
+		} 
+	.Welcome{
+	
+		color:white;
+		font-size: 40px;
+		padding-top: 180px;
+		text-align: center;
+		animation-name: slideInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+	}
+	@-webkit-keyframes slideInDown {
+		0% {
+		-webkit-transform: translateY(-100%);
+		transform: translateY(-100%);
+		visibility: visible;
+		}
+		100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+		}
+		}
+		@keyframes slideInDown {
+		0% {
+		-webkit-transform: translateY(-100%);
+		transform: translateY(-100%);
+		visibility: visible;
+		}
+		100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+		}
+		} 
+	.DescDreapta {
+		
+		color:white;
+		font-size: 16px;
+		padding-top: 30px;
+		padding-left: 50px;
+		padding-right: 50px;
+		text-align: center;
+	}
+	.ButonDreapta{
+		font-family: 'Segoe UI', sans-serif;
+		font-weight: bold;
+		border-color: white;
+		border-style: groove;
+		fill:"none";
+		width: 25%;
+		cursor:pointer;
+		background-color: Transparent;
+		background-repeat:no-repeat;
+		justify-content: center;
+		padding-right:30px ;
+		padding-left:30px ;
+		margin-left: 25%;
+		padding-top:10px;
+		padding-bottom: 10px;
+		border-radius:25px;
+		margin-top:30px ;
+		font-size: 15px;
+		font-weight: bold;
+		width: 50%;
+		height: 7%;
+		color:white;
+		outline:none;
+		text-align: center;
+		white-space: nowrap;
+	}
+	
+	
+	.St{
+		font-family: 'Segoe UI', sans-serif;
+		font-weight: bold;
+		margin-top:50px;
+		color:#AA14FF;
+		font-size: 40px;
+		width: 33% ;
+		height: 100%;
+		
+		margin-left:30px;
+		text-align: center;
+		position: absolute;
+		overflow: visible;
 		animation-fill-mode:forwards; /*when the spec is finished*/
 		-webkit-animation: animationFrames ease 1s;
 		-webkit-animation-iteration-count: 1;
@@ -125,126 +234,6 @@
 		  -ms-transform:  translate(0px,0px)  ;
 		}
 	  }
-
-	.Welcome{
-	
-		color:white;
-		font-size: 40px;
-		padding-top: 180px;
-		text-align: center;
-		-webkit-animation-name: slideInDown;
-  animation-name: slideInDown;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-delay: 0.2s;
-  animation-fill-mode: both;
-  }
-  @-webkit-keyframes slideInDown {
-	0% {
-	-webkit-transform: translateY(-100%);
-	transform: translateY(-100%);
-	visibility: visible;
-	}
-	100% {
-	-webkit-transform: translateY(0);
-	transform: translateY(0);
-	}
-	}
-	@keyframes slideInDown {
-	0% {
-	-webkit-transform: translateY(-100%);
-	transform: translateY(-100%);
-	visibility: visible;
-	}
-	100% {
-	-webkit-transform: translateY(0);
-	transform: translateY(0);
-	}
-	} 
-	.DescDreapta {
-		
-		color:white;
-		font-size: 16px;
-		padding-top: 30px;
-		padding-left: 50px;
-		padding-right: 50px;
-		text-align: center;
-	}
-	.ButonDreapta{
-		font-family: 'Segoe UI', sans-serif;
-		font-weight: bold;
-		border-color: white;
-		border-style: groove;
-		fill:"none";
-		width: 25%;
-		cursor:pointer;
-		background-color: Transparent;
-		background-repeat:no-repeat;
-		justify-content: center;
-		padding-right:30px ;
-		padding-left:30px ;
-		margin-left: 25%;
-		padding-top:10px;
-		padding-bottom: 10px;
-		border-radius:25px;
-		margin-top:30px ;
-		font-size: 15px;
-		font-weight: bold;
-		width: 50%;
-		height: 7%;
-		color:white;
-		outline:none;
-		text-align: center;
-		white-space: nowrap;
-	
- 
-	}
-	
-	
-	.St{
-		font-family: 'Segoe UI', sans-serif;
-		font-weight: bold;
-		margin-top:50px;
-		color:#AA14FF;
-		font-size: 40px;
-		width: 33% ;
-		height: 100%;
-		
-		margin-left:20%;
-		text-align: center;
-		position: absolute;
-		overflow: visible;
-	
-			-webkit-animation-name: slideInRight;
-			animation-name: slideInRight;
-			-webkit-animation-duration: 1s;
-			animation-duration: 1s;
-			-webkit-animation-fill-mode: both;
-			animation-fill-mode: both;
-	}
-	@-webkit-keyframes slideInRight {
-		0% {
-		-webkit-transform: translateX(100%);
-		transform: translateX(100%);
-		visibility: visible;
-		}
-		100% {
-		-webkit-transform: translateX(0);
-		transform: translateX(0);
-		}
-		}
-		@keyframes slideInRight {
-		0% {
-		-webkit-transform: translateX(100%);
-		transform: translateX(100%);
-		visibility: visible;
-		}
-		100% {
-		-webkit-transform: translateX(0);
-		transform: translateX(0);
-		}
-		} 
 	.DrGri{
 		width: 100%;
 		height:6%;
@@ -252,8 +241,7 @@
 		opacity: 0.61;
 		margin:auto;
 		margin-top: 20px;
-		-webkit-backface-visibility: visible !important;
-  backface-visibility: visible !important;
+		backface-visibility: visible !important;
   -webkit-animation-name: flipInY;
   animation-name: flipInY;
   -webkit-animation-duration: 1s;

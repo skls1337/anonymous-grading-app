@@ -5,6 +5,7 @@ import Auxiliary from './hoc/Auxiliary/Auxiliary';
 import MainPage from './Containers/MainPage/MainPage';
 import Background from './Containers/LoginPage/Background';
 
+
 class App extends Component {
 	render() {
 		return (
