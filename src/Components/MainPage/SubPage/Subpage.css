@@ -1,0 +1,10 @@
+.Subpage {
+    position: relative;
+    margin-left: 20%;
+}
+
+@media (max-width: 630px) {
+    .Subpage {
+        margin-left: 125px;
+    }
+}

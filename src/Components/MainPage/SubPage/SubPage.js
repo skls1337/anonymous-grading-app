@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
+import classes from './Subpage.css';
+
 class SubPage extends Component {
     render () {
         return (
-            <p>Subpage</p>
+            <div className={classes.Subpage}>Subpage</div>
         );
     }
 }
