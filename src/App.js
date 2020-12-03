@@ -21,7 +21,7 @@ class App extends Component {
 		return (
 			<Auxiliary>
 				<BrowserRouter>
-					<Route exact path={" "}>
+					<Route path={"/"}>
 						{this.state.isUserAuth ? <Redirect to="/home/profile" /> : <Redirect to="/start/login" />}
 					</Route>
 					<Route exact path={"/home"}>
