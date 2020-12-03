@@ -49,6 +49,7 @@
 		width: 50%;
 		height: 40px;
 		color:white;
+		outline:none;
 		text-align: center;
 		white-space: nowrap;
 	}
@@ -84,7 +85,7 @@
 		font-size: 15px;
 		font-weight: bold;
 		width: 30%;
-		
+		outline:none;
 		color:white;
 		text-align: center;
 		white-space: nowrap;
@@ -115,6 +116,7 @@
 	  border-style: groove;
 	  border-width: 1px;
 	  margin-left: 20px;
+	  outline:none;
 	}
 	
 	.Stanga{

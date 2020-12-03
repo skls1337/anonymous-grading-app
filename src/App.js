@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
 
 import Auxiliary from './hoc/Auxiliary/Auxiliary';
-import LoginPage from './Containers/LoginPage/LoginPage';
 import MainPage from './Containers/MainPage/MainPage';
 import Background from './Containers/LoginPage/Background';
 

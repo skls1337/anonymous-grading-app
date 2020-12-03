@@ -24,13 +24,13 @@ import linkedin from '../../Assets/drawables/linkedin.png'
                                 <br></br>
                                 <div className={classes.Cercuri}>
                                     <button  className={classes.Circle}>
-                                        <img src={facebook}></img>
+                                        <img src={facebook} alt="facebook"></img>
                                     </button>
                                     <button className={classes.Circle}>
-                                    <img src={google}></img>
+                                    <img src={google}alt="google"></img>
                                     </button>
                                     <button className={classes.Circle}>
-                                    <img src={linkedin}></img>
+                                    <img src={linkedin}alt="linkedin"></img>
                                     </button>
                             </div>
                             </p>
