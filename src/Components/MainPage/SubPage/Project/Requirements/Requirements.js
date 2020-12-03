@@ -1,13 +1,13 @@
 import React from 'react';
 
+import Requirement from './Requirement/Requirement';
+import classes from './Requirements.css'
+
 const requirements = () => {
     return(
-        <ul>
-            <li>Requirement1</li>
-            <li>Requirement2</li>
-            <li>Requirement3</li>
-            <li>Requirement4</li>
-            <li>Requirement5</li>
+        <ul className={classes.Requirements}>
+            <Requirement></Requirement>
+            <Requirement></Requirement>
         </ul>
     );
 }

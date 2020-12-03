@@ -25,22 +25,22 @@ const loginPage = (props) => {
 
                 <div className={classes.Stanga}>
                     <div id="Partea Stanga" className={classes.St}>
-                       
-                                <br></br>
-                            <div className={classes.Cercuri}>
-                            <p>Sign in    </p>
-                            
-                                <button className={classes.Circle}>
-                                    <img src={facebook} alt="facebook"></img>
-                                </button>
-                                <button className={classes.Circle}>
-                                    <img src={google} alt="google"></img>
-                                </button>
-                                <button className={classes.Circle}>
-                                    <img src={linkedin} alt="linkedin"></img>
-                                </button>
-                            </div>
-                    
+
+                        <br></br>
+                        <div className={classes.Cercuri}>
+                            <p>Sign in</p>
+
+                            <button className={classes.Circle}>
+                                <img src={facebook} alt="facebook"></img>
+                            </button>
+                            <button className={classes.Circle}>
+                                <img src={google} alt="google"></img>
+                            </button>
+                            <button className={classes.Circle}>
+                                <img src={linkedin} alt="linkedin"></img>
+                            </button>
+                        </div>
+
 
                         <br></br>
                         <p className={classes.para}>or use your email and password to login:</p>
@@ -51,9 +51,12 @@ const loginPage = (props) => {
                         <div className={classes.DrGri}>
                             <input className={classes.inputReg} placeholder="Password"></input>
                         </div>
-                        <button className={classes.ButonSignUp}>
-                            SIGN IN
-                         </button>
+                        <Link to="/home">
+                            <button className={classes.ButonSignUp}>
+                                SIGN IN
+                            </button>
+                        </Link>
+
 
                     </div>
                 </div>

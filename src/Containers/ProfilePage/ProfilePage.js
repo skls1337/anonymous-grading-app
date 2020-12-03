@@ -19,7 +19,7 @@ class ProfilePage extends Component {
     render () {
         return (
             <Auxiliary>
-                <div className={classes.MainPage}>
+                <div className={classes.ProfilePage}>
                     <Profile img={this.state.user.Img} name={this.state.user.Name} group={this.state.user.Group} year={this.state.user.Year}/>
                     <div className={classes.Placeholder}></div>
                     <SubPage />

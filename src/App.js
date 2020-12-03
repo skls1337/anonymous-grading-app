@@ -24,8 +24,8 @@ class App extends Component {
 					<Route path={"/"}>
 						{this.state.isUserAuth ? <Redirect to="/home/profile" /> : <Redirect to="/start/login" />}
 					</Route>
-					<Route exact path={"/home"}>
-						<Redirect to="/home/profile"/>
+					<Route path={"/home"}>
+						<Redirect to="/home/profile/project"/>
 					</Route>
 
 					<Route path='/start' render={(props) => <Background />} />

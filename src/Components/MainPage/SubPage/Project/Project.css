@@ -1,6 +1,12 @@
 .Project {
     margin-left: 8%;
+    margin-right: 8%;
     margin-top: 60px;
     font-size: x-large;
-    width: 100%;
+}
+
+.Project p {
+    background-color: #FEFFFF;
+    border-radius: 30px;
+    padding: 10px;
 }

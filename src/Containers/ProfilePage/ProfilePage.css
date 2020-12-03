@@ -1,18 +1,18 @@
-.MainPage{
+.ProfilePage{
     display: flex;
     flex-direction: row;
 }
 
-.MainPage .Placeholder {
+.ProfilePage .Placeholder {
     margin-left: 20%;
 }
 
 @media (max-width: 625px) {
-    .MainPage  .Placeholder {
+    .ProfilePage  .Placeholder {
         margin-left: 125px;
     }
 
-    .MainPage {
+    .ProfilePage {
         width: 625px;
     }
 }

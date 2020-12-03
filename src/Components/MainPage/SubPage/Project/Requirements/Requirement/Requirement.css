@@ -1,0 +1,12 @@
+.Requirement{
+    display: flex;
+    box-sizing: border-box;  
+    color: #17252A;
+    margin-top: 10px;
+    background-color: #FEFFFF;
+    border-radius: 30px;
+}
+
+.Requirement p{
+    margin: 10px;
+}
