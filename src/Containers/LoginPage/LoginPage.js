@@ -17,8 +17,8 @@ const loginPage = (props) => {
             <div className={classes.All}>
                 <div id="Partea Dreapta" className={classes.Dreapta}>
                     <p className={classes.Welcome}>Greetings!
-                             <p className={classes.DescDreapta}>Enter your personal details and journey with us</p>
                     </p>
+                    <p className={classes.DescDreapta}>Enter your personal details and journey with us</p>
 
                     <Link to="/start/register">
                         <button className={classes.ButonDreapta} onClick={toRegister}>
@@ -30,9 +30,10 @@ const loginPage = (props) => {
 
                 <div className={classes.Stanga}>
                     <div id="Partea Stanga" className={classes.St}>
-                        <p>Sign in
+                       
                                 <br></br>
                             <div className={classes.Cercuri}>
+                            <p>Sign in    </p>
                                 <button className={classes.Circle}>
                                     <img src={facebook} alt="facebook"></img>
                                 </button>
@@ -43,7 +44,7 @@ const loginPage = (props) => {
                                     <img src={linkedin} alt="linkedin"></img>
                                 </button>
                             </div>
-                        </p>
+                    
 
 
                         <p className={classes.para}>or use your email and password to login:</p>

@@ -5,8 +5,7 @@
 		animation-fill-mode: forwards;
 	}
 	.Dreapta{
-		font-family: 'Segoe UI', sans-serif;
-		font-weight: bold;
+	
 		width: 33%;
 		height: 100%;
 		background-image: linear-gradient(#3EC4BD,#1A116B);
@@ -80,7 +79,8 @@
 		}
 		} 
 	.Welcome{
-	
+		font-family: 'Segoe UI', sans-serif;
+		font-weight: bold;
 		color:white;
 		font-size: 40px;
 		padding-top: 180px;
@@ -123,6 +123,13 @@
 		padding-left: 50px;
 		padding-right: 50px;
 		text-align: center;
+		-webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
 	}
 	.ButonDreapta{
 		font-family: 'Segoe UI', sans-serif;
@@ -158,7 +165,7 @@
 	.St{
 		font-family: 'Segoe UI', sans-serif;
 		font-weight: bold;
-		margin-top:50px;
+		
 		color:#3EC4BD;
 		font-size: 40px;
 		width: 33% ;
@@ -377,8 +384,6 @@
 	  border-radius: 50%;
 	  fill:"none";
 	  display: inline-block;
-	  margin-top: 30px;
-
 	  background-color: white;
 	  border-style: groove;
 	  border-width: 1px;

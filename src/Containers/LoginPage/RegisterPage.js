@@ -12,9 +12,9 @@ const registerPage=(props)=>{
         <div className={classes.Login}>
         <div className={classes.All}>
             <div id="Partea Dreapta" className={classes.Dreapta}>
-                        <p className={classes.Welcome}>Welcome Back!
-                         <p className={classes.DescDreapta}>To keep connected with us please login with your personal info</p>
-                        </p>
+                        <p className={classes.Welcome}>Welcome Back!</p>
+                        <p className={classes.DescDreapta}>To keep connected with us please login with your personal info</p>
+                      
                         <Link to="/start/login">
                             <button className={classes.ButonDreapta}>
                                 SIGN IN
@@ -24,9 +24,10 @@ const registerPage=(props)=>{
            
            <div className={classes.Stanga}>
                      <div id="Partea Stanga" className={classes.St}>
-                        <p>Create Account
+                      
                             <br></br>
                             <div className={classes.Cercuri}>
+                            <p>Create Account </p>
                                 <button  className={classes.Circle}>
                                     <img src={facebook} alt="facebook"></img>
                                 </button>
@@ -37,7 +38,7 @@ const registerPage=(props)=>{
                                 <img src={linkedin}alt="linkedin"></img>
                                 </button>
                         </div>
-                        </p>
+                       
                         
                         
                         <p className={classes.para}>or use your email for registration:</p>
