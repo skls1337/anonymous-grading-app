@@ -4,7 +4,7 @@ import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import SubPage from '../../Components/MainPage/SubPage/SubPage';
 import Navbar from '../../Components/MainPage/Navbar/Navbar';
 import Profile from '../../Components/MainPage/Profile/Profile';
-import pp from '../../Assets/drawables/placeholderPP.png';
+import pp from '../../Assets/drawables/placeholderPP2.png';
 import classes from './MainPage.css';
 
 class MainPage extends Component {

@@ -62,7 +62,7 @@
     }
 }
 
-@media (max-height: 950px) {
+@media (max-height: 1000px) {
     .Profile button {
         margin-top: 10px;
         margin-left: 10px;
