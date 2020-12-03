@@ -1,0 +1,14 @@
+.MainPage{
+    display: flex;
+    flex-direction: row;
+}
+
+.MainPage .Placeholder {
+    margin-left: 20%;
+}
+
+@media (max-width: 630px) {
+    .MainPage  .Placeholder {
+        margin-left: 125px;
+    }
+}

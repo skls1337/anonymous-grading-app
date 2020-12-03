@@ -1,0 +1,70 @@
+.Profile {
+    width: 20%;
+    background-color: #17252A;
+    padding-bottom: 400%;
+    position: fixed;
+}
+
+.Profile img {
+    display: block;
+    margin: 20% auto;
+    border-radius: 50%;
+    width: 45%;
+    background-size: cover;
+}
+
+.Text {
+    display: block;
+    font-size: 200%;
+    color: #DEF2F1;
+    margin: auto;
+    text-align: center;
+}
+
+.Text p {
+    margin-top: 45px;
+}
+
+.Profile button {
+    width: 50%;
+    margin: 20px;
+    margin-top: 400px;
+    margin-left: 40%;
+    background-color: #DEF2F1;
+    border-width: 2px;
+    border-style: dashed;
+    border-color: #DEF2F1;
+    color: #17252A;
+    outline: none;
+    display: inline-block;
+    padding: 20px 5px;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 90%;
+    text-align: center;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.Profile button:hover {
+    color: #DEF2F1;
+    background-color: #17252A;
+}
+
+@media all and (max-width: 965px) {
+    .Profile button {
+        display: block;
+        margin: 10px auto;
+        width: 100px;
+    }
+}
+
+@media (max-height: 950px) {
+    .Profile button {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+}
