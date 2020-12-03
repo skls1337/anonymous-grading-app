@@ -34,6 +34,7 @@ const loginPage = (props) => {
                                 <br></br>
                             <div className={classes.Cercuri}>
                             <p>Sign in    </p>
+                            
                                 <button className={classes.Circle}>
                                     <img src={facebook} alt="facebook"></img>
                                 </button>
@@ -46,7 +47,7 @@ const loginPage = (props) => {
                             </div>
                     
 
-
+                        <br></br>
                         <p className={classes.para}>or use your email and password to login:</p>
 
                         <div className={classes.DrGri}>

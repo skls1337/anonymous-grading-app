@@ -40,7 +40,7 @@ const registerPage=(props)=>{
                         </div>
                        
                         
-                        
+                        <br></br>
                         <p className={classes.para}>or use your email for registration:</p>
                         <div className={classes.DrGri}>
                             <input className={classes.inputReg}placeholder="Name"></input>
