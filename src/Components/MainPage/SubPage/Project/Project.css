@@ -1,13 +1,15 @@
 .Project {
     margin-left: 8%;
     margin-right: 8%;
-    margin-top: 60px;
+    margin-top: 40px;
     font-size: x-large;
     display: inline-block;
     overflow: auto;
 }
 
 .Project .Text p {
+
+    font-size: medium;
     background-color: #FEFFFF;
     
 }
