@@ -11,14 +11,20 @@ const ReviewSchema = new mongoose.Schema({
         min: [1, 'Rating must be at least 1'],
         max: [10, 'Rating must not be more than 10']
     },
+    user: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'user', 
+        required: true
+    },
+    project: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'projects', 
+        required: true
+    },
     createdAt: {
         type: Date,
         default: Date.now
     }
-
-    // TODO 
-    // TAKES ID STUD
-    // TAKES ID PROJ
 });
 
 module.exports = mongoose.model('Review', ReviewSchema);

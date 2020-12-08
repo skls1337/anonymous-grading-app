@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const bcrypt= require('bcryptjs');
+const jwt= require('jsonwebtoken');
 
 const UserSchema = new mongoose.Schema({
     fullname: {
@@ -14,9 +16,18 @@ const UserSchema = new mongoose.Schema({
             'Please add a valid email',
           ]      
     },
+    year: {
+        type: String,
+        enum: ['I', 'II', 'III', 'EX', 'N/A'],
+        required: [true, 'Please select an year']
+    },
+    group: {
+        type: String,
+        required: [true, 'Please select an year']
+    },
     role: {
         type: String,
-        enum: ['student', 'prof'],
+        enum: ['student', 'prof', 'reviewer'],
         default: 'student'
     },
     password: {
@@ -32,5 +43,23 @@ const UserSchema = new mongoose.Schema({
         default: Date.now
     }
 });
+
+// Encrypt password using bcrypt
+UserSchema.pre('save', async function(next) {
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+});
+
+// Sign JWT and return
+UserSchema.methods.getSignedJwtToken = function () {
+    return jwt.sign( {id:this._id}, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRE
+    });
+}
+
+// Match user entered password to hashed password in database
+UserSchema.methods.matchPassword = async function (enteredPassword) {
+    return await bcrypt.compare(enteredPassword, this.password);
+};
 
 module.exports = mongoose.model('User', UserSchema);

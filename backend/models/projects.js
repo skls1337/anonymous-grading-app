@@ -1,16 +1,17 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 const ProjectsSchema = new mongoose.Schema({
     title: {
         type: String,
         trim: true,
+        unique: true,
         required: [true, 'Please add a title'],
         maxlength: [40, 'Title should not be more than 40 characters']
     },
     slug: String,
-    Author: { //// TODO: only prof can see the name
-        type: String,
-        required: true
+    author: { //// TODO: only prof can see the name
+        type: String
     },  
     description: {
         type: String,
@@ -37,10 +38,18 @@ const ProjectsSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
-    }  
+    },
+    user: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'user', 
+        required: true
+    }
+});
 
-    //TODO
-    //ID STUD
+// Create project slug from the title
+ProjectsSchema.pre('save', function () {
+    this.slug = slugify(this.title, { lower: true });
+    next();
 });
 
 module.exports = mongoose.model('Projects', ProjectsSchema);
