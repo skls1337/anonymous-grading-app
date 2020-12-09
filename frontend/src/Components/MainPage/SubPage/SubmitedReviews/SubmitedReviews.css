@@ -1,4 +1,4 @@
-.Project {
+.SubRev {
     margin-left: 8%;
     margin-right: 8%;
     margin-top: 40px;
@@ -7,12 +7,12 @@
     overflow: auto;
 }
 
-.Project .Text p {
+.SubRev .Text p {
     font-size: medium;
-    background-color: #FEFFFF;  
+    background-color: #FEFFFF;
 }
 
-.Project p {
+.SubRev p {
     border-radius: 30px;
     padding: 10px;
 }
