@@ -3,7 +3,7 @@ const {
     getSentReviews,
     createReview,
     getReviewsForProject
-} = require('../controllers/projects');
+} = require('../controllers/review');
 
 const router = express.Router();
 const { protect, authorize } = require('../middleware/auth');
@@ -13,5 +13,5 @@ router.route('/sentreviews')
 router.route('/:id')
     .post(protect, authorize('reviewer', 'admin'), createReview);
 router.route('/projectreviews/:id')
-    .get(protect, authorize('student','reviewer' ,'prof', 'admin'), getReviewsForProject)
+    .get(protect, getReviewsForProject);
 module.exports = router;
