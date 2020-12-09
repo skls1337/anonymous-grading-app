@@ -58,12 +58,12 @@
 		padding-top: 180px;
 		text-align: center;
 		-webkit-animation-name: slideInDown;
-  animation-name: slideInDown;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-delay: 0.2s;
-  animation-fill-mode: both;
+		animation-name: slideInDown;
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+		-webkit-animation-fill-mode: both;
+		animation-delay: 0.2s;
+		animation-fill-mode: both;
   }
   @-webkit-keyframes slideInDown {
 	0% {
@@ -265,7 +265,7 @@
 		color:white;
 		text-align: center;
 		white-space: nowrap;
-		
+		margin-bottom: 20px;
 		margin-top:20px;
 		background-repeat:no-repeat;
 		font-size: 15px;
@@ -376,4 +376,21 @@
 		width: 100% ;
 		text-align: center;
 	}
-	
+	.para1{
+		color:#878787;
+		font-size: 15px;
+		margin:auto;
+		cursor: pointer;
+		width: 100% ;
+		text-align: center;
+		margin-top: 20px;
+		-webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  -webkit-animation-name: flipInY;
+  animation-name: flipInY;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  animation-delay: 1.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+	}

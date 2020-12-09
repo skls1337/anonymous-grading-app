@@ -1,12 +1,11 @@
-import React from 'react';
+import React,{Component} from 'react';
 import { Link } from 'react-router-dom';
-
 import classes from './RegisterPage.css';
-import facebook from '../../Assets/drawables/facebook.png';
-import google from '../../Assets/drawables/google.png';
-import linkedin from '../../Assets/drawables/linkedin.png';
 
-const registerPage=(props)=>{
+
+class RegisterPage extends Component{
+   
+   render(){ 
     return(
        
         <div className={classes.Login}>
@@ -28,20 +27,13 @@ const registerPage=(props)=>{
                             <br></br>
                             <div className={classes.Cercuri}>
                             <p>Create Account </p>
-                                <button  className={classes.Circle}>
-                                    <img src={facebook} alt="facebook"></img>
-                                </button>
-                                <button className={classes.Circle}>
-                                <img src={google}alt="google"></img>
-                                </button>
-                                <button className={classes.Circle}>
-                                <img src={linkedin}alt="linkedin"></img>
-                                </button>
+                              
                         </div>
                        
                         
                         <br></br>
-                        <p className={classes.para}>or use your email for registration:</p>
+                        <p className={classes.para}>Use your email for registration:</p>
+                        
                         <div className={classes.DrGri}>
                             <input className={classes.inputReg}placeholder="Name"></input>
                         </div>
@@ -54,13 +46,13 @@ const registerPage=(props)=>{
                         <button className={classes.ButonSignUp}>
                             SIGN UP
                      </button>
+                    
 
                     </div>
             </div>
             </div>
-            </div>
-            
-        
- )
+            </div>  
+    )
+    }
 }
-export default registerPage;
+export default RegisterPage;

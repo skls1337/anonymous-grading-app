@@ -19,7 +19,6 @@ router.route('/')
 router.route('/:id')
     .get(protect, getProject)
     .put(protect, authorize('student', 'reviewer', 'admin'),  updateProject)
-   // .put(protect, authorize('reviewer', 'admin'), createReview)
     .delete(protect, authorize('student', 'reviewer', 'admin'), deleteProject);
 
 module.exports = router;
