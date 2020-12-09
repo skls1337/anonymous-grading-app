@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const colors = require('colors');
 const morgan = require('morgan');
 const cookieparser = require('cookie-parser');
+const mongoSanitize = require('express-mongo-sanitize');
 const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
 
@@ -29,6 +30,9 @@ app.use(cookieparser());
 if(process.env.NODE_ENV === 'development')
     app.use(morgan('dev'));
 
+
+// Sanitize data 
+app.use(mongoSanitize());
 
 // Mount routes
 app.use('/api/v1/projects', projects);

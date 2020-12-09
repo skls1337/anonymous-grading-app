@@ -1,12 +1,5 @@
-const ProjectRequirements = require('../models/projectrequirements');
 const Projects = require('../models/projects');
-const Review = require('../models/review');
-const User = require('../models/user');
-const asyncHandler = require('../middleware/async');
 const ErrorResponse = require('../utils/errorResponse');
-const user = require('../models/user');
-
-const idstring = '5fce4814ba6374080c560ccf';
 
 // @desc Get all Projects
 // @route GET /api/v1/projects
@@ -74,7 +67,7 @@ exports.createProject = async (req, res, next) => {
         }
 
         const projects = await Projects.create(req.body);
-
+        
         res.status(201).json({
             success: true,
             data: projects,
@@ -151,107 +144,3 @@ exports.deleteProject = async (req, res, next) => {
     } catch (error) {
         next(err);
     }};
-
-// @desc Get all reviews posted by a user
-// @route GET /api/v1/sentreviews
-// @access Public (only for reviews)
-exports.getSentReviews = async (req, res, next) => { 
-    try {
-        const review = await Review.find({user: req.user.id});
-        
-        if (!review) {
-            return next(
-                new ErrorResponse(
-                    `review not found with id of ${req.params.id}`,
-                    404
-                )
-            );
-        }
-
-        res.status(200).json({ succss: true, count: review.length, data: review });
-    } catch (err) {
-        next(err);
-    }
-};
-
-// @desc Get all reviews for a project
-// @route GET /api/v1/reviews
-// @access Public (reviewer & prof)
-exports.getReviewsForProject = async (req, res, next) => { 
-    try {
-        const review = await Review.find({project: req.params.id});
-
-        if (!review) {
-            return next(
-                new ErrorResponse(
-                    `review not found with id of ${req.params.id}`,
-                    404
-                )
-            );
-        }
-
-        res.status(200).json({ succss: true, count: review.length, data: review });
-    } catch (err) {
-        next(err);
-    }
-};
-
-// @desc Create a review
-// @route POST /api/v1/projects/:id
-// @access Private
-exports.createReview = async (req, res, next) => { 
-    try {
-        // Add user 
-        req.body.user = req.user.id;
-        req.body.project = req.params.id; // '5fcf92798ab5d003acecdbba'   
-        const review = await Review.create(req.body);
-
-        res.status(201).json({
-            success: true,
-            data: review
-        });
-    } catch (err) {
-        next(err);
-    }
-};
-
-// @desc Get project requirements
-// @route GET /api/v1/projectrequirements
-// @access Public
-exports.getProjectRequirements = async (req, res, next) => { 
-
-    try {
-        const requirements = await ProjectRequirements.findById(idstring);
-
-        res.status(200).json({ success: true, data: requirements });
-    } catch (err) {
-        next(
-            new ErrorResponse(`project req not found`, 404)
-        );
-    }
-};
-
-// @desc update project requirements
-// @route PUT /api/v1/projectrequirements
-// @access Private (prof)
-exports.updateProjectRequirements = async (req, res, next) => { 
-    try {
-        const requirements = await ProjectRequirements.findByIdAndUpdate(idstring, req.body, {
-            new:true, 
-            runValidators:true
-        });
-        
-        if(!requirements) { 
-            return next(new ErrorResponse(`Project specs not found`, 404));
-        }
-        
-        res.status(200).json({
-            success: true,
-            data: requirements   
-        });
-    } catch (err) {
-        next(
-            new ErrorResponse(`project req not updated`, 404)
-        );
-    }
-};
