@@ -8,9 +8,11 @@ const reviewElement = (props) => {
         <div className={classes.ReviewElement}>
             <p>{props.grade}</p>
             <p>{props.project}</p>
-            {props.tags.map((inTags) => (
-                <Tags tag={inTags.tag} />
-            ))}
+            <div className={classes.Tags}>
+                {props.tags.map((inTags) => (
+                    <Tags tag={inTags.tag} key={Math.floor(Math.random() * Math.floor(100))} />
+                ))}
+            </div>
         </div>
     );
 };

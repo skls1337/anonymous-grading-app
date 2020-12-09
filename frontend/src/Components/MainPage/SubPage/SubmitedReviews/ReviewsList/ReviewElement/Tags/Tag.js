@@ -4,7 +4,7 @@ import classes from './Tag.css';
 
 const tags = (props) => {
     return (
-        <div>
+        <div className={classes.Tag}>
             <p>{props.tag}</p>
         </div>
     );
