@@ -83,6 +83,7 @@ class LoginPage  extends Component{
                             <input 
                             className={classes.inputReg} 
                             placeholder="Password"
+                            
                             onChange={(event) => this.setState({password: event.target.value})}></input>
                         </div>
                        

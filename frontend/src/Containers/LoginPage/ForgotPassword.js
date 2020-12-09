@@ -16,8 +16,12 @@ class ForgotPassword extends Component{
             <input
                 className={classes.inputReg} 
                  placeholder="Email"
-                onChange={(event) => this.setState({email: event.target.value})}
-                />
+                onChange={(event) => this.setState({email: event.target.value})}/>
+            </div>
+            <div  className={classes.centerButton}>
+            <button className={classes.ResetButton}>
+                  RESET PASSWORD
+            </button>
             </div>
         </div>        
 
