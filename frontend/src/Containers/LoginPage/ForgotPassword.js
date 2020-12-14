@@ -1,10 +1,17 @@
 import React,{Component} from 'react';
 import classes from './ForgotPassword.css';
-
+import axios from 'axios'
 class ForgotPassword extends Component{
-    state={
-        email:''
+    handleSubmit=e=>{
+        e.preventDefault()
+        const data={
+            email:this.email
+        }
+        axios.post('http://localhost:3001/api/v1/auth/forgotpassword',data).then(res=>{
+            console.log(res);
+        }).catch(err=>{console.log(err);})
     }
+
     render(){
     
 
@@ -16,10 +23,11 @@ class ForgotPassword extends Component{
             <input
                 className={classes.inputReg} 
                  placeholder="Email"
-                onChange={(event) => this.setState({email: event.target.value})}/>
+                onChange={(event) => this.email=event.target.value}/>
             </div>
             <div  className={classes.centerButton}>
-            <button className={classes.ResetButton}>
+            <button className={classes.ResetButton}
+            onClick={this.handleSubmit}>
                   RESET PASSWORD
             </button>
             </div>
