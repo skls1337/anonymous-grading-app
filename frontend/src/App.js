@@ -4,16 +4,28 @@ import { Route, BrowserRouter, Redirect } from 'react-router-dom';
 import Auxiliary from './hoc/Auxiliary/Auxiliary';
 import MainPage from './Containers/MainPage/MainPage';
 import Background from './Containers/LoginPage/Background';
-
+import axios from 'axios';
 
 class App extends Component {
 	state = {
-		isUserAuth: true
 	}
 
 	userAuthHandler = () => {
 		this.setState({isUserAuth: !this.state.isUserAuth});
 		console.log("[App.js] login state changed")
+	}
+
+	componentDidMount=()=>{
+        axios.get('http://localhost:3001/api/v1/auth/me').then(res=>{
+            console.log(res);
+            this.setUser(res.data)
+        }).catch(err=>{console.log(err);})
+    }
+
+	setUser=user=>{
+		this.setState({
+			user:user
+		})
 	}
 
 	render() {
@@ -29,7 +41,7 @@ class App extends Component {
 					</Route>
 
 					<Route path='/start' render={(props) => <Background />} />
-					<Route path='/home' render={(props) => <MainPage log={this.userAuthHandler} />} />
+					<Route path='/home' component={()=><MainPage user={this.state.user} />} />
 				</BrowserRouter>
 			</Auxiliary>
 		);

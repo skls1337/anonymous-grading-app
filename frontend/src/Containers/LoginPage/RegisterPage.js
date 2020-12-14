@@ -1,10 +1,26 @@
 import React,{Component} from 'react';
 import { Link } from 'react-router-dom';
 import classes from './RegisterPage.css';
+import axios from 'axios'
 
 
 class RegisterPage extends Component{
-   
+    handleRegister=(e)=>{
+    e.preventDefault()
+    const data={
+            fullName:this.fullName,
+            email:this.email,
+            password:this.password
+        }
+        axios.post('http://localhost:3001/api/v1/auth/register',data).then(res=>{
+            
+        }).catch(err=>{
+            console.log(err);
+        })
+    }
+
+
+
    render(){ 
     return(
        
@@ -35,15 +51,29 @@ class RegisterPage extends Component{
                         <p className={classes.para}>Use your email for registration:</p>
                         
                         <div className={classes.DrGri}>
-                            <input className={classes.inputReg}placeholder="Name"></input>
+                            <input type="text"
+                            className={classes.inputReg}
+                            placeholder="Name"
+                            onChange={e=>this.fullName=e.target.value}
+                            ></input>
                         </div>
                         <div className={classes.DrGri}>
-                        <input className={classes.inputReg}placeholder="Email"></input>
+                        <input type="text"
+                        className={classes.inputReg}
+                        placeholder="Email"
+                        onChange={e=>this.email=e.target.value}
+                        ></input>
                         </div>
                         <div className={classes.DrGri}>
-                        <input className={classes.inputReg}placeholder="Password"></input>
+                        <input type="text"
+                        className={classes.inputReg}
+                        placeholder="Password"
+                        onChange={e=>this.password=e.target.value}
+                        ></input>
                         </div>
-                        <button className={classes.ButonSignUp}>
+                        <button 
+                        className={classes.ButonSignUp}
+                        onClick={this.handleRegister}>
                             SIGN UP
                      </button>
                     

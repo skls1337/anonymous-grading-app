@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Redirect,Route}  from 'react-router-dom';
+import {Redirect}  from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import classes from './LoginPage.css'
 import axios from 'axios'
@@ -8,30 +8,20 @@ import axios from 'axios'
 class LoginPage  extends Component{
     
     state ={
-        email:'',
-        password:'',
-        logged:false
     }
     
     postDataHandler=()=>{
-     
         const data={
             email:this.state.email,
             password:this.state.password
         }
         axios.post('http://localhost:3001/api/v1/auth/login',data).then(response=> {
-            if(response.status===200){
-               console.log(response.status)
-               if(response.status===200){
-                   //TODO: Redirect to main page
-                   this.setState({logged:true})
-                   console.log(this.state);
-                   console.log(response);
-               }
-            }else{
-                alert(response.error)
-            }
-
+         
+            localStorage.setItem('token',response.data.token)
+            this.setState({
+                loggedIn:true
+            })
+            this.props.setUser(response.data.user)
         }).catch(err => console.log(err));;
     }
 
@@ -40,7 +30,7 @@ class LoginPage  extends Component{
     }
     
     render(){
-        if (this.state.logged) {
+        if (this.state.loggedIn) {
             // redirect to home if signed up
             return <Redirect to="/home/profile/project"/>;
           }

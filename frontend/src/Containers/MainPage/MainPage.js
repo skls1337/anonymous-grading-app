@@ -6,14 +6,24 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 
 class MainPage extends Component {
+    
+   
     render() {
+        if(this.props.user){
         return (
             <Auxiliary>
                 <Navbar log={this.props.log} />
                 <Route path='/home/profile' render={(props) => <ProfilePage />} />
             </Auxiliary>
-
-        );
+         );
+        }
+        else{
+            return(
+            <Auxiliary>
+            <p></p>
+            </Auxiliary>
+            )
+        }
     }
 }
 
