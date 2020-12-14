@@ -22,9 +22,9 @@ class App extends Component {
         }).catch(err=>{console.log(err);})
     }
 
-	setUser=user=>{
+	setUser=User=>{
 		this.setState({
-			user:user
+			user:User
 		})
 	}
 
@@ -33,8 +33,12 @@ class App extends Component {
 		return (
 			<Auxiliary>
 				<BrowserRouter>
-					<Route path={"/"}>
+					{/* <Route path={"/"}>
 						{this.state.isUserAuth ? <Redirect to="/home/profile" /> : <Redirect to="/start/login" />}
+					</Route> */}
+
+					<Route path={"/"}>
+					<Redirect to="/start/login"/>
 					</Route>
 					<Route path={"/home"}>
 						<Redirect to="/home/profile/project"/>

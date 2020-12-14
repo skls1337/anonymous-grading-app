@@ -21,18 +21,17 @@ class LoginPage  extends Component{
             this.setState({
                 loggedIn:true
             })
+           
             this.props.setUser(response.data.user)
         }).catch(err => console.log(err));;
-    }
-
-    redirectToForgotPassword=()=>{
-        console.log('click');
     }
     
     render(){
         if (this.state.loggedIn) {
             // redirect to home if signed up
-            return <Redirect to="/home/profile/project"/>;
+            return (
+                <Redirect to="/home"/>
+            );
           }
     return (
         <div className={classes.Login}>

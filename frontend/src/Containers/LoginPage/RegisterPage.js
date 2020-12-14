@@ -1,19 +1,23 @@
 import React,{Component} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import classes from './RegisterPage.css';
 import axios from 'axios'
 
 
 class RegisterPage extends Component{
+    state={}
     handleRegister=(e)=>{
     e.preventDefault()
     const data={
-            fullName:this.fullName,
+            fullname:this.fullName,
             email:this.email,
-            password:this.password
+            password:this.password,
+            year:this.studyYear,
+            group:this.groupNr
         }
         axios.post('http://localhost:3001/api/v1/auth/register',data).then(res=>{
-            
+            this.setState({registered:true})
+            localStorage.setItem('token',res.data.token)
         }).catch(err=>{
             console.log(err);
         })
@@ -22,6 +26,10 @@ class RegisterPage extends Component{
 
 
    render(){ 
+    if(this.state.registered){
+       return <Redirect to='/home'/>
+    }
+
     return(
        
         <div className={classes.Login}>
@@ -69,6 +77,20 @@ class RegisterPage extends Component{
                         className={classes.inputReg}
                         placeholder="Password"
                         onChange={e=>this.password=e.target.value}
+                        ></input>
+                        </div>
+                        <div className={classes.DrGri}>
+                        <input type="text"
+                        className={classes.inputReg}
+                        placeholder="Group Number"
+                        onChange={e=>this.groupNr=e.target.value}
+                        ></input>
+                        </div>
+                        <div className={classes.DrGri}>
+                        <input type="text"
+                        className={classes.inputReg}
+                        placeholder="Study Year"
+                        onChange={e=>this.studyYear=e.target.value}
                         ></input>
                         </div>
                         <button 
