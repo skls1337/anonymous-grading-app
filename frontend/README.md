@@ -2,7 +2,7 @@
 
 ## Frontend.
 
-## Frontend Design 
+## Frontend Features 
 
 - The user will have acces to a Login/Register API
 
