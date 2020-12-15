@@ -73,7 +73,7 @@ class RegisterPage extends Component{
                         ></input>
                         </div>
                         <div className={classes.DrGri}>
-                        <input type="text"
+                        <input type="password"
                         className={classes.inputReg}
                         placeholder="Password"
                         onChange={e=>this.password=e.target.value}

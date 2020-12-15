@@ -9,7 +9,7 @@ import axios from 'axios';
 class App extends Component {
 	state = {
 	}
-
+	
 	userAuthHandler = () => {
 		this.setState({isUserAuth: !this.state.isUserAuth});
 		console.log("[App.js] login state changed")
@@ -18,13 +18,14 @@ class App extends Component {
 	componentDidMount=()=>{
         axios.get('http://localhost:3001/api/v1/auth/me').then(res=>{
             console.log(res);
-            this.setUser(res.data)
+			this.setUser(res.data)
         }).catch(err=>{console.log(err);})
     }
 
 	setUser=User=>{
 		this.setState({
-			user:User
+			user:User,
+			isUserAuth:true
 		})
 	}
 
@@ -33,9 +34,9 @@ class App extends Component {
 		return (
 			<Auxiliary>
 				<BrowserRouter>
-					{/* <Route path={"/"}>
-						{this.state.isUserAuth ? <Redirect to="/home/profile" /> : <Redirect to="/start/login" />}
-					</Route> */}
+					<Route path={"/"}>
+						{this.state.isUserAuth ? <Redirect to="/home/profile/project" /> : <Redirect to="/start/login" />}
+					</Route>
 
 					<Route path={"/"}>
 					<Redirect to="/start/login"/>

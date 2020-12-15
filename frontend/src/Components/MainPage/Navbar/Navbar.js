@@ -9,6 +9,7 @@ const navbar = (props) => {
    function logOut(){
     Axios.get('http://localhost:3001/api/v1/auth/logout').then(res=>{
         console.log(res);
+        window.localStorage.removeItem("token")
     }).catch(err=>{console.log(err);})
    }
    

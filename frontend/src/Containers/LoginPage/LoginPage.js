@@ -30,7 +30,7 @@ class LoginPage  extends Component{
         if (this.state.loggedIn) {
             // redirect to home if signed up
             return (
-                <Redirect to="/home"/>
+                <Redirect to="/home/profile"/>
             );
           }
     return (
@@ -69,7 +69,7 @@ class LoginPage  extends Component{
                             ></input>
                         </div>
                         <div className={classes.DrGri}>
-                            <input 
+                            <input  type="password"
                             className={classes.inputReg} 
                             placeholder="Password"
                             
