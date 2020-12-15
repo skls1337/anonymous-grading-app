@@ -25,6 +25,8 @@ The application is built on a Single Page Application architecture and is access
 
 ## Available Scripts
 
-Change the directory to 'backend' directory using this command in the terminal: 'cd .\backend'
-In the backend directory, you can start the backend using the following command in the terminal:
+Change the directory to 'backend' directory using this command in the terminal:
+### `cd .\backend`
+
+You can start the backend using the following command in the terminal:
 ### `npm run dev`
