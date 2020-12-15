@@ -1,6 +1,6 @@
 # Echipa i7 mai putin Seby care are i5, dar are pe laptop i7
 
-*Frontend.
+## Frontend.
 
 ## Frontend Design 
 - The user will have acces to a Login/Register API
