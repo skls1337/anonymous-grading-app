@@ -21,7 +21,7 @@
  ![Main Page: Submitted Rew](https://github.com/skls1337/anonymous-grading-app/blob/master/screenshots/Main%20Page-Submitted%20Reviews.png)
 
 ## Available Scripts
-Change the directory to 'frontend' directory using this command in the terminal: 
+Change the directory to 'frontend' directory using the following command in the terminal: 
 
 ### `cd .\frontend`
 You can start the frontend using the following command in the terminal:
