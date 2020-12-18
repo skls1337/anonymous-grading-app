@@ -24,3 +24,13 @@ The application is built on a Single Page Application architecture and is access
 - At the end of the evaluation period everyone will be able to see their grades on the "Grades" page.
 
 ## All the available scrips are associated to the 'frontend' and 'backend' folder
+
+# installation Guide
+
+- Step 1. Clone/Download the repository on your machine
+- Step 2. In the terminal change the directory to the location of your copy of this project
+- Step 3. At a time, change the directory to the 'backend'folder and run the associated script to start the backend part. Same as for the 'frontend' directory
+- Step 4. After starting both frontend and backend part, a browser web page should open. If nothing happens please insert the following address into the search bar of the browser: http://localhost:3000
+- Step 5. If nothing happened or you encountered issues, please review again the installation steps starting with Step 1.
+
+
