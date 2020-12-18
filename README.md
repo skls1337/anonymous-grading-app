@@ -23,9 +23,8 @@ The application is built on a Single Page Application architecture and is access
 - When you connect with a professor's account you will be presented with the main page. On this main page, he will be able to see the current tasks and deadlines. He will have a button to edit those or a button to create a new project if none was created yet. When the professor makes any change here all students will receive a notification on the site and their emails. The professor will also have access to the "Projects" page where he can see all projects displayed as cards with minimal information such as the name of the project, an image, the author's name, and a short description. By clicking on the card he will be able to see the entire project presentation. He will also be able to see all grades assigned until this point and the average grade.
 - At the end of the evaluation period everyone will be able to see their grades on the "Grades" page.
 
-## All the available scrips are associated to the 'frontend' and 'backend' folder
 
-# installation Guide
+# Installation Guide
 
 - Step 1. Clone/Download the repository on your machine
 - Step 2. In the terminal change the directory to the location of your copy of this project
@@ -33,4 +32,7 @@ The application is built on a Single Page Application architecture and is access
 - Step 4. After starting both frontend and backend part, a browser web page should open. If nothing happens please insert the following address into the search bar of the browser: http://localhost:3000
 - Step 5. If nothing happened or you encountered issues, please review again the installation steps starting with Step 1.
 
+
+
+## All the available scrips are associated to the 'frontend' and 'backend' folder
 
