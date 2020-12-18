@@ -34,5 +34,5 @@ The application is built on a Single Page Application architecture and is access
 
 
 
-## All the available scrips are associated to the 'frontend' and 'backend' folder
+## All the available scripts are associated to the 'frontend' and 'backend' folder
 
