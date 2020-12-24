@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, } from 'react';
 import { Route, BrowserRouter, Redirect } from 'react-router-dom';
 
 import Auxiliary from './hoc/Auxiliary/Auxiliary';
@@ -34,19 +34,20 @@ class App extends Component {
 		return (
 			<Auxiliary>
 				<BrowserRouter>
-					<Route path={"/"}>
+					 <Route path={"/"}>
 						{this.state.isUserAuth ? <Redirect to="/home/profile/project" /> : <Redirect to="/start/login" />}
-					</Route>
-
-					<Route path={"/"}>
+					</Route> 
+				
+					 <Route path={"/"}>
 					<Redirect to="/start/login"/>
 					</Route>
 					<Route path={"/home"}>
 						<Redirect to="/home/profile/project"/>
-					</Route>
+					</Route> 
 
-					<Route path='/start' render={(props) => <Background />} />
+					<Route path='/start' render={() => <Background />} />
 					<Route path='/home' component={()=><MainPage user={this.state.user} />} />
+				
 				</BrowserRouter>
 			</Auxiliary>
 		);

@@ -26,11 +26,20 @@ class LoginPage  extends Component{
         }).catch(err => console.log(err));;
     }
     
+    refreshpage=()=>{
+        window.location.reload();
+    }
+
     render(){
         if (this.state.loggedIn) {
             // redirect to home if signed up
             return (
+                <div>
                 <Redirect to="/home/profile"/>
+               {
+                   this.refreshpage()
+               }
+                </div>
             );
           }
     return (

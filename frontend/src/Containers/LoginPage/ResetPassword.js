@@ -11,9 +11,9 @@ class ResetPassword extends Component{
         const data={
             token:this.props.match.params.id,
             password:this.pass,
-            confirm_password:this.confpass
+         
         }
-        axios.put('http://localhost:3001/api/v1/auth/resetpassword/:resettoken',data).then(res=>{
+        axios.put('http://localhost:3001/api/v1/auth/resetpassword/'+data.token,data).then(res=>{
             console.log(res);
             this.setState({
                 reset:true})
