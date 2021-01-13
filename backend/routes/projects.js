@@ -5,6 +5,7 @@ const {
     createProject,
     updateProject,
     deleteProject,
+    projectPhotoUpload,
     createReview
 } = require('../controllers/projects');
 
@@ -20,5 +21,8 @@ router.route('/:id')
     .get(protect, getProject)
     .put(protect, authorize('student', 'reviewer', 'admin'),  updateProject)
     .delete(protect, authorize('student', 'reviewer', 'admin'), deleteProject);
+
+router.route('/:id/photo').put(protect, authorize('student', 'reviewer', 'admin'), projectPhotoUpload);
+
 
 module.exports = router;

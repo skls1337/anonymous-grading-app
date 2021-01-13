@@ -1,3 +1,4 @@
+const path = require('path');
 const Projects = require('../models/projects');
 const ErrorResponse = require('../utils/errorResponse');
 
@@ -56,7 +57,7 @@ exports.createProject = async (req, res, next) => {
         // Check for published project
         const publishedProject = await Projects.findOne({ user: req.user.id });
         
-        // if stud != admin, can only add 1 webtech
+        // if user != admin, can only add 1 project
         if(publishedProject && req.user.role !=='admin') {
             return next
             (new ErrorResponse(
@@ -143,4 +144,67 @@ exports.deleteProject = async (req, res, next) => {
         res.status(200).json({ success: true, data: {} });
     } catch (error) {
         next(err);
-    }};
+}};
+
+// @desc    Upload photo for project
+// @Route   PUT /api/v1/projects/:id/photo
+// @access  Private
+exports.projectPhotoUpload = async (req, res, next) => {
+    try { 
+    const projects = await Projects.findById(req.params.id);
+    
+    if(!projects){
+        return next(
+            new ErrorResponse(`Project not found with id of ${req.params.id}`, 404)
+        );
+    }
+
+    // Make sure user is project owner
+    if (projects.user.toString() !== req.user.id && req.user.role !== 'admin') {
+        return next(
+            new ErrorResponse(
+            `User ${req.user.id} is not authorized to update this project`,
+            401
+            )
+        );
+    }
+
+    if(!req.files){
+        return next(new ErrorResponse(`Please upload a file`, 400));
+    }
+
+    //console.log(req.files);
+    
+    const file = req.files.file;
+
+    // Make sure the image is a photo
+    if(!file.mimetype.startsWith('image')) {
+        return next(new ErrorResponse(`Please upload an image file`, 400));
+    }
+
+    // Check file size
+    if(file.size > process.env.MAX_FILE_UPLOAD){
+        return next(new ErrorResponse(`Please upload an image less than ${process.env.MAX_FILE_UPLOAD}`, 400));
+    }
+
+    // Create custom filename
+    file.name = `image_${projects._id}${path.parse(file.name).ext}`;
+
+    file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, async err =>{
+        if(err){
+            console.error(err);
+            return next(new ErrorResponse(`Problem with file upload`, 500));
+        }
+
+        await Projects.findByIdAndUpdate(req.params.id, { images: file.name });
+
+        res.status(200).json({
+            success:true,
+            data: file.name
+        })
+    });}
+    catch (error) {
+        next(err);
+}};
+
+    
