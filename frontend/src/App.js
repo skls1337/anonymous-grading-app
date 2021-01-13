@@ -15,14 +15,14 @@ class App extends Component {
 		console.log("[App.js] login state changed")
 	}
 
-	componentDidMount=()=>{
+	componentDidMount = () => {
         axios.get('http://localhost:3001/api/v1/auth/me').then(res=>{
             console.log(res);
 			this.setUser(res.data)
         }).catch(err=>{console.log(err);})
     }
 
-	setUser=User=>{
+	setUser = User => {
 		this.setState({
 			user:User,
 			isUserAuth:true
@@ -35,18 +35,13 @@ class App extends Component {
 			<Auxiliary>
 				<BrowserRouter>
 					 <Route path={"/"}>
-						{this.state.isUserAuth ? <Redirect to="/home/profile/project" /> : <Redirect to="/start/login" />}
+						{!this.state.isUserAuth || <Redirect to="/home/profile/project" /> }
 					</Route> 
 				
-					 <Route path={"/"}>
-					<Redirect to="/start/login"/>
-					</Route>
-					<Route path={"/home"}>
-						<Redirect to="/home/profile/project"/>
-					</Route> 
+					
 
 					<Route path='/start' render={() => <Background />} />
-					<Route path='/home' component={()=><MainPage user={this.state.user} />} />
+					<Route path='/home' component={() => <MainPage user={this.state.user} />} />
 				
 				</BrowserRouter>
 			</Auxiliary>
