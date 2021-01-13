@@ -1,18 +1,19 @@
-.Project {
-    margin-left: 8%;
-    margin-right: 8%;
+.SubRev {
+    margin: auto;
+    width: 100%;
     margin-top: 40px;
     font-size: x-large;
     display: inline-block;
     overflow: auto;
+
 }
 
-.Project .Text p {
+.SubRev .Text p {
     font-size: medium;
-    background-color: #FEFFFF;  
+    background-color: #FEFFFF;
 }
 
-.Project p {
+.SubRev p {
     border-radius: 30px;
     padding: 10px;
 }
