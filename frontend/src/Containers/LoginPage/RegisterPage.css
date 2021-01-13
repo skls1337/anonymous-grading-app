@@ -1,0 +1,374 @@
+.All{
+	display: flex;
+	flex-direction: row;
+	}
+	.Dreapta{
+		
+		width: 33%;
+		height: 100%;
+		background-image: linear-gradient( #1A116B,#3EC4BD);
+		position: absolute;
+		overflow: visible;
+		border-radius: 30px 0px 0px 30px;
+		opacity: 0.9;
+		-webkit-animation-name: bounceInRight;
+		animation-name: bounceInRight;
+		-webkit-animation-duration: 1s;
+		animation-duration: 0.9s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+	@-webkit-keyframes bounceInRight {
+		0%, 60%, 75%, 90%, 100% {
+		-webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		}
+		0% {
+		opacity: 0;
+		-webkit-transform: translate3d(550px, 0, 0);
+		transform: translate3d(550px, 0, 0);
+		}
+		60% {
+		opacity: 1;
+		-webkit-transform: translate3d(-25px, 0, 0);
+		transform: translate3d(-25px, 0, 0);
+		}
+		75% {
+		-webkit-transform: translate3d(10px, 0, 0);
+		transform: translate3d(10px, 0, 0);
+		}
+		90% {
+		-webkit-transform: translate3d(-5px, 0, 0);
+		transform: translate3d(-5px, 0, 0);
+		}
+		100% {
+		-webkit-transform: none;
+		transform: none;
+		}
+		}
+		
+	.Welcome{
+		font-family: 'Segoe UI', sans-serif;
+		font-weight: bold;
+		color:white;
+		font-size: 40px;
+		padding-top: 180px;
+		text-align: center;
+		-webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+  
+	}
+	@-webkit-keyframes slideInDown {
+		0% {
+		-webkit-transform: translateY(-100%);
+		transform: translateY(-100%);
+		visibility: visible;
+		}
+		100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+		}
+		}
+		@keyframes slideInDown {
+		0% {
+		-webkit-transform: translateY(-100%);
+		transform: translateY(-100%);
+		visibility: visible;
+		}
+		100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+		}
+		} 
+	.DescDreapta {
+		
+		color:white;
+		font-size: 16px;
+		padding-top: 30px;
+		padding-left: 50px;
+		padding-right: 50px;
+		text-align: center;
+		-webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+	}
+	.ButonDreapta{
+		font-family: 'Segoe UI', sans-serif;
+		font-weight: bold;
+		border-color: white;
+		border-style: groove;
+		fill:"none";
+		width: 25%;
+		cursor:pointer;
+		background-color: Transparent;
+		background-repeat:no-repeat;
+		justify-content: center;
+		padding-right:30px ;
+		padding-left:30px ;
+		margin-left: 25%;
+		padding-top:10px;
+		padding-bottom: 10px;
+		border-radius:25px;
+		margin-top:30px ;
+		font-size: 15px;
+		font-weight: bold;
+		width: 50%;
+		height: 7%;
+		color:white;
+		outline:none;
+		text-align: center;
+		white-space: nowrap;
+	}
+	
+	
+	.St{
+		font-family: 'Segoe UI', sans-serif;
+		font-weight: bold;
+		
+		color:#3EC4BD;
+		font-size: 40px;
+		width: 33% ;
+		height: 100%;
+		
+		margin-left:30px;
+		text-align: center;
+		position: absolute;
+		overflow: visible;
+		-webkit-animation-name: slideInRight;
+		-webkit-animation-name: slideInLeft;
+		animation-name: slideInLeft;
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+	@-webkit-keyframes slideInLeft {
+		0% {
+		-webkit-transform: translateX(-100%);
+		transform: translateX(-100%);
+		visibility: visible;
+		}
+		100% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+		}
+		}
+		@keyframes slideInLeft {
+		0% {
+		-webkit-transform: translateX(-100%);
+		transform: translateX(-100%);
+		visibility: visible;
+		}
+		100% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+		}
+		} 
+	.DrGri{
+		width: 100%;
+		height:6%;
+		background-color: #DBDBDB;
+		opacity: 0.61;
+		margin:auto;
+		margin-top: 20px;
+		backface-visibility: visible !important;
+  -webkit-animation-name: flipInY;
+  animation-name: flipInY;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+	}
+	@-webkit-keyframes flipInY {
+		0% {
+		-webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		-webkit-transition-timing-function: ease-in;
+		transition-timing-function: ease-in;
+		opacity: 0;
+		}
+		40% {
+		-webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		-webkit-transition-timing-function: ease-in;
+		transition-timing-function: ease-in;
+		}
+		60% {
+		-webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+		transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+		opacity: 1;
+		}
+		80% {
+		-webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+		transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+		}
+		100% {
+		-webkit-transform: perspective(400px);
+		transform: perspective(400px);
+		}
+		}
+		@keyframes flipInY {
+		0% {
+		-webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		-webkit-transition-timing-function: ease-in;
+		transition-timing-function: ease-in;
+		opacity: 0;
+		}
+		40% {
+		-webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		-webkit-transition-timing-function: ease-in;
+		transition-timing-function: ease-in;
+		}
+		60% {
+		-webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+		transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+		opacity: 1;
+		}
+		80% {
+		-webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+		transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+		}
+		100% {
+		-webkit-transform: perspective(400px);
+		transform: perspective(400px);
+		}
+		} 
+	.ButonSignUp{
+		font-family: 'Segoe UI', sans-serif;
+		font-weight: bold;
+		cursor:pointer;
+		background-color: #3EC4BD;
+		justify-content: center;
+		border: none;
+		border-radius:25px;
+		font-size: 15px;
+		font-weight: bold;
+		width: 60%;
+		outline:none;
+		color:white;
+		text-align: center;
+		white-space: nowrap;
+		
+		margin-top:20px;
+		background-repeat:no-repeat;
+		font-size: 15px;
+		
+		height: 7%;
+		animation: animationFrames ease 1s;
+		-webkit-animation-name: bounceInUp;
+		animation-name: bounceInUp1;
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+		animation-delay: 0.85s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+	@-webkit-keyframes bounceInUp1 {
+		0%, 60%, 75%, 90%, 100% {
+		-webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		}
+		0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, 3000px, 0);
+		transform: translate3d(0, 3000px, 0);
+		}
+		60% {
+		opacity: 1;
+		-webkit-transform: translate3d(0, -20px, 0);
+		transform: translate3d(0, -20px, 0);
+		}
+		75% {
+		-webkit-transform: translate3d(0, 10px, 0);
+		transform: translate3d(0, 10px, 0);
+		}
+		90% {
+		-webkit-transform: translate3d(0, -5px, 0);
+		transform: translate3d(0, -5px, 0);
+		}
+		100% {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+		}
+		}
+		@keyframes bounceInUp1 {
+		0%, 60%, 75%, 90%, 100% {
+		-webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		}
+		0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, 3000px, 0);
+		transform: translate3d(0, 3000px, 0);
+		}
+		60% {
+		opacity: 1;
+		-webkit-transform: translate3d(0, -20px, 0);
+		transform: translate3d(0, -20px, 0);
+		}
+		75% {
+		-webkit-transform: translate3d(0, 10px, 0);
+		transform: translate3d(0, 10px, 0);
+		}
+		90% {
+		-webkit-transform: translate3d(0, -5px, 0);
+		transform: translate3d(0, -5px, 0);
+		}
+		100% {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+		}
+		}
+	.inputReg{
+		font-family: 'Segoe UI', sans-serif;
+	
+		width: 90%;
+		height: 80%;
+		position: relative;
+		top:-15px;
+		text-align: center;
+		font-size: 17px;
+		background: transparent;
+		border: none;
+		outline: none; 
+	}
+	.Circle{
+	height: 80px;
+	  width: 20%;
+	  border-color: #3EC4BD;
+	  border-radius: 50%;
+	  fill:"none";
+	  display: inline-block;
+	  
+	  background-color: white;
+	  border-style: groove;
+	  border-width: 1px;
+	  margin-left: 20px;
+	  outline:none;
+	}
+	
+	.Stanga{
+	margin: auto;
+	
+	}
+	.para{
+		color:#878787;
+		font-size: 15px;
+		margin:auto;
+	   
+		width: 100% ;
+		text-align: center;
+	}
+	
