@@ -23,9 +23,7 @@ class MainPage extends Component {
         }
         else{
             return(
-            <Auxiliary>
             <p></p>
-            </Auxiliary>
             )
         }
     }
