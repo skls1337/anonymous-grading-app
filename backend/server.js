@@ -6,9 +6,9 @@ const fileupload = require('express-fileupload');
 const morgan = require('morgan');
 const cookieparser = require('cookie-parser');
 const mongoSanitize = require('express-mongo-sanitize');
-const cors=require('cors')
 const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
+
 // Load config.env
 dotenv.config({ path: './config/config.env'});
 
@@ -24,9 +24,6 @@ const app = express();
 
 // body parser
 app.use(express.json());
-
-//cors
-app.use(cors());
 
 // Cookie-parser
 app.use(cookieparser());
@@ -52,7 +49,7 @@ app.use('/api/v1/auth', auth);
 
 app.use(errorHandler);
 
-const PORT=process.env.PORT || 3001;
+const PORT=process.env.PORT || 3000;
 
 const server = app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.magenta.bold.underline));
 
