@@ -5,8 +5,7 @@ const {
     createProject,
     updateProject,
     deleteProject,
-    projectPhotoUpload,
-    createReview
+    projectPhotoUpload
 } = require('../controllers/projects');
 
 const router = express.Router();
