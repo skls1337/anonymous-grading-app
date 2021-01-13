@@ -1,0 +1,98 @@
+.Profile {
+    width: 20%;
+    background-color: #17252A;
+    padding-bottom: 400%;
+    position: fixed;
+    border-radius: 0 30px;
+    margin-top: 60px;
+    -webkit-animation-name: bounceInLeft;
+    animation-name: bounceInLeft;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@keyframes bounceInLeft {
+    0%, 60%, 75%, 90%, 100% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-3000px, 0, 0);
+        transform: translate3d(-3000px, 0, 0);
+    }
+    75% {
+        -webkit-transform: translate3d(0px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+    100% {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.Profile img {
+    display: block;
+    margin: 20% auto;
+    border-radius: 50%;
+    width: 45%;
+    background-size: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.Text {
+    display: block;
+    font-size: 200%;
+    color: #DEF2F1;
+    margin: auto;
+    text-align: center;
+}
+
+.Text p {
+    margin-top: 45px;
+}
+
+.Profile button {
+    width: 50%;
+    margin: 300px auto;
+    background-color: #DEF2F1;
+    border-width: 2px;
+    border-style: dashed;
+    border-color: #DEF2F1;
+    color: #17252A;
+    outline: none;
+    display: block;
+    padding: 20px 5px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 90%;
+    text-align: center;
+    transition: all 0.2s;
+    cursor: pointer;
+    border-radius: 30px;
+    user-select: none;
+}
+
+.Profile button:hover {
+    color: #DEF2F1;
+    background-color: #17252A;
+}
+
+@media all and (max-width: 965px) {
+    .Profile button {
+        display: block;
+        margin-top: 10px;
+        width: 100px;
+    }
+}
+
+@media (max-height: 1000px) {
+    .Profile button {
+        margin-top: 10px;
+    }
+}
