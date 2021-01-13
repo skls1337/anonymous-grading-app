@@ -17,7 +17,8 @@ class App extends Component {
 
 	componentDidMount = () => {
         axios.get('http://localhost:3001/api/v1/auth/me').then(res=>{
-            console.log(res);
+			console.log("the user is: ")	
+			console.log(res);
 			this.setUser(res.data)
         }).catch(err=>{console.log(err);})
     }

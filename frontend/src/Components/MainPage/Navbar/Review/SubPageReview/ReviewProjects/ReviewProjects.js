@@ -15,8 +15,7 @@ const datas = [
        
     },
 ];
-const reviwProject=()=>{
-
+const reviwProject=(props)=>{
     return(
         <div className={classes.SubRev}>
             <ProjectList controls={datas} />
