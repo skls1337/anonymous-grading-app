@@ -18,8 +18,6 @@ const reviews = require('./routes/reviews');
 const projectrequirements = require('./routes/requirements');
 const auth = require('./routes/auth');
 
-
-
 const app = express();
 
 // body parser
