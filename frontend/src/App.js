@@ -9,23 +9,31 @@ import axios from 'axios';
 class App extends Component {
 	state = {
 	}
-	
+	data = [];
 	userAuthHandler = () => {
-		this.setState({isUserAuth: !this.state.isUserAuth});
+		this.setState({ isUserAuth: !this.state.isUserAuth });
 		console.log("[App.js] login state changed")
 	}
 
-	componentDidMount=()=>{
-        axios.get('http://localhost:3001/api/v1/auth/me').then(res=>{
-            console.log(res);
+	componentDidMount = () => {
+		axios.get('http://localhost:3001/api/v1/auth/me').then(res => {
+			console.log("the user is: ")
 			this.setUser(res.data)
-        }).catch(err=>{console.log(err);})
-    }
+		}).catch(err => { console.log(err); })
+		axios.get('http://localhost:3001/api/v1/projects').then(res => {
 
-	setUser=User=>{
+			console.log(res);
+			this.setState({
+				projects: res.data
+			})
+		}).catch(err => { console.log(err); })
+
+	}
+
+	setUser = User => {
 		this.setState({
-			user:User,
-			isUserAuth:true
+			user: User,
+			isUserAuth: true
 		})
 	}
 
@@ -34,20 +42,12 @@ class App extends Component {
 		return (
 			<Auxiliary>
 				<BrowserRouter>
-					 <Route path={"/"}>
-						{this.state.isUserAuth ? <Redirect to="/home/profile/project" /> : <Redirect to="/start/login" />}
-					</Route> 
-				
-					 <Route path={"/"}>
-					<Redirect to="/start/login"/>
+					<Route path={"/"}>
+						{!this.state.isUserAuth || <Redirect to="/home/profile/project" />}
 					</Route>
-					<Route path={"/home"}>
-						<Redirect to="/home/profile/project"/>
-					</Route> 
 
 					<Route path='/start' render={() => <Background />} />
-					<Route path='/home' component={()=><MainPage user={this.state.user} />} />
-				
+					<Route path='/home' component={() => <MainPage user={this.state.user} projects={this.state.projects} />} />
 				</BrowserRouter>
 			</Auxiliary>
 		);
