@@ -1,6 +1,8 @@
+const path = require('path');
 const express = require('express');
 const dotenv = require('dotenv');
 const colors = require('colors');
+const fileupload = require('express-fileupload');
 const morgan = require('morgan');
 const cookieparser = require('cookie-parser');
 const mongoSanitize = require('express-mongo-sanitize');
@@ -18,8 +20,6 @@ const reviews = require('./routes/reviews');
 const projectrequirements = require('./routes/requirements');
 const auth = require('./routes/auth');
 
-
-
 const app = express();
 
 // body parser
@@ -35,6 +35,11 @@ app.use(cookieparser());
 if(process.env.NODE_ENV === 'development')
     app.use(morgan('dev'));
 
+// File uploading
+app.use(fileupload());
+
+// Set static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Sanitize data 
 app.use(mongoSanitize());
