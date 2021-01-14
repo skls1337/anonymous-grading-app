@@ -1,20 +1,9 @@
 import React, { Component } from 'react'
-
 import classes from '../../Components/MainPage/SubPage/SubPage.css'
 import buttonClasses from './ReviewProjects.css'
-import { Route, Link, Redirect } from 'react-router-dom';
-import ReviewTheProject from './ReviewTheProject';
-
+import { Link } from 'react-router-dom';
 class ReviewProjects extends Component {
-    onClickHandler = (theProject) => {
-        console.log(theProject);
-        return (
-           <div>
-               <p>cf</p>
-           </div>
-        )
-
-    }
+   
     render() {
         const projects = []
         try {
@@ -33,15 +22,16 @@ class ReviewProjects extends Component {
                 <div >
                     {projects[i].title}
                     {projects[i].description}
-                    <button className={buttonClasses.ReviewButton} onClick={() => this.onClickHandler(this.props.projects.data[i])}>Review</button>
-
-
+                   <Link to={"/home/review/"+this.props.projects.data[i]._id}>
+                    <button  className={buttonClasses.ReviewButton}>Review</button>
+                    </Link>
                 </div>)
         }
         return (
 
             <div className={classes.SubRev}>
                 {items}
+                
             </div>
 
 
