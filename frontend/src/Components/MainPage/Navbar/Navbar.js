@@ -17,7 +17,7 @@ const navbar = (props) => {
         <nav className={classes.Navbar}>
             <img rel="icon" src={logo} alt="Logo"></img>
             <a style={{marginLeft: "2%"}}>
-            <Link to="/home/profile"  style={{marginLeft: "auto"}}>Profile</Link>
+            <Link to="/home/profile/project"  style={{marginLeft: "auto"}}>Profile</Link>
             </a>
             <a>
             <Link to="/home/reviews"  style={{marginLeft: "auto"}}>Project</Link>
