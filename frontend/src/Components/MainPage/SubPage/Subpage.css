@@ -1,4 +1,4 @@
-.SubPage {
+.Subpage {
   background-color: #def2f1;
   width: 100%;
   margin: 5%;
@@ -41,7 +41,7 @@
 }
 
 @media (max-width: 700px) {
-  .SubPage {
+  .Subpage {
     width: 520px;
     margin: 1%;
     margin-left: 5%;
@@ -49,7 +49,7 @@
 }
 
 @media (max-width: 1400px) {
-  .SubPage {
+  .Subpage {
     margin-top: 70px;
   }
 }

@@ -20,7 +20,7 @@ const navbar = (props) => {
             <Link to="/home/profile/project"  style={{marginLeft: "auto"}}>Profile</Link>
             </a>
             <a>
-            <Link to="/home/project"  style={{marginLeft: "auto"}}>Project</Link>
+            <Link to="/home/reviews"  style={{marginLeft: "auto"}}>Project</Link>
             </a>
             <a>
                 <Link to="/home/review/review-projects"  style={{marginLeft: "auto"}}>Review</Link>
