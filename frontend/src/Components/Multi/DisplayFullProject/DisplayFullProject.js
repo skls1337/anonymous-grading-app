@@ -25,7 +25,7 @@ const displayFullProject = (props) => {
             </div>
             <div>
                 <h3>Images:</h3>
-                <p>{props.projectData.images === 'no-image' ? "This project has no images" : <DisplayImages images={props.projectData.images}/>}</p>
+                <div>{props.projectData.images === undefined ? "This project has no images" : <DisplayImages images={props.projectData.images}/>}</div>
             </div>
             <div>
                 <h3>Project Link:</h3>

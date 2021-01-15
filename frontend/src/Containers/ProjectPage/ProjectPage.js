@@ -23,8 +23,10 @@ class ProjectPage extends Component {
 
         axios.get(`http://localhost:3001/api/v1/projects/user/${this.props.user.id}`).then(res => {
             if (this._isMounted) {
-                const project = res.data.data;
+                const project = res.data.data[0];
                 console.log(project);
+                console.log(project.images[0]);
+                
                 this.setState({
                     projectData: {
                         projectName: project.title === undefined ? '' : project.title,
@@ -32,7 +34,7 @@ class ProjectPage extends Component {
                         fullDescription: project.body,
                         ytLink: project.video,
                         ghLink: project.upload,
-
+                        images: project.images[0]
                     }
                 });
             }

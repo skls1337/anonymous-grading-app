@@ -5,6 +5,7 @@ import DisplayFullProject from '../../../Components/Multi/DisplayFullProject/Dis
 import classes from './SubPageProject.css';
 import subPageClasses from '../SubPage/SubPage.css';
 import barClasses from '../Navbar2/Navbar2.css';
+import axios from 'axios';
 
 class ProjectPage extends Component {
     state = {
@@ -62,6 +63,12 @@ class ProjectPage extends Component {
         } catch (Exception) {
             console.log('No Photo Sir');
         }
+
+        axios.post('http://localhost:3001/api/v1/projects', { images: this.state.imagePreviewUrl, video: this.state.youTubeLink, upload: this.state.gitHubLink, title: this.state.projectName,      description: this.state.shortDescription, body: this.state.fullDescription}).then(
+            res => {
+                console.log(res);
+            }
+        )
     }
 
     render() {
@@ -101,11 +108,11 @@ class ProjectPage extends Component {
                         </label>
                         <label>
                             <p>Link a YouTube With A Demo of the Project</p>
-                            <input type='text' maxLength='50' value={this.state.projectName} onChange={this.handleYouTubeLinkChange} />
+                            <input type='text' maxLength='50' value={this.state.youTubeLink} onChange={this.handleYouTubeLinkChange} />
                         </label>
                         <label>
                             <p>Add the GitHub Repo Containing Your Project</p>
-                            <input type='text' maxLength='50' value={this.state.projectName} onChange={this.handleGitHubLinkChange} />
+                            <input type='text' maxLength='50' value={this.state.gitHubLink} onChange={this.handleGitHubLinkChange} />
                         </label>
                         <button type='submit'>SUBMIT</button>
                     </form>
