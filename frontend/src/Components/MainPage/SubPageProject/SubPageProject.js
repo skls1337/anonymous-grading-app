@@ -11,7 +11,7 @@ class ProjectPage extends Component {
         fullDescription: '',
         youTubeLink: '',
         gitHubLink: '',
-        images: React.createRef()
+        fileInput: React.createRef()
     }
 
     handleProjectNameChange = (event) => {
@@ -34,8 +34,13 @@ class ProjectPage extends Component {
         this.setState({gitHubLink: event.target.value});
     }
 
-    handleSubmit = () => {
-        console.log(this.state);
+    handleSubmit = (event) => {
+        event.preventDefault();
+        try{
+            console.log(this.state.fileInput.current.files[0].name);
+        } catch (Exception) {
+            console.log('No Photo Sir');
+        }
     }
 
     render() {
@@ -44,7 +49,7 @@ class ProjectPage extends Component {
                 <div className={barClasses.Navbar2}></div>
                 <div className={classes.SubPageProject}>
                     <h1>Submit Your Project</h1>
-                    <form onSubmit>
+                    <form onSubmit={this.handleSubmit}>
                         <label>
                             <p>Enter Project Name</p>
                             <input type='text' maxLength='30' value={this.state.projectName} onChange={this.handleProjectNameChange} />
@@ -55,11 +60,11 @@ class ProjectPage extends Component {
                         </label>
                         <label>
                             <p>Enter the Full Description of Your Project</p>
-                            <textarea type='text' maxLength='2650' value={this.state.fullDescription} onChange={this.handleFullDescriptionChange} style={{height: '600px'}} />
+                            <textarea type='text' maxLength='6000' value={this.state.fullDescription} onChange={this.handleFullDescriptionChange} style={{height: '600px'}} />
                         </label>
                         <label>
                             <p>Add One or More Descriptive Images</p>
-                            <input type='file' accept="image/png, image/jpeg" />
+                            <input type='file' accept="image/png, image/jpeg" ref={this.state.fileInput} />
                         </label>
                         <label>
                             <p>Link a YouTube With A Demo of the Project</p>
@@ -69,8 +74,8 @@ class ProjectPage extends Component {
                             <p>Add the GitHub Repo Containing Your Project</p>
                             <input type='text' maxLength='50' value={this.state.projectName} onChange={this.handleProjectNameChange} />
                         </label>
+                        <button type='submit'>SUBMIT</button>
                     </form>
-                    <button onClick={this.handleSubmit}>SUBMIT</button>
                 </div>
             </div>
         );
