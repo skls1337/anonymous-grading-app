@@ -14,7 +14,7 @@ class SubPage extends Component {
                 <Navbar2 />
                 <Route path="/home/profile/project" render={(props) => <Project />} />
                 <Route path="/home/profile/submited-reviews" render={(props) => <SubmitedReviews />} />
-                <Route path="/home/profile/your-reviews" render={(props) => <YourReviews />} />
+                <Route path="/home/profile/your-reviews" render={(props) => <YourReviews user={this.props.user}  projects={this.props.projects} />} />
             </div>
         );
     }
