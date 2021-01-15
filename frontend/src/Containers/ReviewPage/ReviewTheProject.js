@@ -57,11 +57,10 @@ class ReviewTheProject extends Component {
 
                 <div className={classes.SubPage}>
                     {/*Review here*/}
-                    <br style={{ padding: "10px", textAlign: "center", paddingBottom: "20px", fontSize: "20PX" }}></br>
                     <h1 style={{ padding: "10px", textAlign: "center", paddingBottom: "20px" }}>Review the project</h1>
                     <p style={{ padding: "10px", textAlign: "center", paddingBottom: "20px", fontSize: "20PX" }}>Grade</p>
-                    <div style={{ width: "5%", margin: "auto" }}>
-                        <select onChange={(e)=>this.setState({grade:e.target.value})}>
+                    <div style={{ width: "5%", margin: "auto", marginBottom: '10px' }}>
+                        <select className={buttonClasses.select}  onChange={(e)=>this.setState({grade:e.target.value})}>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -74,8 +73,6 @@ class ReviewTheProject extends Component {
                             <option>10</option>
                         </select>
                     </div>
-                    <br></br>
-                    <br></br>
                     <div >
                         {
                             this.label.map(value =>
@@ -84,15 +81,9 @@ class ReviewTheProject extends Component {
                                 }}>{value}</button>)
                         }
                     </div>
-                    <br></br>
-                    <br></br>
-                    <br></br>
                     <button 
                     onClick={this.handleCreateReview}
-                    className={buttonClasses.ReviewButton} style={{ width: "200px", margin: "auto" }}>Review this project</button>
-                    <br></br>
-                    <br></br>
-                    <br></br>
+                    className={buttonClasses.ReviewButton} >Review this project</button>
                 </div>
 
             </div>
