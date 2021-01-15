@@ -1,3 +1,8 @@
 .DisplayImages {
     box-sizing: border-box;
 }
+
+.DisplayImages image {
+    width: 300px;
+    height: 300px;
+}

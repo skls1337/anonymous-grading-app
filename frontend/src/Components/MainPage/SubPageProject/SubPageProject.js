@@ -31,6 +31,22 @@ class ProjectPage extends Component {
         this.setState({fullDescription: event.target.value});
     }
 
+    handleImagesChange = (event) => {
+        event.preventDefault();
+        
+        let reader = new FileReader();
+        let file = this.state.fileInput.current.files[0]
+
+        reader.onloadend = () => {
+            this.setState({
+              file: file,
+              imagePreviewUrl: reader.result
+            });
+        } 
+
+        reader.readAsDataURL(file)
+    }
+
     handleYouTubeLinkChange = (event) => {
         this.setState({youTubeLink: event.target.value});
     }
@@ -42,7 +58,7 @@ class ProjectPage extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         try{
-            console.log(this.state.fileInput.current.files[0].name);
+            console.log(this.state.fileInput.current.files);
         } catch (Exception) {
             console.log('No Photo Sir');
         }
@@ -50,9 +66,9 @@ class ProjectPage extends Component {
 
     render() {
         if(this.props.projectData.projectName !== ''){
-            this.title = "Edit Your Project"
-            this.projectDisplay = <DisplayFullProject projectData={this.props.projectData} />
-            this.imagesDisplay = <DisplayImages images={this.state.fileInput} />
+            this.title = "Edit Your Project";
+            this.projectDisplay = <DisplayFullProject projectData={this.props.projectData} />;
+            this.imagesDisplay = this.state.fileInput.current !== null ? <DisplayImages images={this.state.imagePreviewUrl} /> : "Select some images";
         }
 
         return (
@@ -77,9 +93,9 @@ class ProjectPage extends Component {
                             <textarea type='text' maxLength='6000' value={this.state.fullDescription} onChange={this.handleFullDescriptionChange} style={{height: '600px'}} />
                         </label>
                         <label>
-                            <p>Add One or More Descriptive Images</p>
+                            <p>Add a Descriptive Image</p>
                             {this.imagesDisplay}
-                            <input type='file' accept="image/png, image/jpeg" ref={this.state.fileInput} />
+                            <input type='file' accept="image/png, image/jpeg" ref={this.state.fileInput} onChange={this.handleImagesChange} />
                         </label>
                         <label>
                             <p>Link a YouTube With A Demo of the Project</p>

@@ -7,9 +7,7 @@ import classes from './DisplayImages.css';
 const displayImages = (props) => {
     return(
         <div className={classes.DisplayImages}>
-            {props.images.map((image)=>(
-                <img key={image.name} src={image} alt='404'/>
-            ))}
+            <img src={props.images} alt="uploaded file" width='60%' height='auto'></img>
         </div>
     );
 }
