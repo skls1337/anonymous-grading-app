@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import DisplayFullProject from '../../../Components/Multi/DisplayFullProject/DisplayFullProject';
 import classes from './SubPageProject.css';
 import subPageClasses from '../SubPage/SubPage.css';
 import barClasses from '../Navbar2/Navbar2.css';
@@ -13,6 +14,8 @@ class ProjectPage extends Component {
         gitHubLink: '',
         fileInput: React.createRef()
     }
+    title = "Submit Your Project";
+    projectDisplay = null;
 
     handleProjectNameChange = (event) => {
         this.setState({projectName: event.target.value});
@@ -44,11 +47,19 @@ class ProjectPage extends Component {
     }
 
     render() {
+        if(this.props.projectData.projectName !== ''){
+            this.title = "Edit Your Project"
+            this.projectDisplay = <DisplayFullProject projectData={this.props.projectData}/>
+        }
+
         return (
             <div className={subPageClasses.SubPage}>
                 <div className={barClasses.Navbar2}></div>
+                
+                {this.projectDisplay}
+
                 <div className={classes.SubPageProject}>
-                    <h1>Submit Your Project</h1>
+                    <h1>{this.title}</h1>
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             <p>Enter Project Name</p>
