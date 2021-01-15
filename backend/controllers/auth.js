@@ -141,7 +141,7 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
     await user.save({ validateBeforeSave: false });
   
     // Create reset url
-    const resetUrl = `${req.protocol}://${req.get('host')}/api/v1/auth/resetpassword/${resetToken}`;
+    const resetUrl = `${req.protocol}://localhost:3000/start/resetpassword/${resetToken}`;
   
     const message = `This mail was sent to you because someone using this email has requested the reset of a password. Please make a PUT request to: \n\n ${resetUrl}`;
   
