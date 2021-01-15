@@ -9,9 +9,7 @@ class ReviewProjects extends Component {
         try {
 
             for (let i = 0; i < this.props.projects.count; i++) {
-                
                projects.push({"id":this.props.projects.data[i]._id,"title":this.props.projects.data[i].title})
-             
             }
         } catch (err) {
             console.log(err);
