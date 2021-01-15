@@ -8,8 +8,9 @@ import axios from 'axios';
 
 class App extends Component {
 	state = {
+		
 	}
-	data = [];
+
 	userAuthHandler = () => {
 		this.setState({ isUserAuth: !this.state.isUserAuth });
 		console.log("[App.js] login state changed")
