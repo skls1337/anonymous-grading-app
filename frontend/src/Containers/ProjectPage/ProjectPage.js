@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import classes from './ProjectPage.css';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import SubPage from '../../Components/MainPage/SubPageProject/SubPageProject';
 
 class ProjectPage extends Component {
-    state={
+    state = {
         projectData: {
             projectName: 'Domnule',
             shortDescription: 'Acesta este un proiect da da un proiect',
@@ -16,11 +17,27 @@ class ProjectPage extends Component {
         }
     }
 
+    componentDidMount = () => {
+        axios.get('http://localhost:3001/api/v1/projects/:id').then(res => {
+            const project = res.data;
+            this.setState({
+                projectData: {
+                    projectName: project.title,
+                    shortDescription: project.description,
+                    fullDescription: project.body,   
+                    ytLink: project.video,
+                    ghLink: project.upload,
+                    images: project.images[0]
+                }
+            });
+        }).catch(err => console.log(err));
+    }
+
     render() {
         return (
             <Auxiliary>
                 <div className={classes.ProjectPage}>
-                    <SubPage projectData={this.state.projectData}/>
+                    <SubPage projectData={this.state.projectData} />
                 </div>
             </Auxiliary>
         );
