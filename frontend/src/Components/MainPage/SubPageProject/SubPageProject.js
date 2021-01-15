@@ -8,7 +8,10 @@ class ProjectPage extends Component {
     state = {
         projectName: '',
         shortDescription: '',
-        fullDescription: ''
+        fullDescription: '',
+        youTubeLink: '',
+        gitHubLink: '',
+        images: React.createRef()
     }
 
     handleProjectNameChange = (event) => {
@@ -23,6 +26,14 @@ class ProjectPage extends Component {
         this.setState({fullDescription: event.target.value});
     }
 
+    handleYouTubeLinkChange = (event) => {
+        this.setState({youTubeLink: event.target.value});
+    }
+
+    handleGitHubLinkChange = (event) => {
+        this.setState({gitHubLink: event.target.value});
+    }
+
     handleSubmit = () => {
         console.log(this.state);
     }
@@ -33,18 +44,30 @@ class ProjectPage extends Component {
                 <div className={barClasses.Navbar2}></div>
                 <div className={classes.SubPageProject}>
                     <h1>Submit Your Project</h1>
-                    <form onSubmit = {this.handleSubmit}>
+                    <form onSubmit>
                         <label>
                             <p>Enter Project Name</p>
                             <input type='text' maxLength='30' value={this.state.projectName} onChange={this.handleProjectNameChange} />
                         </label>
                         <label>
-                            <p>Enter A Short Description</p>
+                            <p>Enter a Short Description</p>
                             <textarea type='text' maxLength='250' value={this.state.shortDescription} onChange={this.handleShortDescriptionChange} />
                         </label>
                         <label>
-                            <p>Enter The Full Description Of You Project</p>
+                            <p>Enter the Full Description of Your Project</p>
                             <textarea type='text' maxLength='2650' value={this.state.fullDescription} onChange={this.handleFullDescriptionChange} style={{height: '600px'}} />
+                        </label>
+                        <label>
+                            <p>Add One or More Descriptive Images</p>
+                            <input type='file' accept="image/png, image/jpeg" />
+                        </label>
+                        <label>
+                            <p>Link a YouTube With A Demo of the Project</p>
+                            <input type='text' maxLength='50' value={this.state.projectName} onChange={this.handleProjectNameChange} />
+                        </label>
+                        <label>
+                            <p>Add the GitHub Repo Containing Your Project</p>
+                            <input type='text' maxLength='50' value={this.state.projectName} onChange={this.handleProjectNameChange} />
                         </label>
                     </form>
                     <button onClick={this.handleSubmit}>SUBMIT</button>
