@@ -1,14 +1,9 @@
 import React, { Component } from 'react'
 
 import classes from '../../Components/MainPage/SubPage/SubPage.css'
-import { Link } from 'react-router-dom';
+
 
 class ReviewProjects extends Component {
-    onClickHandler=(id)=>{
-       
-      <Link to={"/start/login"}/>
-    
-    }
     render() {
         const projects = []
         try {
