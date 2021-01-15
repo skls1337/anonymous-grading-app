@@ -9,7 +9,7 @@ const profile = (props) => {
                 <img src={props.img} rel="ProfilePicture" alt="ProfilePicture"></img>
             </div>
             <div className={classes.Text}>
-                <p>{props.name}</p>
+                <p className={classes.Name}>{props.name}</p>
                 <p>Group {props.group}</p>
                 <p>Year {props.year}</p>
             </div>
