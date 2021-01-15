@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from '../SubPage/SubPage.css';
+import classes from '../SubPage/Subpage.css';
 
 const subPageProject = () => {
     return(

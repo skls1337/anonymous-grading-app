@@ -35,7 +35,7 @@ class Review extends Component {
                         <div className={classes.Placeholder}></div>
                         <div>
                             {/*TODO: de facu componenet pt non reviewuari*/}
-                            <p>You cannot review any projects</p>
+                            <SubPageReview projects={{data:"You are not allowed to review the projects. Only reviewers can"}}/>
                         </div>
                     </div>
                 </Auxiliary>

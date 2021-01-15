@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import classes from '../../Components/MainPage/SubPage/SubPage.css'
+import classes from './ReviewProjects.css'
 import buttonClasses from './ReviewProjects.css'
 import { Link } from 'react-router-dom';
 class ReviewProjects extends Component {
@@ -20,18 +20,16 @@ class ReviewProjects extends Component {
         for (let i = 0; i < projects.length; i++) {
             items.push(
                 <div >
-                    {projects[i].title}
-                    {projects[i].description}
                    <Link to={"/home/review/"+this.props.projects.data[i]._id}>
-                    <button  className={buttonClasses.ReviewButton}>Review</button>
+                   <br></br>
+                    <button  className={buttonClasses.ReviewButton} style={{margin:"auto"}}>Review: {projects[i].title}</button>
+                    <br></br>
                     </Link>
                 </div>)
         }
         return (
-
-            <div className={classes.SubRev}>
-                {items}
-                
+            <div className={classes.SubPage}>
+                {items}  
             </div>
 
 
