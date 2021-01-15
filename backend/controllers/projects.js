@@ -28,7 +28,9 @@ exports.getProjects = async (req, res, next) => {
 // @access Public
 exports.getProject = async (req, res, next) => { 
     try {
-        const projects = await Projects.findById(req.params.id);
+        req.body.user = req.user.id;
+        
+        const projects = await Projects.find( {user: req.user.id} );
 
         if (!projects) {
             return next(
