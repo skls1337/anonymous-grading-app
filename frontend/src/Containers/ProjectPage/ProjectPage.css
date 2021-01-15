@@ -1,0 +1,10 @@
+.SubPageProject {
+    box-sizing: border-box;
+    margin-left: 40px;
+}
+
+.SubPageProject h1 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
