@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import DisplayImages from '../../Multi/DisplayImages/DisplayImages'
 import DisplayFullProject from '../../../Components/Multi/DisplayFullProject/DisplayFullProject';
 import classes from './SubPageProject.css';
 import subPageClasses from '../SubPage/SubPage.css';
@@ -16,6 +17,7 @@ class ProjectPage extends Component {
     }
     title = "Submit Your Project";
     projectDisplay = null;
+    imagesDisplay = null;
 
     handleProjectNameChange = (event) => {
         this.setState({projectName: event.target.value});
@@ -49,7 +51,8 @@ class ProjectPage extends Component {
     render() {
         if(this.props.projectData.projectName !== ''){
             this.title = "Edit Your Project"
-            this.projectDisplay = <DisplayFullProject projectData={this.props.projectData}/>
+            this.projectDisplay = <DisplayFullProject projectData={this.props.projectData} />
+            this.imagesDisplay = <DisplayImages images={this.state.fileInput} />
         }
 
         return (
@@ -75,6 +78,7 @@ class ProjectPage extends Component {
                         </label>
                         <label>
                             <p>Add One or More Descriptive Images</p>
+                            {this.imagesDisplay}
                             <input type='file' accept="image/png, image/jpeg" ref={this.state.fileInput} />
                         </label>
                         <label>

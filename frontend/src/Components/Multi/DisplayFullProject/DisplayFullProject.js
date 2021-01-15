@@ -1,6 +1,7 @@
 import React from 'react';
 
-import classes from './DisplayFullProject.css'
+import DisplayImages from '../../Multi/DisplayImages/DisplayImages';
+import classes from './DisplayFullProject.css';
 
 const displayFullProject = (props) => {
     return(
@@ -20,7 +21,15 @@ const displayFullProject = (props) => {
             </div>
             <div>
                 <h3>YouTube</h3>
-                <iframe width="70%" height="420" title="Video" src={props.projectData.ytLink.replace("watch?v=", "embed/")} />
+                <iframe width="70%" height="420" title="Video" src={props.projectData.ytLink.replace("watch?v=", "embed/")} frameBorder="0" />
+            </div>
+            <div>
+                <h3>Images:</h3>
+                <p>{props.projectData.images === 'no-image' ? "This project has no images" : <DisplayImages images={props.projectData.images}/>}</p>
+            </div>
+            <div>
+                <h3>Project Link:</h3>
+                <a href={props.projectData.ghLink} target="_blank">{props.projectData.ghLink}</a>
             </div>
         </div>
     );
