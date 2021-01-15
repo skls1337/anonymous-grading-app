@@ -66,10 +66,12 @@ class ProjectPage extends Component {
 
     render() {
         if(this.props.projectData.projectName !== ''){
+            console.log('WE FOUND A NAME')
             this.title = "Edit Your Project";
             this.projectDisplay = <DisplayFullProject projectData={this.props.projectData} />;
-            this.imagesDisplay = this.state.fileInput.current !== null ? <DisplayImages images={this.state.imagePreviewUrl} /> : "Select some images";
         }
+
+        this.imagesDisplay = this.state.fileInput.current !== null ? <DisplayImages images={this.state.imagePreviewUrl} /> : "Select some images";
 
         return (
             <div className={subPageClasses.SubPage}>
@@ -99,11 +101,11 @@ class ProjectPage extends Component {
                         </label>
                         <label>
                             <p>Link a YouTube With A Demo of the Project</p>
-                            <input type='text' maxLength='50' value={this.state.projectName} onChange={this.handleProjectNameChange} />
+                            <input type='text' maxLength='50' value={this.state.projectName} onChange={this.handleYouTubeLinkChange} />
                         </label>
                         <label>
                             <p>Add the GitHub Repo Containing Your Project</p>
-                            <input type='text' maxLength='50' value={this.state.projectName} onChange={this.handleProjectNameChange} />
+                            <input type='text' maxLength='50' value={this.state.projectName} onChange={this.handleGitHubLinkChange} />
                         </label>
                         <button type='submit'>SUBMIT</button>
                     </form>
