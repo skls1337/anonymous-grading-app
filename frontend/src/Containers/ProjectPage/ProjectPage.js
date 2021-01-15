@@ -21,7 +21,7 @@ class ProjectPage extends Component {
     componentDidMount = () => {
         this._isMounted = true;
 
-        axios.get(`http://localhost:3001/api/v1/projects/${this.props.user.id}`).then(res => {
+        axios.get(`http://localhost:3001/api/v1/projects/user/${this.props.user.id}`).then(res => {
             if (this._isMounted) {
                 const project = res.data.data;
                 console.log(project);

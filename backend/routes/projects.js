@@ -1,11 +1,13 @@
+
 const express = require('express');
 const {
     getProjects,
-    getProject,
+    getProjectByUser,
     createProject,
     updateProject,
     deleteProject,
-    projectPhotoUpload
+    projectPhotoUpload,
+    getProjectById
 } = require('../controllers/projects');
 
 const router = express.Router();
@@ -17,9 +19,13 @@ router.route('/')
     .post(protect, authorize('student', 'reviewer', 'admin'), createProject)
 
 router.route('/:id')
-    .get(protect, getProject)
+    .get(protect, getProjectById)
     .put(protect, authorize('student', 'reviewer', 'admin'),  updateProject)
     .delete(protect, authorize('student', 'reviewer', 'admin'), deleteProject);
+
+router.route('/user/:id')
+    .get(protect, getProjectByUser);
+
 
 router.route('/:id/photo').put(protect, authorize('student', 'reviewer', 'admin'), projectPhotoUpload);
 

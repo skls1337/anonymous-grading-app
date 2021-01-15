@@ -26,7 +26,7 @@ exports.getProjects = async (req, res, next) => {
 // @desc Get a Project
 // @route GET /api/v1/projects/:id
 // @access Public
-exports.getProject = async (req, res, next) => { 
+exports.getProjectById = async (req, res, next) => { 
     try {
         req.body.user = req.user.id;
         
@@ -47,6 +47,32 @@ exports.getProject = async (req, res, next) => {
         next(err);
     }
 };
+
+// @desc Get a Project by User
+// @route GET /api/v1/projects/user/:id
+// @access Public
+exports.getProjectByUser = async (req, res, next) => { 
+    try {
+        req.body.user = req.user.id;
+
+        const projects = await Projects.find( {user: req.user.id} );
+        if (!projects) {
+            return next(
+                new ErrorResponse(
+                    `project not found with id of ${req.params.id}`,
+                    404
+                )
+            );
+        }
+
+
+        res.status(200).json({ succss: true, data: projects });
+    } catch (err) {
+        //res.status(400).json({ success: false });
+        next(err);
+    }
+};
+
 
 // @desc Create a Project
 // @route POST /api/v1/projects
