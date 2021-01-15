@@ -1,13 +1,15 @@
-import React, { Component, } from 'react';
+import React, { Component } from 'react';
 import { Route, BrowserRouter, Redirect } from 'react-router-dom';
+import axios from 'axios';
 
 import Auxiliary from './hoc/Auxiliary/Auxiliary';
 import MainPage from './Containers/MainPage/MainPage';
 import Background from './Containers/LoginPage/Background';
-import axios from 'axios';
+
 
 class App extends Component {
 	state = {
+		isUserAuth: true
 	}
 	data = [];
 	userAuthHandler = () => {

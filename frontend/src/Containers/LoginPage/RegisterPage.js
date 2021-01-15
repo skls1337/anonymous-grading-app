@@ -1,35 +1,12 @@
-import React,{Component} from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 import classes from './RegisterPage.css';
-import axios from 'axios'
+import facebook from '../../Assets/drawables/facebook.png';
+import google from '../../Assets/drawables/google.png';
+import linkedin from '../../Assets/drawables/linkedin.png';
 
-
-class RegisterPage extends Component{
-    state={}
-    handleRegister=(e)=>{
-    e.preventDefault()
-    const data={
-            fullname:this.fullName,
-            email:this.email,
-            password:this.password,
-            year:this.studyYear,
-            group:this.groupNr
-        }
-        axios.post('http://localhost:3001/api/v1/auth/register',data).then(res=>{
-            this.setState({registered:true})
-            localStorage.setItem('token',res.data.token)
-        }).catch(err=>{
-            console.log(err);
-        })
-    }
-
-
-
-   render(){ 
-    if(this.state.registered){
-       return <Redirect to='/home'/>
-    }
-
+const registerPage=(props)=>{
     return(
        
         <div className={classes.Login}>
@@ -51,60 +28,39 @@ class RegisterPage extends Component{
                             <br></br>
                             <div className={classes.Cercuri}>
                             <p>Create Account </p>
-                              
+                                <button  className={classes.Circle}>
+                                    <img src={facebook} alt="facebook"></img>
+                                </button>
+                                <button className={classes.Circle}>
+                                <img src={google}alt="google"></img>
+                                </button>
+                                <button className={classes.Circle}>
+                                <img src={linkedin}alt="linkedin"></img>
+                                </button>
                         </div>
                        
                         
                         <br></br>
-                        <p className={classes.para}>Use your email for registration:</p>
-                        
+                        <p className={classes.para}>or use your email for registration:</p>
                         <div className={classes.DrGri}>
-                            <input type="text"
-                            className={classes.inputReg}
-                            placeholder="Name"
-                            onChange={e=>this.fullName=e.target.value}
-                            ></input>
+                            <input className={classes.inputReg}placeholder="Name"></input>
                         </div>
                         <div className={classes.DrGri}>
-                        <input type="text"
-                        className={classes.inputReg}
-                        placeholder="Email"
-                        onChange={e=>this.email=e.target.value}
-                        ></input>
+                        <input className={classes.inputReg}placeholder="Email"></input>
                         </div>
                         <div className={classes.DrGri}>
-                        <input type="password"
-                        className={classes.inputReg}
-                        placeholder="Password"
-                        onChange={e=>this.password=e.target.value}
-                        ></input>
+                        <input className={classes.inputReg}placeholder="Password"></input>
                         </div>
-                        <div className={classes.DrGri}>
-                        <input type="text"
-                        className={classes.inputReg}
-                        placeholder="Group Number"
-                        onChange={e=>this.groupNr=e.target.value}
-                        ></input>
-                        </div>
-                        <div className={classes.DrGri}>
-                        <input type="text"
-                        className={classes.inputReg}
-                        placeholder="Study Year"
-                        onChange={e=>this.studyYear=e.target.value}
-                        ></input>
-                        </div>
-                        <button 
-                        className={classes.ButonSignUp}
-                        onClick={this.handleRegister}>
+                        <button className={classes.ButonSignUp}>
                             SIGN UP
                      </button>
-                    
 
                     </div>
             </div>
             </div>
-            </div>  
-    )
-    }
+            </div>
+            
+        
+ )
 }
-export default RegisterPage;
+export default registerPage;

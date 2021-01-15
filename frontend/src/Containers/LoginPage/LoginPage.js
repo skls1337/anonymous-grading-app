@@ -1,47 +1,12 @@
-import React,{Component} from 'react';
-import {Redirect}  from 'react-router-dom';
+import React from 'react';
 import { Link } from 'react-router-dom';
+
 import classes from './LoginPage.css'
-import axios from 'axios'
+import facebook from '../../Assets/drawables/facebook.png'
+import google from '../../Assets/drawables/google.png'
+import linkedin from '../../Assets/drawables/linkedin.png'
 
-
-class LoginPage  extends Component{
-    
-    state ={
-    }
-    
-    postDataHandler=()=>{
-        const data={
-            email:this.state.email,
-            password:this.state.password
-        }
-        axios.post('http://localhost:3001/api/v1/auth/login',data).then(response=> {
-         
-            localStorage.setItem('token',response.data.token)
-            this.setState({
-                loggedIn:true
-            })
-           
-            this.props.setUser(response.data.user)
-        }).catch(err => console.log(err));;
-    }
-    
-    refreshpage=()=>{
-        window.location.reload();
-    }
-
-    render(){
-        if (this.state.loggedIn) {
-            // redirect to home if signed up
-            return (
-                <div>
-                <Redirect to="/home/profile"/>
-               {
-                   this.refreshpage()
-               }
-                </div>
-            );
-          }
+const loginPage = (props) => {
     return (
         <div className={classes.Login}>
             <div className={classes.All}>
@@ -64,47 +29,42 @@ class LoginPage  extends Component{
                         <br></br>
                         <div className={classes.Cercuri}>
                             <p>Sign in</p>
+
+                            <button className={classes.Circle}>
+                                <img src={facebook} alt="facebook"></img>
+                            </button>
+                            <button className={classes.Circle}>
+                                <img src={google} alt="google"></img>
+                            </button>
+                            <button className={classes.Circle}>
+                                <img src={linkedin} alt="linkedin"></img>
+                            </button>
                         </div>
 
 
                         <br></br>
-                        <p className={classes.para}>Use your email and password to login:</p>
+                        <p className={classes.para}>or use your email and password to login:</p>
 
                         <div className={classes.DrGri}>
-                            <input
-                             className={classes.inputReg} 
-                             placeholder="Email"
-                             onChange={(event) => this.setState({email: event.target.value})}
-                            ></input>
+                            <input className={classes.inputReg} placeholder="Email"></input>
                         </div>
                         <div className={classes.DrGri}>
-                            <input  type="password"
-                            className={classes.inputReg} 
-                            placeholder="Password"
-                            
-                            onChange={(event) => this.setState({password: event.target.value})}></input>
+                            <input className={classes.inputReg} placeholder="Password"></input>
                         </div>
-                       
-                            <button
-                             className={classes.ButonSignUp}
-                             onClick={this.postDataHandler}
-                             >
+                        <Link to="/home">
+                            <button className={classes.ButonSignUp}>
                                 SIGN IN
                             </button>
-                           <Link to='/start/forgotpassword'
-                           style={{ textDecoration: 'none' }}>
-                            <p 
-                            className={classes.para1}
-                            onClick={this.redirectToForgotPassword}
-                            >Forgot Password</p>
-                            </Link>
+                        </Link>
+
 
                     </div>
                 </div>
 
             </div>
         </div>
-     )
-    }
+
+
+    )
 }
-export default LoginPage;
+export default loginPage;

@@ -3,7 +3,7 @@ import React from 'react';
 import classes from './SubmitedReviews.css';
 import ReviewsList from './ReviewsList/ReviewsList';
 
-const data = [
+const datas = [
     {
         project: 'Domnul Nostru',
         tags: [{ tag: 'Great' }, { tag: 'Nice' }],
@@ -24,7 +24,7 @@ const data = [
 const submitedReviews = () => {
     return (
         <div className={classes.SubRev}>
-            <ReviewsList controls={data} />
+            <ReviewsList controls={datas} />
         </div>
     );
 };
