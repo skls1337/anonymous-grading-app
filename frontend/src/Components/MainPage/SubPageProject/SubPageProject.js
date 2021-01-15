@@ -12,7 +12,7 @@ class ProjectPage extends Component {
     }
 
     handleProjectNameChange = (event) => {
-        this.setState({projectName: event.targe.value});
+        this.setState({projectName: event.target.value});
     }
 
     handleShortDescriptionChange = (event) => {
@@ -24,7 +24,7 @@ class ProjectPage extends Component {
     }
 
     handleSubmit = () => {
-        console.log(this);
+        console.log(this.state);
     }
 
     render() {
@@ -33,10 +33,10 @@ class ProjectPage extends Component {
                 <div className={barClasses.Navbar2}></div>
                 <div className={classes.SubPageProject}>
                     <h1>Submit Your Project</h1>
-                    <form>
+                    <form onSubmit = {this.handleSubmit}>
                         <label>
                             <p>Enter Project Name</p>
-                            <input type='text' maxLenght='30' value={this.state.projectName} onChange={this.handleProjectNameChange} />
+                            <input type='text' maxLength='30' value={this.state.projectName} onChange={this.handleProjectNameChange} />
                         </label>
                         <label>
                             <p>Enter A Short Description</p>
