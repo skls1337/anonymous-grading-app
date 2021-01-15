@@ -11,12 +11,6 @@ class Review extends Component {
             return (
                 <Auxiliary>
                     <div className={classes.ProfilePage}>
-                        <Profile
-                            img={pp}
-                            name={this.props.user.data.fullname}
-                            group={this.props.user.data.group}
-                            year={this.props.user.data.year} />
-                        <div className={classes.Placeholder}></div>
                         <SubPageReview projects={this.props.projects}/>
 
 
@@ -35,7 +29,7 @@ class Review extends Component {
                         <div className={classes.Placeholder}></div>
                         <div>
                             {/*TODO: de facu componenet pt non reviewuari*/}
-                            <p>You cannot review any projects</p>
+                            <SubPageReview projects={{data:"You are not allowed to review the projects. Only reviewers can"}}/>
                         </div>
                     </div>
                 </Auxiliary>

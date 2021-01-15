@@ -1,0 +1,64 @@
+.SubPage {
+  background-color: #def2f1;
+  max-width: 80%;
+  margin: 100px 300px 100px 300px;
+  bottom: 0;
+  border-radius: 30px;
+  z-index: 0;
+  -webkit-animation-name: fadeInRightBig;
+  animation-name: fadeInRightBig;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  animation-delay: 0.3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.selectBox {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+
+  font-size: 18px;
+  color: #60666d;
+}
+
+@-webkit-keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .SubPage {
+    width: 520px;
+    margin: 1%;
+    margin-left: 5%;
+  }
+}
+
+@media (max-width: 1400px) {
+  .SubPage {
+    margin-top: 70px;
+  }
+}
