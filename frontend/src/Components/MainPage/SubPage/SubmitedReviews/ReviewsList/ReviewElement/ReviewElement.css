@@ -1,0 +1,23 @@
+.ReviewElement{
+    display: flex;
+    box-sizing: border-box;  
+    color: #17252A;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: #FEFFFF;
+    text-align: center;
+}
+
+.ReviewElement p {
+    margin: 5px;
+    font-size: medium;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.Tags {
+    display: flex;
+    margin-left: auto; 
+    margin-right: 0px;
+    flex-flow: row;
+}
