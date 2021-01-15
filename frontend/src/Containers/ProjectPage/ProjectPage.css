@@ -1,0 +1,12 @@
+.ProjectPage{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin:auto;
+}
+
+@media (min-width: 1800px) {
+    .ProjectPage {
+        width: 60%;
+    }
+}

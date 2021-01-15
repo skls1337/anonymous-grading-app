@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import classes from '../ProfilePage/ProfilePage.css';
+import classes from './ProjectPage.css';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import SubPage from '../../Components/MainPage/SubPageProject/SubPageProject';
 
@@ -19,7 +19,7 @@ class ProjectPage extends Component {
     render() {
         return (
             <Auxiliary>
-                <div className={classes.ProfilePage}>
+                <div className={classes.ProjectPage}>
                     <SubPage projectData={this.state.projectData}/>
                 </div>
             </Auxiliary>
