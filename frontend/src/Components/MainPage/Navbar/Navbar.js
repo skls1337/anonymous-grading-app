@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom';
 import classes from './Navbar.css';
 import logo from '../../../Assets/drawables/ProjectReviewers.png';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 30f1bbe... bunch of copy paste
 import Axios from 'axios';
 >>>>>>> parent of 30f1bbe... bunch of copy paste
 
@@ -16,8 +19,11 @@ const navbar = (props) => {
             <a>Project</a>
             <a>Review</a>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <Link to="/start/login" onClick={props.log} style={{marginLeft: "auto", marginRight: "30px"}}>Log Out</Link>
 =======
+=======
+>>>>>>> parent of 30f1bbe... bunch of copy paste
             <Link to="/start/login" onClick={logOut} style={{marginLeft: "auto", marginRight: "30px"}}>Log Out</Link>
 >>>>>>> parent of 30f1bbe... bunch of copy paste
         </nav>
