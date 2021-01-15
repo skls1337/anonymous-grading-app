@@ -10,3 +10,14 @@
     margin-bottom: 40px;
     overflow: auto;
 }
+
+.DisplayFullProject h2 {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+.DisplayFullProject iframe {
+    margin: auto;
+    width: 70%
+}

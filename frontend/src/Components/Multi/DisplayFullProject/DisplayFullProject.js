@@ -18,6 +18,10 @@ const displayFullProject = (props) => {
                 <h3>Full Description:</h3>
                 <p>{props.projectData.fullDescription}</p>
             </div>
+            <div>
+                <h3>YouTube</h3>
+                <iframe width="70%" height="420" title="Video" src={props.projectData.ytLink.replace("watch?v=", "embed/")} />
+            </div>
         </div>
     );
 }
