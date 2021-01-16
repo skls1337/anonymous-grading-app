@@ -21,7 +21,7 @@ const displayFullProject = (props) => {
             </div>
             <div>
                 <h3>YouTube</h3>
-                <iframe width="70%" height="420" title="Video" src={props.projectData.ytLink.replace("watch?v=", "embed/")} frameBorder="0" />
+                {props.projectData.ytLink === undefined ? "This project has no video" : <iframe width="70%" height="420" title="Video" src={props.projectData.ytLink.replace("watch?v=", "embed/")} frameBorder="0" />}
             </div>
             <div>
                 <h3>Images:</h3>

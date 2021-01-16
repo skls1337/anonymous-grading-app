@@ -65,6 +65,36 @@
     background-color: #DEF2F1;
 }
 
+.DeleteButton {
+    width: 30%;
+    background-color: #D24225;
+    border-width: 2px;
+    border-style: dashed;
+    border-color: #D24225;
+    color: #DEE7E5;
+    outline: none;
+    display: block;
+    padding: 20px 5px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 90%;
+    text-align: center;
+    transition: all 0.2s;
+    cursor: pointer;
+    border-radius: 30px;
+    user-select: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+.DeleteButton:hover {
+    color: #D24225;
+    background-color: #DEE7E5;
+}
+
 @media all and (max-width: 965px) {
     .SubPageProject button {
         display: block;

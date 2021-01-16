@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {withRouter} from 'react-router-dom';
 
 import classes from './ProjectPage.css';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
@@ -13,10 +14,29 @@ class ProjectPage extends Component {
             fullDescription: '',
             ytLink: '',
             ghLink: '',
-            images: ''
+            images: '',
+            projectId: ''
         }
     }
     _isMounted = false;
+
+    handleDelete = () => {
+        axios.delete(`http://localhost:3001/api/v1/projects/${this.state.projectData.projectId}`).then(res=>{
+            console.log(res);
+            this.setState({
+                projectData: {
+                    projectName: '',
+                    shortDescription: '',
+                    fullDescription: '',
+                    ytLink: '',
+                    ghLink: '',
+                    images: '',
+                    projectId: ''
+                }
+            });
+            this.props.history.push('/home/profile/project');
+        });
+    }
 
     componentDidMount = () => {
         this._isMounted = true;
@@ -34,9 +54,11 @@ class ProjectPage extends Component {
                         fullDescription: project.body,
                         ytLink: project.video,
                         ghLink: project.upload,
-                        images: project.images[0]
+                        images: project.images[0],
+                        projectId: project._id
                     }
                 });
+                this.props.history.push('/home/profile/project');
             }
 
         }).catch(err => console.log(err));
@@ -50,11 +72,11 @@ class ProjectPage extends Component {
         return (
             <Auxiliary>
                 <div className={classes.ProjectPage}>
-                    <SubPage projectData={this.state.projectData} />
+                    <SubPage projectData={this.state.projectData} handleDelete={this.handleDelete}/>
                 </div>
             </Auxiliary>
         );
     }
 }
 
-export default ProjectPage;
+export default withRouter(ProjectPage);

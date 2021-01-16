@@ -19,6 +19,7 @@ class ProjectPage extends Component {
     title = "Submit Your Project";
     projectDisplay = null;
     imagesDisplay = null;
+    deleteDisplay = null;
 
     handleProjectNameChange = (event) => {
         this.setState({projectName: event.target.value});
@@ -76,6 +77,7 @@ class ProjectPage extends Component {
             console.log('WE FOUND A NAME')
             this.title = "Edit Your Project";
             this.projectDisplay = <DisplayFullProject projectData={this.props.projectData} />;
+            this.deleteDisplay = <button className={classes.DeleteButton} onClick={this.props.handleDelete}>DELETE PROJECT</button>
         }
 
         this.imagesDisplay = this.state.fileInput.current !== null ? <DisplayImages images={this.state.imagePreviewUrl} /> : "Select some images";
@@ -85,7 +87,7 @@ class ProjectPage extends Component {
                 <div className={barClasses.Navbar2}></div>
                 
                 {this.projectDisplay}
-
+                {this.deleteDisplay}
                 <div className={classes.SubPageProject}>
                     <h1>{this.title}</h1>
                     <form onSubmit={this.handleSubmit}>
