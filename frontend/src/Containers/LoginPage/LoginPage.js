@@ -8,6 +8,7 @@ import axios from 'axios'
 class LoginPage  extends Component{
     
     state ={
+        loggedIn: false
     }
     
     postDataHandler=()=>{
@@ -16,13 +17,12 @@ class LoginPage  extends Component{
             password:this.state.password
         }
         axios.post('http://localhost:3001/api/v1/auth/login',data).then(response=> {
-         
-            localStorage.setItem('token',response.data.token)
-            this.setState({
-                loggedIn:true
-            })
+            localStorage.setItem('token',response.data.token);
+            if (response.status === 200) {
+                this.setState({loggedIn: true});
+                this.props.setUser(response.data.user);
+            }
            
-            this.props.setUser(response.data.user)
         }).catch(err => console.log(err));;
     }
     
@@ -33,15 +33,8 @@ class LoginPage  extends Component{
     render(){
         if (this.state.loggedIn) {
             // redirect to home if signed up
-            return (
-                <div>
-                <Redirect to="/home/profile"/>
-               {
-                   this.refreshpage()
-               }
-                </div>
-            );
-          }
+            return (<Redirect to="/home/profile/project"/>);
+        }
     return (
         <div className={classes.Login}>
             <div className={classes.All}>

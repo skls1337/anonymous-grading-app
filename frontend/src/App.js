@@ -1,5 +1,5 @@
 import React, { Component, } from 'react';
-import { Route, BrowserRouter, Redirect } from 'react-router-dom';
+import { Route, BrowserRouter, Redirect, Switch } from 'react-router-dom';
 
 import Auxiliary from './hoc/Auxiliary/Auxiliary';
 import MainPage from './Containers/MainPage/MainPage';
@@ -8,7 +8,7 @@ import axios from 'axios';
 
 class App extends Component {
 	state = {
-		
+
 	}
 
 	userAuthHandler = () => {
@@ -36,16 +36,17 @@ class App extends Component {
 	}
 
 	render() {
-
+		
 		return (
 			<Auxiliary>
 				<BrowserRouter>
 					<Route path={"/"} exact>
 						{this.state.isUserAuth ? <Redirect to="/home/profile/project" /> : <Redirect to="/start/login" />}
 					</Route>
-
-					<Route path='/start' render={() => <Background />} />
-					<Route path='/home' component={() => <MainPage user={this.state.user} projects={this.state.projects} />} />
+					<Switch>
+						<Route path='/start' render={() => <Background />} />
+						<Route path='/home' component={() => <MainPage user={this.state.user} projects={this.state.projects} />} />
+					</Switch>
 				</BrowserRouter>
 			</Auxiliary>
 		);

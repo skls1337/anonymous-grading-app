@@ -42,7 +42,7 @@ class ProjectPage extends Component {
         }).catch(err => console.log(err));
     }
 
-    componentWillUnmount() {
+    componentWillUnmount = () => {
         this._isMounted = false;
     }
 
