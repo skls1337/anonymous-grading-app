@@ -18,6 +18,7 @@ const ProjectRequirementsSchema = new mongoose.Schema({
             type:String
         }, 
         status: {
+            type:String,
             enum: ['0', '1', '2']
         }
     }]
