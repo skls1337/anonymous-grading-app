@@ -20,9 +20,9 @@ class ReviewTheProject extends Component {
         const str = projId.slice(-24)
         axios.get('http://localhost:3001/api/v1/projects/' + str).then(res => {
             this.setState({
-                title: res.data.data.title,
-                description: res.data.data.description,
-                upload: res.data.data.upload
+                title: res.data.data[0].title,
+                description: res.data.data[0].description,
+                upload: res.data.data[0].upload
             })
                 console.log(res.data.data)
         }).catch(err => console.log(err))

@@ -1,64 +1,65 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import Requirements from './Requirements/Requirements';
 import classes from './Project.css';
+import Axios from 'axios';
 
 let datas = {
     requirements: [
         {
-            text: 'Definirea a minim patru activități/fragmente de student; toate activitățile aplicației trebuiepopulate folosind controale vizuale corespunzătoare.',
+            requirement: 'Definirea a minim patru activități/fragmente de student; toate activitățile aplicației trebuiepopulate folosind controale vizuale corespunzătoare.',
             status: 2,
-            key: '0a',
+            _id: '0a',
         },
         {
-            text: 'Utilizarea de controale variate (Button, TextView, EditView, CheckBox, Spinner, ProgressBar,SeekBar, Switch, RatingBar, ImageView, DatePicker sau TimePicker)',
+            requirement: 'Utilizarea de controale variate (Button, TextView, EditView, CheckBox, Spinner, ProgressBar,SeekBar, Switch, RatingBar, ImageView, DatePicker sau TimePicker)',
             status: 1,
-            key: '0.1a',
+            _id: '0.1a',
         },
         {
-            text: 'Utilizarea a minim un formular de introducere a datelor;',
+            requirement: 'Utilizarea a minim un formular de introducere a datelor;',
             status: 0,
-            key: '1a',
+            _id: '1a',
         },
         {
-            text: 'Transferul de parametri (obiecte proprii și primitive) între minim două activități/fragmente;',
+            requirement: 'Transferul de parametri (obiecte proprii și primitive) între minim două activități/fragmente;',
             status: 0,
-            key: '2a',
+            _id: '2a',
         },
         {
-            text: 'Implementarea unui adaptor personalizat (cel puțin trei controale vizuale, dintre care douădiferite);',
+            requirement: 'Implementarea unui adaptor personalizat (cel puțin trei controale vizuale, dintre care douădiferite);',
             status: 0,
-            key: '3a',
+            _id: '3a',
         },
         {
-            text: 'Implementarea unui adaptor personalizat (cel puțin trei controale vizuale, dintre care douădiferite);',
+            requirement: 'Implementarea unui adaptor personalizat (cel puțin trei controale vizuale, dintre care douădiferite);',
             status: 0,
-            key: '4a',
+            _id: '4a',
         },
         {
-            text: 'Implementarea unui adaptor personalizat (cel puțin trei controale vizuale, dintre care douădiferite);',
+            requirement: 'Implementarea unui adaptor personalizat (cel puțin trei controale vizuale, dintre care douădiferite);',
             status: 0,
-            key: '5a',
+            _id: '5a',
         },
         {
-            text: 'Implementarea unui adaptor personalizat (cel puțin trei controale vizuale, dintre care douădiferite);',
+            requirement: 'Implementarea unui adaptor personalizat (cel puțin trei controale vizuale, dintre care douădiferite);',
             status: 0,
-            key: '6a',
+            _id: '6a',
         },
         {
-            text: 'Implementarea unui adaptor personalizat (cel puțin trei controale vizuale, dintre care douădiferite);',
+            requirement: 'Implementarea unui adaptor personalizat (cel puțin trei controale vizuale, dintre care douădiferite);',
             status: 0,
-            key: '7a',
+            _id: '7a',
         },
         {
-            text: 'Implementarea unui adaptor personalizat (cel puțin trei controale vizuale, dintre care douădiferite);',
+            requirement: 'Implementarea unui adaptor personalizat (cel puțin trei controale vizuale, dintre care douădiferite);',
             status: 0,
-            key: '8a',
+            _id: '8a',
         },
         {
-            text: 'Stilizarea aplicației mobile – pentru minim trei proprietăți ale componentelor vizuale -- (se creează o temă nouă în fișierul styles.xml sau stil nou);',
+            requirement: 'Stilizarea aplicației mobile – pentru minim trei proprietăți ale componentelor vizuale -- (se creează o temă nouă în fișierul styles.xml sau stil nou);',
             status: 0,
-            key: '9a',
+            _id: '9a',
         },
     ],
     description:
@@ -67,17 +68,45 @@ let datas = {
     deadline: '1/5/2022',
 };
 
-const project = () => {
-    return (
-        <div className={classes.Project}>
-            <div className={classes.Text}>
-                <p>{datas.description}</p>
+class project extends Component {
+
+    state={
+        requirements:[]
+    }
+
+    getProjectRequirments=()=>{
+        Axios.get("http://localhost:3001/api/v1/projectrequirements/").then(res=>{
+            const requirements=res.data.data
+            this.setState({
+                description:requirements.description,
+                requirements:requirements.requirements,
+                deadline:requirements.deadline
+            })
+        }).catch(err=>console.log(err))
+    }
+
+    componentDidMount=()=>{
+        this.getProjectRequirments()
+    }
+
+    render() {
+
+        return (
+            <div className={classes.Project}>
+                <div className={classes.Text}>
+                    <p>{this.state.description}</p>
+                </div>
+
+                {
+                    console.log(this.state.requirements)
+                }
+
+                <Requirements controls={this.state.requirements} />
+                <p style={{ backgroundColor: '#FEFFFF' }}>Upcoming Deliverable: {datas.nextDel}</p>
+                <p style={{ backgroundColor: '#FEFFFF' }}>Deadline: {this.state.deadline}</p>
             </div>
-            <Requirements controls={datas.requirements} />
-            <p style={{ backgroundColor: '#FEFFFF' }}>Upcoming Deliverable: {datas.nextDel}</p>
-            <p style={{ backgroundColor: '#FEFFFF' }}>Deadline: {datas.deadline}</p>
-        </div>
-    );
+        );
+    }
 };
 
 export default project;

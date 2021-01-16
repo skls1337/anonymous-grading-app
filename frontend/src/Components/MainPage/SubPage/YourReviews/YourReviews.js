@@ -29,33 +29,49 @@ const data = [
 class yourReviews extends Component {
     
     state={
-        reviews:[],
-    
+        yourReviews:[]
     }
-    
+    userId;
     
 
-    getYourProject = () => {
+    getYourProjectReviews = () => {
         const strUser=this.props.user.data._id
-        axios.get("http://localhost:3001/api/v1/projects/user/"+strUser).then(res => {
-            const Data = res.data.data._id
-           this.setState({project:Data})
+        axios.get("http://localhost:3001/api/v1/projects/user/"+strUser).then( res => {
+            const project = res.data.data
+           const projId=project[0]._id
+           this.userId=projId
+           this.setState({
+                projId:projId
+           })
+           axios.get("http://localhost:3001/api/v1/reviews/projectreviews/"+this.userId).then(res=>{
+            const Data = res.data.data
+            Data.forEach(element => {
+                delete element.__v
+                delete element._id
+                delete element.createdAt
+                delete element.user
+            });
+           
+        this.setState({yourReviews:Data})
+            console.log(this.state.yourReviews);
+            }).catch(err=>console.log(err))
        }).catch(err => console.log(err))
     }
 
-    getYourReviews=()=>{
-       
-    }
-
+   
     componentDidMount=()=>{
-        this.getYourProject()
+        this.getYourProjectReviews()
+    
     }
+   
     render(){
     
     return (
         <div className={classes.SubRev}>
-            {console.log(this.state.project)}
-            {/* <ReviewsList controls={data} /> */}
+          {
+              console.log(this.state.yourReviews)
+          }
+            {/* { <ReviewsList controls={this.state.yourReviews} /> } */}
         </div>
     );
 }
