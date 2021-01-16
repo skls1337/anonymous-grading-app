@@ -18,13 +18,15 @@ class ReviewTheProject extends Component {
     getProjecById = () => {
         const projId = window.location.pathname
         const str = projId.slice(-24)
+        console.log(str);
         axios.get('http://localhost:3001/api/v1/projects/' + str).then(res => {
+            console.log(res.data);
             this.setState({
                 title: res.data.data[0].title,
                 description: res.data.data[0].description,
                 upload: res.data.data[0].upload
             })
-                console.log(res.data.data)
+              
         }).catch(err => console.log(err))
     }
     handleCreateReview=()=>{

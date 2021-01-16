@@ -75,7 +75,7 @@ class project extends Component {
     }
 
     getProjectRequirments=()=>{
-        Axios.get("http://localhost:3001/api/v1/projectrequirements/").then(res=>{
+        Axios.get("http://localhost:3001/api/v1/projectrequirements").then(res=>{
             const requirements=res.data.data
             this.setState({
                 description:requirements.description,

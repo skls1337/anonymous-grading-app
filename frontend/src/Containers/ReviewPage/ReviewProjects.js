@@ -29,6 +29,7 @@ class ReviewProjects extends Component {
         }
         return (
             <div className={classes.SubPage}>
+                {console.log(projects)}
                 {items}  
             </div>
 
