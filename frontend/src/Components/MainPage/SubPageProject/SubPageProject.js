@@ -49,6 +49,7 @@ class ProjectPage extends Component {
                 file: file,
                 imagePreviewUrl: reader.result
             });
+            console.log(this.state.imagePreviewUrl);
         }
 
         reader.readAsDataURL(file)
@@ -68,9 +69,10 @@ class ProjectPage extends Component {
             video: this.state.youTubeLink,
             upload: this.state.gitHubLink,
             title: this.state.projectName,
-            author: this.props.user.fullname,
+            author: this.props.user.data.fullname,
             description: this.state.shortDescription,
-            body: this.state.fullDescription
+            body: this.state.fullDescription,
+            images: this.state.file
         }
 
         if(!this.projectData.title || !this.projectData.body || !this.projectData.description || !this.projectData.upload){
@@ -78,8 +80,14 @@ class ProjectPage extends Component {
             return;
         }
 
-        console.log("Data:")
+        console.log("Data:");
         console.log(this.projectData);
+        try{
+            console.log(this.projectData.images.name);
+        } catch (Exception) {
+
+        }
+        
 
         try {
             console.log(this.state.fileInput.current.files);
@@ -94,24 +102,6 @@ class ProjectPage extends Component {
                 res => {
                     console.log("Creating Project");
                     console.log(res);
-
-                    if (this.state.file) {
-                        axios.get(`http://localhost:3001/api/v1/projects/user/${this.props.user.id}`).then(res => {
-                            console.log("Getting new project ID");
-                            console.log(res);
-                            const projectID = res.data.data[0]._id;
-
-                            this.changeId(projectID);
-                            console.log("Id found:" + projectID);
-
-                            console.log(this.state.file);
-                            axios.put(`http://localhost:3001/api/v1/projects/${this.projectId}/photo`, { images: this.state.file }).then(res => {
-                                console.log("Sending photo" + this.state.file);
-                                console.log(res);
-                            })
-
-                        }).catch(err => console.log(err));
-                    }
                 }
             ).catch(err => console.log(err));
         }
