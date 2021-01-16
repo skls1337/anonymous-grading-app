@@ -31,17 +31,14 @@ class App extends Component {
 		this.setState({
 			user: User,
 			isUserAuth: true
-		});
-		console.log("EEEE")
-		
+		});		
 	}
 
 	render() {
 		return (
 			<Auxiliary>
 				<BrowserRouter>
-					<Route path={"/"} exact>
-						
+					<Route path={"/"} exact>			
 						{this.state.isUserAuth ? <Redirect to="/home/profile/project" /> : <Redirect to="/start/login" />}
 					</Route>
 					<Switch>

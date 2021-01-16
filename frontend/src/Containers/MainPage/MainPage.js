@@ -13,7 +13,6 @@ class MainPage extends Component {
 
     render() {
         if (this.props.user) {
-            console.log(this.props.user);
             return (
                 <Auxiliary>
                     <Navbar log={this.props.log} />
