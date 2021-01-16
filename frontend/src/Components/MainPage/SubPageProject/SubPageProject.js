@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import DisplayImages from '../../Multi/DisplayImages/DisplayImages'
 import DisplayFullProject from '../../../Components/Multi/DisplayFullProject/DisplayFullProject';
@@ -18,65 +18,87 @@ class ProjectPage extends Component {
         fileInput: React.createRef()
     }
     title = "Submit Your Project";
+    projectId = '';
     projectDisplay = null;
     imagesDisplay = null;
     deleteDisplay = null;
 
     handleProjectNameChange = (event) => {
-        this.setState({projectName: event.target.value});
+        this.setState({ projectName: event.target.value });
     }
 
     handleShortDescriptionChange = (event) => {
-        this.setState({shortDescription: event.target.value});
+        this.setState({ shortDescription: event.target.value });
     }
 
     handleFullDescriptionChange = (event) => {
-        this.setState({fullDescription: event.target.value});
+        this.setState({ fullDescription: event.target.value });
     }
 
     handleImagesChange = (event) => {
         event.preventDefault();
-        
+
         let reader = new FileReader();
         let file = this.state.fileInput.current.files[0]
 
         reader.onloadend = () => {
             this.setState({
-              file: file,
-              imagePreviewUrl: reader.result
+                file: file,
+                imagePreviewUrl: reader.result
             });
-        } 
+        }
 
         reader.readAsDataURL(file)
     }
 
     handleYouTubeLinkChange = (event) => {
-        this.setState({youTubeLink: event.target.value});
+        this.setState({ youTubeLink: event.target.value });
     }
 
     handleGitHubLinkChange = (event) => {
-        this.setState({gitHubLink: event.target.value});
+        this.setState({ gitHubLink: event.target.value });
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        try{
+        try {
             console.log(this.state.fileInput.current.files);
         } catch (Exception) {
             console.log('No Photo Sir');
         }
 
-        axios.post('http://localhost:3001/api/v1/projects', { images: this.state.file, video: this.state.youTubeLink, upload: this.state.gitHubLink, title: this.state.projectName, author: this.props.user.fullname, description: this.state.shortDescription, body: this.state.fullDescription}).then(
+        axios.post('http://localhost:3001/api/v1/projects', { video: this.state.youTubeLink, upload: this.state.gitHubLink, title: this.state.projectName, author: this.props.user.fullname, description: this.state.shortDescription, body: this.state.fullDescription }).then(
             res => {
+                console.log("Creating Project");
                 console.log(res);
+                axios.get(`http://localhost:3001/api/v1/projects/user/${this.props.user.id}`).then(res => {
+                    console.log("Getting new project ID");
+                    console.log(res);
+                    const project = res.data.data[0];
+
+                    this.changeId(project._id);
+                    console.log("Id found:" + project._id);
+
+                    console.log(this.state.file);
+                    axios.put(`http://localhost:3001/api/v1/projects/${this.projectId}/photo`, { images: this.state.file }).then(res => {
+                        console.log("Sending photo" + this.state.file);
+                        console.log(res);
+                    })
+                    
+                }).catch(err => console.log(err));
+                this.props.history.push('/home/profile/project');
             }
-            
-        );
-        this.props.history.push('/home/profile/project');
+        ).catch(err => console.log(err));
+
+
+    }
+
+    changeId = (id) => {
+        this.projectId = id;
     }
 
     render() {
-        if(this.props.projectData.projectName !== ''){
+        if (this.props.projectData.projectName !== '') {
             console.log('WE FOUND A NAME')
             this.title = "Edit Your Project";
             this.projectDisplay = <DisplayFullProject projectData={this.props.projectData} />;
@@ -88,7 +110,7 @@ class ProjectPage extends Component {
         return (
             <div className={subPageClasses.SubPage}>
                 <div className={barClasses.Navbar2}></div>
-                
+
                 {this.projectDisplay}
                 {this.deleteDisplay}
                 <div className={classes.SubPageProject}>
@@ -104,7 +126,7 @@ class ProjectPage extends Component {
                         </label>
                         <label>
                             <p>Enter the Full Description of Your Project</p>
-                            <textarea type='text' maxLength='6000' value={this.state.fullDescription} onChange={this.handleFullDescriptionChange} style={{height: '600px'}} />
+                            <textarea type='text' maxLength='6000' value={this.state.fullDescription} onChange={this.handleFullDescriptionChange} style={{ height: '600px' }} />
                         </label>
                         <label>
                             <p>Add a Descriptive Image</p>
