@@ -30,7 +30,7 @@ exports.getProjectById = async (req, res, next) => {
     try {
         req.body.user = req.user.id;
         
-        const projects = await Projects.find( {user: req.user.id} );
+        const projects = await Projects.findById(req.params.id);
 
         if (!projects) {
             return next(
@@ -97,9 +97,40 @@ exports.createProject = async (req, res, next) => {
 
         const projects = await Projects.create(req.body);
         
+
+        if(!req.files){
+            return next(new ErrorResponse(`Please upload a file`, 400));
+        }
+    
+        const file = req.files.images;
+        //console.log(file);
+
+        // Make sure the image is a photo
+        if(!file.mimetype.startsWith('image')) {
+            return next(new ErrorResponse(`Please upload an image file`, 400));
+        }
+    
+        // Check file size
+        if(file.size > process.env.MAX_FILE_UPLOAD){
+            return next(new ErrorResponse(`Please upload an image less than ${process.env.MAX_FILE_UPLOAD}`, 400));
+        }
+    
+        // Create custom filename
+        file.name = `image_${projects._id}${path.parse(file.name).ext}`;
+    
+        file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, async err =>{
+            if(err){
+                console.error(err);
+                return next(new ErrorResponse(`Problem with file upload`, 500));
+            }
+    
+            await Projects.findByIdAndUpdate(projects._id, { images: file.name });
+            console.log(projects._id);
+        });
+
         res.status(201).json({
             success: true,
-            data: projects,
+            data: projects
         });
     } catch (err) {
         next(err);
