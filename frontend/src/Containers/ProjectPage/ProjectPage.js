@@ -45,7 +45,7 @@ class ProjectPage extends Component {
             if (this._isMounted) {
                 const project = res.data.data[0];
                 console.log(project);
-                console.log(project.images[0]);
+                console.log(project.images);
                 
                 this.setState({
                     projectData: {
@@ -54,11 +54,10 @@ class ProjectPage extends Component {
                         fullDescription: project.body,
                         ytLink: project.video,
                         ghLink: project.upload,
-                        images: project.images[0],
+                        images: project.images,
                         projectId: project._id
                     }
                 });
-                this.props.history.push('/home/profile/project');
             }
 
         }).catch(err => console.log(err));
@@ -72,7 +71,7 @@ class ProjectPage extends Component {
         return (
             <Auxiliary>
                 <div className={classes.ProjectPage}>
-                    <SubPage projectData={this.state.projectData} handleDelete={this.handleDelete}/>
+                    <SubPage projectData={this.state.projectData} user={this.props.user} handleDelete={this.handleDelete}/>
                 </div>
             </Auxiliary>
         );

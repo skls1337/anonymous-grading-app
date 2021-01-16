@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom';
 
 import DisplayImages from '../../Multi/DisplayImages/DisplayImages'
 import DisplayFullProject from '../../../Components/Multi/DisplayFullProject/DisplayFullProject';
@@ -65,11 +66,13 @@ class ProjectPage extends Component {
             console.log('No Photo Sir');
         }
 
-        axios.post('http://localhost:3001/api/v1/projects', { images: this.state.imagePreviewUrl, video: this.state.youTubeLink, upload: this.state.gitHubLink, title: this.state.projectName,      description: this.state.shortDescription, body: this.state.fullDescription}).then(
+        axios.post('http://localhost:3001/api/v1/projects', { images: this.state.file, video: this.state.youTubeLink, upload: this.state.gitHubLink, title: this.state.projectName, author: this.props.user.fullname, description: this.state.shortDescription, body: this.state.fullDescription}).then(
             res => {
                 console.log(res);
             }
-        )
+            
+        );
+        this.props.history.push('/home/profile/project');
     }
 
     render() {
@@ -124,4 +127,4 @@ class ProjectPage extends Component {
     }
 }
 
-export default ProjectPage;
+export default withRouter(ProjectPage);

@@ -23,10 +23,10 @@ const ProjectsSchema = new mongoose.Schema({
         required: [true, 'Please add a body'],
         maxlength: [5000, 'Body should not be more than 5000 characters']
     },
-    images: [{
+    images: {
         type: String,
         default: 'no-photo.jpg'
-    }],
+    },
     video: {
         type: String,
         default: 'no-video'
