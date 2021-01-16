@@ -87,13 +87,6 @@ class ProjectPage extends Component {
         } catch (Exception) {
 
         }
-        
-
-        try {
-            console.log(this.state.fileInput.current.files);
-        } catch (Exception) {
-            console.log('No Photo Sir');
-        }
 
         if (this.props.projectData.projectName !== '') {
             this.handleUpdate(this.projectData);
