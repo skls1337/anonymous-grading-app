@@ -24,7 +24,7 @@ class ReviewTheProject extends Component {
                 description: res.data.data.description,
                 upload: res.data.data.upload
             })
-
+                console.log(res.data.data)
         }).catch(err => console.log(err))
     }
     handleCreateReview=()=>{

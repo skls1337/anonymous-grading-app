@@ -37,11 +37,16 @@ class yourReviews extends Component {
 
     getYourProject = () => {
         const strUser=this.props.user.data._id
-        axios.get("http://localhost:3001/api/v1/projects/"+strUser).then(res => {
-            const Data = res.data.data
+        axios.get("http://localhost:3001/api/v1/projects/user/"+strUser).then(res => {
+            const Data = res.data.data._id
            this.setState({project:Data})
        }).catch(err => console.log(err))
     }
+
+    getYourReviews=()=>{
+       
+    }
+
     componentDidMount=()=>{
         this.getYourProject()
     }
