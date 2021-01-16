@@ -49,7 +49,7 @@ class ProjectPage extends Component {
                 file: file,
                 imagePreviewUrl: reader.result
             });
-            console.log(this.state.imagePreviewUrl);
+            console.log(this.state.file);
         }
 
         reader.readAsDataURL(file)
@@ -72,7 +72,7 @@ class ProjectPage extends Component {
             author: this.props.user.data.fullname,
             description: this.state.shortDescription,
             body: this.state.fullDescription,
-            images: this.state.file
+            images: this.state.imagePreviewUrl
         }
 
         if(!this.projectData.title || !this.projectData.body || !this.projectData.description || !this.projectData.upload){
@@ -122,7 +122,7 @@ class ProjectPage extends Component {
 
     render() {
         if (this.props.projectData.projectName !== '') {
-            console.log('WE FOUND A NAME')
+            console.log('WE FOUND A NAME');
             this.title = "Edit Your Project";
             this.projectDisplay = <DisplayFullProject projectData={this.props.projectData} />;
             this.deleteDisplay = <button className={classes.DeleteButton} onClick={this.props.handleDelete}>DELETE PROJECT</button>
