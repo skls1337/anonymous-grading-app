@@ -45,7 +45,6 @@ class ProjectPage extends Component {
             if (this._isMounted) {
                 const project = res.data.data[0];
                 console.log(project);
-                console.log(project.images);
                 console.log(project.video);
                 
                 this.setState({

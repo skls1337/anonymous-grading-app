@@ -7,9 +7,8 @@ import Reviews from '../ReviewPage/Reviews';
 import ProjectPage from '../ProjectPage/ProjectPage';
 
 class MainPage extends Component {
-    state = {
+    state = {};
 
-    }
     render() {
         if (this.props.user) {
             return (
