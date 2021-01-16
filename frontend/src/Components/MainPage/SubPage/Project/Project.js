@@ -71,7 +71,10 @@ let datas = {
 class project extends Component {
 
     state={
-        requirements:[]
+        requirements:[],
+        deadline:[],
+        description:'',
+        currentDeadline:''
     }
 
     getProjectRequirments=()=>{
@@ -82,6 +85,28 @@ class project extends Component {
                 requirements:requirements.requirements,
                 deadline:requirements.deadline
             })
+
+            var today = new Date();
+            var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            console.log(date);
+            var ddl=[]
+            this.state.deadline.forEach(element => {
+                ddl.push(new Date(element.substr(0,10)))
+            });
+            ddl.forEach(el=>{
+                if(today>el){
+                    console.log(el);
+                    var date = el.getFullYear()+'-'+(el.getMonth()+1)+'-'+el.getDate();
+                    this.setState({currentDeadline:date})
+                }else{
+                    console.log("clg din else"+ el);
+                    var date = el.getFullYear()+'-'+(el.getMonth()+1)+'-'+el.getDate();
+                    this.setState({currentDeadline:date})
+                    throw 1
+                }
+                
+            })
+            console.log(this.state.currentDeadline);
         }).catch(err=>console.log(err))
     }
 
@@ -98,12 +123,12 @@ class project extends Component {
                 </div>
 
                 {
-                    console.log(this.state.requirements)
+                    console.log(this.state.currentDeadline)
                 }
 
                 <Requirements controls={this.state.requirements} />
                 <p style={{ backgroundColor: '#FEFFFF' }}>Upcoming Deliverable: {datas.nextDel}</p>
-                <p style={{ backgroundColor: '#FEFFFF' }}>Deadline: {this.state.deadline}</p>
+                <p style={{ backgroundColor: '#FEFFFF' }}>Deadline: {this.state.currentDeadline}</p>
             </div>
         );
     }

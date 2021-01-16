@@ -38,7 +38,7 @@ class ReviewTheProject extends Component {
             const projData = {
                 projectName: res.data.data.title,
                 shortDescription: res.data.data.description,
-                fullDescription: res.data.data.description,
+                fullDescription: res.data.data.body,
                 ytLink: res.data.data.video,
                 ghLink: res.data.data.upload,
                 images: res.data.data.images
@@ -125,7 +125,7 @@ class ReviewTheProject extends Component {
             <br></br>
             <div className={classesDisplay.DisplayFullProject}
             
-            style={{width:"300%",marginLeft:"100px",marginRight:"100px"}}>
+            style={{width:"120%",marginLeft:"100px",marginRight:"100px"}}>
                 <DisplayFullProject projectData={this.state.projectData} />
             </div>
             </div>
