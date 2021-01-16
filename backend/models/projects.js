@@ -29,11 +29,11 @@ const ProjectsSchema = new mongoose.Schema({
     },
     video: {
         type: String,
-        default: 'no-video'
+        default: ''
     },  
-    upload: { //// TODO: Upload .zip cand am timp
+    upload: {
         type: String, 
-        default: 'github.com'
+        required: [true, 'Please add github link']
     },
     createdAt: {
         type: Date,
