@@ -7,6 +7,7 @@ import pp from '../../Assets/drawables/placeholderPP2.png';
 import classes from './ProfilePage.css';
 
 class ProfilePage extends Component {
+
     render() {
         return (
             <Auxiliary>

@@ -7,10 +7,13 @@ import Reviews from '../ReviewPage/Reviews';
 import ProjectPage from '../ProjectPage/ProjectPage';
 
 class MainPage extends Component {
-    state = {};
+    state = {
+        
+    };
 
     render() {
         if (this.props.user) {
+            console.log(this.props.user);
             return (
                 <Auxiliary>
                     <Navbar log={this.props.log} />

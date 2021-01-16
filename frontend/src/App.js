@@ -18,34 +18,35 @@ class App extends Component {
 
 	componentDidMount = () => {
 		axios.get('http://localhost:3001/api/v1/auth/me').then(res => {
-			this.setUser(res.data)
-		}).catch(err => { console.log(err); })
+			this.setUser(res.data);
+		}).catch(err => { console.log(err); });
 		axios.get('http://localhost:3001/api/v1/projects').then(res => {
 			this.setState({
 				projects: res.data
-			})
-		}).catch(err => { console.log(err); })
-
+			});
+		}).catch(err => { console.log(err); });
 	}
 
-	setUser = User => {
+	setUser = (User) => {
 		this.setState({
 			user: User,
 			isUserAuth: true
-		})
+		});
+		console.log("EEEE")
+		
 	}
 
 	render() {
-		
 		return (
 			<Auxiliary>
 				<BrowserRouter>
 					<Route path={"/"} exact>
+						
 						{this.state.isUserAuth ? <Redirect to="/home/profile/project" /> : <Redirect to="/start/login" />}
 					</Route>
 					<Switch>
 						<Route path='/start' render={() => <Background />} />
-						<Route path='/home' component={() => <MainPage user={this.state.user} projects={this.state.projects} />} />
+						<Route path='/home' render={() => <MainPage user={this.state.user} projects={this.state.projects} />} />
 					</Switch>
 				</BrowserRouter>
 			</Auxiliary>

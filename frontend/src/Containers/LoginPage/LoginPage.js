@@ -27,7 +27,7 @@ class LoginPage extends Component {
 
     render() {
         if (this.state.loggedIn) {
-            return (<Redirect to="/home/profile/project" />);
+            return (<Redirect to="/" />);
         }
         return (
             <div className={classes.Login}>
@@ -49,7 +49,7 @@ class LoginPage extends Component {
                         <div id="Partea Stanga" className={classes.St}>
 
                             <br></br>
-                            <div className={classes.Cercuri}>
+                            <div className={classes.Cercuri} >
                                 <p>Sign in</p>
                             </div>
 
