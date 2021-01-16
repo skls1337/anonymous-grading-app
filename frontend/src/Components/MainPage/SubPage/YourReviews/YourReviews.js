@@ -71,7 +71,7 @@ class yourReviews extends Component {
           {
               console.log(this.state.yourReviews)
           }
-            {/* { <ReviewsList controls={this.state.yourReviews} /> } */}
+            {  <ReviewsList controls={this.state.yourReviews} />  }
         </div>
     );
 }
