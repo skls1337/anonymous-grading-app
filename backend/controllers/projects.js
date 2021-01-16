@@ -30,7 +30,7 @@ exports.getProjectById = async (req, res, next) => {
     try {
         req.body.user = req.user.id;
         
-        const projects = await Projects.find( {user: req.user.id} );
+        const projects = await Projects.findById(req.params.id);
 
         if (!projects) {
             return next(

@@ -2,11 +2,25 @@ import React, { Component } from 'react';
 import classes from './ReviewTheProject.css'
 import buttonClasses from './ReviewProjects.css'
 import axios from 'axios'
+import DisplayFullProject from '../../Components/Multi/DisplayFullProject/DisplayFullProject'
+import classesDisplay from '../../Components/Multi/DisplayFullProject/DisplayFullProject.css'
+
+
 
 class ReviewTheProject extends Component {
     state = {
-        grade:undefined,
-        reviewLabels:undefined
+        grade: undefined,
+        reviewLabels: undefined,
+        projectData: {
+            projectName: '',
+            shortDescription: '',
+            fullDescription: '',
+            ytLink: '',
+            ghLink: '',
+            images: '',
+            projectId: ''
+        }
+
     }
     tags = new Set();
     handleChange = (e) => {
@@ -21,40 +35,51 @@ class ReviewTheProject extends Component {
         console.log(str);
         axios.get('http://localhost:3001/api/v1/projects/' + str).then(res => {
             console.log(res.data);
+            const projData = {
+                projectName: res.data.data.title,
+                shortDescription: res.data.data.description,
+                fullDescription: res.data.data.description,
+                ytLink: res.data.data.video,
+                ghLink: res.data.data.upload,
+                images: res.data.data.images
+            }
             this.setState({
-                title: res.data.data[0].title,
-                description: res.data.data[0].description,
-                upload: res.data.data[0].upload
+                title: res.data.data.title,
+                description: res.data.data.description,
+                upload: res.data.data.upload,
+                projectData: projData
+
             })
-              
+
         }).catch(err => console.log(err))
     }
-    handleCreateReview=()=>{
+    handleCreateReview = () => {
         const projId = window.location.pathname
         const str = projId.slice(-24)
-        const labelsToSend=Array.from(this.tags)
-        const review={
-            label:labelsToSend,
-            grade:this.state.grade
+        const labelsToSend = Array.from(this.tags)
+        const review = {
+            label: labelsToSend,
+            grade: this.state.grade
         }
-        axios.post('http://localhost:3001/api/v1/reviews/' + str,review).then(res=>{
+        axios.post('http://localhost:3001/api/v1/reviews/' + str, review).then(res => {
             console.log(res);
-        }).catch(err=>console.log(err))
+        }).catch(err => console.log(err))
     }
     componentDidMount() {
         this.getProjecById()
+
+
     }
+
     render() {
 
         return (
             <div >
-                <div className={classes.SubPage}>
-
-                    <h1 style={{ padding: "10px", textAlign: "center", paddingBottom: "20px" }}>Title:{this.state.title}</h1>
-                    <p style={{ padding: "10px", textAlign: "center", paddingBottom: "20px", fontSize: "20PX" }}>Description:{this.state.description}</p>
-                    <a href={this.state.upload} style={{ padding: "10px", textAlign: "center", paddingBottom: "20px" }}><p>Link: {this.state.upload}</p></a>
-
-
+                <br></br>
+                <br></br>
+                <br></br>
+                <div className={classesDisplay.DisplayFullProject}>
+                    <DisplayFullProject projectData={this.state.projectData} />
                 </div>
 
                 <div className={classes.SubPage}>
@@ -62,7 +87,7 @@ class ReviewTheProject extends Component {
                     <h1 style={{ padding: "10px", textAlign: "center", paddingBottom: "20px" }}>Review the project</h1>
                     <p style={{ padding: "10px", textAlign: "center", paddingBottom: "20px", fontSize: "20PX" }}>Grade</p>
                     <div style={{ width: "5%", margin: "auto", marginBottom: '10px' }}>
-                        <select className={buttonClasses.select}  onChange={(e)=>this.setState({grade:e.target.value})}>
+                        <select className={buttonClasses.select} onChange={(e) => this.setState({ grade: e.target.value })}>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -83,9 +108,9 @@ class ReviewTheProject extends Component {
                                 }}>{value}</button>)
                         }
                     </div>
-                    <button 
-                    onClick={this.handleCreateReview}
-                    className={buttonClasses.ReviewButton} >Review this project</button>
+                    <button
+                        onClick={this.handleCreateReview}
+                        className={buttonClasses.ReviewButton} >Review this project</button>
                 </div>
 
             </div>
