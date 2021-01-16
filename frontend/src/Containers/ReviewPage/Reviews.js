@@ -11,7 +11,7 @@ class Review extends Component {
             return (
                 <Auxiliary>
                     <div className={classes.ProfilePage}>
-                        <SubPageReview projects={this.props.projects}/>
+                        <SubPageReview projects={this.props.projects} user={this.props.user}/>
 
 
                     </div>

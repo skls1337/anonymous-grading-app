@@ -72,7 +72,7 @@ class ReviewTheProject extends Component {
     }
 
     render() {
-
+            if(this.props.user.data.role==="reviewer"){   
         return (
             <div >
                 <br></br>
@@ -81,6 +81,8 @@ class ReviewTheProject extends Component {
                 <div className={classesDisplay.DisplayFullProject}>
                     <DisplayFullProject projectData={this.state.projectData} />
                 </div>
+
+               
 
                 <div className={classes.SubPage}>
                     {/*Review here*/}
@@ -114,10 +116,21 @@ class ReviewTheProject extends Component {
                 </div>
 
             </div>
-
-
-
         );
+    }else{
+        return(
+            <div  >
+            <br></br>
+            <br></br>
+            <br></br>
+            <div className={classesDisplay.DisplayFullProject}
+            
+            style={{width:"300%",marginLeft:"100px",marginRight:"100px"}}>
+                <DisplayFullProject projectData={this.state.projectData} />
+            </div>
+            </div>
+        )
+    }
 
     }
 

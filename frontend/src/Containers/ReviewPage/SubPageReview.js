@@ -20,7 +20,7 @@ class SubPageReview extends Component {
             <div>
                 <Switch>
                     <Route path="/home/review/review-projects" render={(props) => <ReviewProjects projects={this.props.projects} />} />
-                    <Route path="/home/review/:id" render={(props) => <ReviewTheProject />} />
+                    <Route path="/home/review/:id" render={(props) => <ReviewTheProject user={this.props.user}/>} />
                 </Switch>
 
             </div>
