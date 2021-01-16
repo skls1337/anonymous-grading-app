@@ -73,8 +73,8 @@ class ProjectPage extends Component {
             body: this.state.fullDescription
         }
 
-        if(!this.projectData.title || !this.projectData.body || !this.projectData.description){
-            alert("The project needs to have a title, short description and full description");
+        if(!this.projectData.title || !this.projectData.body || !this.projectData.description || !this.projectData.upload){
+            alert("The project needs to have a title, short description, full description and a project link");
             return;
         }
 

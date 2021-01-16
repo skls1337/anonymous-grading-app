@@ -23,7 +23,7 @@ class LoginPage  extends Component{
                 this.props.setUser(response.data.user);
             }
            
-        }).catch(err => console.log(err));;
+        }).catch(err => console.log(err));
     }
     
     refreshpage=()=>{
