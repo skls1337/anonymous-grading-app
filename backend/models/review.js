@@ -39,20 +39,30 @@ ReviewSchema.statics.getAverageGrade = async function (projectId) {
         {
             $group: {
                 _id: '$project',
-                averageGrade: { $avg: '$grade'}
+                averageGrade: { $avg: '$grade'},
+                myMax: {$max: '$grade'},
+                myMin: {$min: '$grade'},
+                mySum: {$sum: '$grade'},
+                count: {$sum: 1}
             }
         }
     ]);
-    
+   
     try {
+        // console.log(obj[0].myMax)
+        // console.log(obj[0].myMin)
+        // console.log(obj[0].mySum)
+        // console.log(obj[0].count)
+
+        let avg = (obj[0].mySum-obj[0].myMax-obj[0].myMin)/(obj[0].count-2)
+        // console.log(avg)
         await this.model('Projects').findByIdAndUpdate(projectId, {
-            averageGrade: obj[0].averageGrade.toFixed(2)
+            averageGrade: avg
         });
     } catch (err) {
         console.error(err)
     }
 };
-
 // Call getavggrade after save
 ReviewSchema.post('save', async function () {
     await this.constructor.getAverageGrade(this.project);
