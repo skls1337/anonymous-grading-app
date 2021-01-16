@@ -46,10 +46,11 @@ class ProjectPage extends Component {
                 const project = res.data.data[0];
                 console.log(project);
                 console.log(project.images);
+                console.log(project.video);
                 
                 this.setState({
                     projectData: {
-                        projectName: project.title === undefined ? '' : project.title,
+                        projectName: (project.title === undefined) ? '' : project.title,
                         shortDescription: project.description,
                         fullDescription: project.body,
                         ytLink: project.video,

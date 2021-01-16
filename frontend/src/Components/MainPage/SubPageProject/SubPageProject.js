@@ -16,7 +16,10 @@ class ProjectPage extends Component {
         youTubeLink: '',
         gitHubLink: '',
         fileInput: React.createRef()
-    }
+    };
+
+    projectData = {};
+
     title = "Submit Your Project";
     projectId = '';
     projectDisplay = null;
@@ -61,36 +64,73 @@ class ProjectPage extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
+        this.projectData = {
+            video: this.state.youTubeLink,
+            upload: this.state.gitHubLink,
+            title: this.state.projectName,
+            author: this.props.user.fullname,
+            description: this.state.shortDescription,
+            body: this.state.fullDescription
+        }
+
+        if(!this.projectData.title || !this.projectData.body || !this.projectData.description){
+            alert("The project needs to have a title, short description and full description");
+            return;
+        }
+
+        console.log("Data:")
+        console.log(this.projectData);
+
         try {
             console.log(this.state.fileInput.current.files);
         } catch (Exception) {
             console.log('No Photo Sir');
         }
 
-        axios.post('http://localhost:3001/api/v1/projects', { video: this.state.youTubeLink, upload: this.state.gitHubLink, title: this.state.projectName, author: this.props.user.fullname, description: this.state.shortDescription, body: this.state.fullDescription }).then(
-            res => {
-                console.log("Creating Project");
-                console.log(res);
-                axios.get(`http://localhost:3001/api/v1/projects/user/${this.props.user.id}`).then(res => {
-                    console.log("Getting new project ID");
+        if (this.props.projectData.projectName !== '') {
+            this.handleUpdate(this.projectData);
+        } else {
+            axios.post('http://localhost:3001/api/v1/projects', this.projectData).then(
+                res => {
+                    console.log("Creating Project");
                     console.log(res);
-                    const project = res.data.data[0];
 
-                    this.changeId(project._id);
-                    console.log("Id found:" + project._id);
+                    if (this.state.file) {
+                        axios.get(`http://localhost:3001/api/v1/projects/user/${this.props.user.id}`).then(res => {
+                            console.log("Getting new project ID");
+                            console.log(res);
+                            const projectID = res.data.data[0]._id;
 
-                    console.log(this.state.file);
-                    axios.put(`http://localhost:3001/api/v1/projects/${this.projectId}/photo`, { images: this.state.file }).then(res => {
-                        console.log("Sending photo" + this.state.file);
-                        console.log(res);
-                    })
-                    
-                }).catch(err => console.log(err));
-                this.props.history.push('/home/profile/project');
-            }
-        ).catch(err => console.log(err));
+                            this.changeId(projectID);
+                            console.log("Id found:" + projectID);
 
+                            console.log(this.state.file);
+                            axios.put(`http://localhost:3001/api/v1/projects/${this.projectId}/photo`, { images: this.state.file }).then(res => {
+                                console.log("Sending photo" + this.state.file);
+                                console.log(res);
+                            })
 
+                        }).catch(err => console.log(err));
+                    }
+                }
+            ).catch(err => console.log(err));
+        }
+
+        this.props.history.push('/home/profile/project');
+
+    }
+
+    handleUpdate = (projectData) => {
+        axios.get(`http://localhost:3001/api/v1/projects/user/${this.props.user.id}`).then(res => {
+            const projectID = res.data.data[0]._id;
+
+            this.changeId(projectID);
+
+            axios.put(`http://localhost:3001/api/v1/projects/${this.projectId}`, projectData).then(res => {
+                console.log(res);
+            }).catch(err => console.log(err));
+
+        }).catch(err => console.log(err));
     }
 
     changeId = (id) => {
