@@ -7,7 +7,7 @@ import classes from '../ProfilePage/ProfilePage.css'
 
 class Review extends Component {
     render() {
-        if (this.props.user.data.role === "prof" || this.props.user.data.role === "reviewer") {
+        if (this.props.user.data.role === "prof" || this.props.user.data.role === "reviewer"||this.props.user.data.role === "admin") {
             return (
                 <Auxiliary>
                     <div className={classes.ProfilePage}>
