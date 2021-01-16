@@ -35,6 +35,11 @@ const ProjectsSchema = new mongoose.Schema({
         type: String, 
         required: [true, 'Please add github link']
     },
+    averageGrade: {
+        type: Number,
+        min: [1, 'Rating must be at least 1'],
+        max: [10, 'Rating must can not be more than 10']  
+    },
     createdAt: {
         type: Date,
         default: Date.now
