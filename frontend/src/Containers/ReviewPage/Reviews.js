@@ -29,7 +29,6 @@ class Review extends Component {
                             year={this.props.user.data.year} />
                         <div className={classes.Placeholder}></div>
                         <div className={classes.ProfilePage}>
-                            {/*TODO: de facu componenet pt non reviewuari*/}
                             {alert("Only reviewers can see this page. Currently you are logged in as a "+this.props.user.data.role)}
                             <Redirect to='/home/profile/project'/>
                         </div>
