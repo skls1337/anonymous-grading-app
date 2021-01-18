@@ -3,7 +3,6 @@ import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import ReviewProjects from '../ReviewPage/ReviewProjects'
 import classes from './ProjectPage.css';
-import classesReview from '../ReviewPage/ReviewProjects.css'
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import SubPage from '../../Components/MainPage/SubPageProject/SubPageProject';
 
