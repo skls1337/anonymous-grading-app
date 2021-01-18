@@ -50,7 +50,7 @@ class project extends Component {
                         console.log("clg din else"+ el);
                         let date = el.getFullYear()+'-'+(el.getMonth()+1)+'-'+el.getDate();
                         this.setState({currentDeadline:date})
-                        throw 1;
+                        throw new Error('Found');
                     }
                  })
     
