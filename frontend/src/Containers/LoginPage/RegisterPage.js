@@ -27,7 +27,7 @@ class RegisterPage extends Component{
 
    render(){ 
     if(this.state.registered){
-       return <Redirect to='/home'/>
+       return <Redirect to='/home/profile/project'/>
     }
 
     return(
