@@ -53,16 +53,16 @@ exports.createReview = async (req, res, next) => {
     try {
         // Add user 
         req.body.user = req.user.id;
-        req.body.project = req.params.id; // '5fcf92798ab5d003acecdbba'   
-        const review = await Review.create(req.body);
-        
+        req.body.project = req.params.id; // '5fcf92798ab5d003acecdbba' 
+       
         const Project = await Projects.findById(req.params.id);
         console.log(Project.title)
-
-        await Review.findByIdAndUpdate(review._id, { projectName: Project.title })
+        req.body.projectName = Project.title;
+        
+        const review = await Review.create(req.body);
+        
 
         console.log(review.projectName)
-        console.log(review._id)
 
         res.status(201).json({
             success: true,

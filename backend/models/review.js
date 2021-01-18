@@ -23,6 +23,7 @@ const ReviewSchema = new mongoose.Schema({
     },
     projectName: {
         type: String,
+        required: true
     },
     createdAt: {
         type: Date,
@@ -42,7 +43,6 @@ ReviewSchema.statics.getAverageGrade = async function (projectId) {
         {
             $group: {
                 _id: '$project',
-                averageGrade: { $avg: '$grade'},
                 myMax: {$max: '$grade'},
                 myMin: {$min: '$grade'},
                 mySum: {$sum: '$grade'},
