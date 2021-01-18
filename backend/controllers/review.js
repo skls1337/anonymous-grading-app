@@ -1,5 +1,7 @@
 const Review = require('../models/review');
+const Projects= require('../models/projects')
 const ErrorResponse = require('../utils/errorResponse');
+
 
 // @desc Get all reviews posted by a user
 // @route GET /api/v1/sentreviews
@@ -52,8 +54,16 @@ exports.createReview = async (req, res, next) => {
     try {
         // Add user 
         req.body.user = req.user.id;
-        req.body.project = req.params.id; // '5fcf92798ab5d003acecdbba'   
+        req.body.project = req.params.id; // '5fcf92798ab5d003acecdbba' 
+
+        const Project = await Projects.findById(req.params.id);
+        console.log(Project.title)
+        req.body.projectName = Project.title;
+        
         const review = await Review.create(req.body);
+        
+
+        console.log(review.projectName)
 
         res.status(201).json({
             success: true,

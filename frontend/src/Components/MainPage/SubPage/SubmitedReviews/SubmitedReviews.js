@@ -3,26 +3,6 @@ import axios from 'axios'
 import classes from './SubmitedReviews.css';
 import ReviewsList from './ReviewsList/ReviewsList';
 
-let data = [
-    {
-        project: 'Domnul Nostru',
-        label: [{ tag: 'Great' }, { tag: 'Nice' }],
-        grade: 10,
-    },
-    {
-        project: 'Ce zici boss',
-        label: [{ tag: 'Nicenice' }],
-        grade: 9,
-    },
-    {
-        project: 'Mama e misto',
-        label: [{ tag: 'Bad' }],
-        grade: 4,
-    },
-];
-
-
-
 class submitedReviews extends Component{
     
     state={
@@ -31,14 +11,9 @@ class submitedReviews extends Component{
     
     getSentReviews = () => {
         axios.get("http://localhost:3001/api/v1/reviews/sentreviews").then(res => {
-             const Data = res.data.data
-                Data.forEach(element => {
-                    delete element.__v
-                    delete element._id
-                    delete element.createdAt
-                    delete element.user
-                });
-               
+            const Data = res.data.data
+            console.log("clg din data");
+               console.log(Data);
             this.setState({projects:Data})
         }).catch(err => console.log(err))
     }

@@ -21,6 +21,10 @@ const ReviewSchema = new mongoose.Schema({
         ref: 'projects', 
         required: true
     },
+    projectName: {
+        type: String,
+        required: true
+    },
     createdAt: {
         type: Date,
         default: Date.now
@@ -39,7 +43,7 @@ ReviewSchema.statics.getAverageGrade = async function (projectId) {
         {
             $group: {
                 _id: '$project',
-                averageGrade: { $avg: '$grade'},
+                avg: {$avg: '$grade'},
                 myMax: {$max: '$grade'},
                 myMin: {$min: '$grade'},
                 mySum: {$sum: '$grade'},
@@ -53,11 +57,13 @@ ReviewSchema.statics.getAverageGrade = async function (projectId) {
         // console.log(obj[0].myMin)
         // console.log(obj[0].mySum)
         // console.log(obj[0].count)
-
-        let avg = (obj[0].mySum-obj[0].myMax-obj[0].myMin)/(obj[0].count-2)
-        // console.log(avg)
+        let avg = 0;
+        if(obj[0].count > 2){
+            avg = (obj[0].mySum-obj[0].myMax-obj[0].myMin)/(obj[0].count-2)
+        } 
+        
         await this.model('Projects').findByIdAndUpdate(projectId, {
-            averageGrade: avg
+            averageGrade: obj[0].avg.toFixed(2)
         });
     } catch (err) {
         console.error(err)
