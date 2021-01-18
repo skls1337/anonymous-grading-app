@@ -4,77 +4,14 @@ import Requirements from './Requirements/Requirements';
 import classes from './Project.css';
 import Axios from 'axios';
 
-let datas = {
-    requirements: [
-        {
-            requirement: 'Definirea a minim patru activități/fragmente de student; toate activitățile aplicației trebuiepopulate folosind controale vizuale corespunzătoare.',
-            status: 2,
-            _id: '0a',
-        },
-        {
-            requirement: 'Utilizarea de controale variate (Button, TextView, EditView, CheckBox, Spinner, ProgressBar,SeekBar, Switch, RatingBar, ImageView, DatePicker sau TimePicker)',
-            status: 1,
-            _id: '0.1a',
-        },
-        {
-            requirement: 'Utilizarea a minim un formular de introducere a datelor;',
-            status: 0,
-            _id: '1a',
-        },
-        {
-            requirement: 'Transferul de parametri (obiecte proprii și primitive) între minim două activități/fragmente;',
-            status: 0,
-            _id: '2a',
-        },
-        {
-            requirement: 'Implementarea unui adaptor personalizat (cel puțin trei controale vizuale, dintre care douădiferite);',
-            status: 0,
-            _id: '3a',
-        },
-        {
-            requirement: 'Implementarea unui adaptor personalizat (cel puțin trei controale vizuale, dintre care douădiferite);',
-            status: 0,
-            _id: '4a',
-        },
-        {
-            requirement: 'Implementarea unui adaptor personalizat (cel puțin trei controale vizuale, dintre care douădiferite);',
-            status: 0,
-            _id: '5a',
-        },
-        {
-            requirement: 'Implementarea unui adaptor personalizat (cel puțin trei controale vizuale, dintre care douădiferite);',
-            status: 0,
-            _id: '6a',
-        },
-        {
-            requirement: 'Implementarea unui adaptor personalizat (cel puțin trei controale vizuale, dintre care douădiferite);',
-            status: 0,
-            _id: '7a',
-        },
-        {
-            requirement: 'Implementarea unui adaptor personalizat (cel puțin trei controale vizuale, dintre care douădiferite);',
-            status: 0,
-            _id: '8a',
-        },
-        {
-            requirement: 'Stilizarea aplicației mobile – pentru minim trei proprietăți ale componentelor vizuale -- (se creează o temă nouă în fișierul styles.xml sau stil nou);',
-            status: 0,
-            _id: '9a',
-        },
-    ],
-    description:
-        'Proiectul va fi verificat pe parcurs, conform baremului. Evaluarea se realizează pe parcurs. Proiectulse susține la finalul semestrului (săpt. 13 și 14) și trebuie încărcat până în săptămâna a 13-a pe platformahttp://pdm.ase.ro. Fazele intermediare vor fi încărcate pe platforma http://online.ase.ro.',
-    nextDel: '10/12/2021',
-    deadline: '1/5/2022',
-};
-
 class project extends Component {
 
     state={
         requirements:[],
         deadline:[],
         description:'',
-        currentDeadline:''
+        currentDeadline:'',
+        lastDeadline:''
     }
 
     getProjectRequirments=()=>{
@@ -85,33 +22,40 @@ class project extends Component {
                 requirements:requirements.requirements,
                 deadline:requirements.deadline
             })
-
-            var today = new Date();
-            var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            let today = new Date();
+            let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
             console.log(date);
-            var ddl=[]
+            let ddl=[];
             this.state.deadline.forEach(element => {
                 ddl.push(new Date(element.substr(0,10)))
             });
+
+            let dateNew = ddl[2].getFullYear()+'-'+(ddl[2].getMonth()+1)+'-'+ddl[2].getDate();
+            console.log(dateNew);
+
+            this.setState({
+                lastDeadline: dateNew
+            })
             ddl.forEach(el=>{
                 if(today>el){
                     console.log(el);
-                    var date = el.getFullYear()+'-'+(el.getMonth()+1)+'-'+el.getDate();
-                    this.setState({currentDeadline:date})
+                    let date = el.getFullYear()+'-'+(el.getMonth()+1)+'-'+el.getDate();
+                    this.setState({currentDeadline:date});
                 }else{
                     console.log("clg din else"+ el);
-                    var date = el.getFullYear()+'-'+(el.getMonth()+1)+'-'+el.getDate();
-                    this.setState({currentDeadline:date})
-                    throw 1
+                    let date = el.getFullYear()+'-'+(el.getMonth()+1)+'-'+el.getDate();
+                    this.setState({currentDeadline:date});
+                    throw 1;
                 }
                 
             })
+
             console.log(this.state.currentDeadline);
         }).catch(err=>console.log(err))
     }
 
     componentDidMount=()=>{
-        this.getProjectRequirments()
+        this.getProjectRequirments();
     }
 
     render() {
@@ -127,8 +71,8 @@ class project extends Component {
                 }
 
                 <Requirements controls={this.state.requirements} />
-                <p style={{ backgroundColor: '#FEFFFF' }}>Upcoming Deliverable: {datas.nextDel}</p>
-                <p style={{ backgroundColor: '#FEFFFF' }}>Deadline: {this.state.currentDeadline}</p>
+                <p style={{ backgroundColor: '#FEFFFF' }}>Upcoming Deliverable: {this.state.currentDeadline}</p>
+                <p style={{ backgroundColor: '#FEFFFF' }}>Deadline: {this.state.lastDeadline}</p>
             </div>
         );
     }
