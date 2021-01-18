@@ -4,7 +4,8 @@ import buttonClasses from './ReviewProjects.css'
 import axios from 'axios'
 import DisplayFullProject from '../../Components/Multi/DisplayFullProject/DisplayFullProject'
 import classesDisplay from '../../Components/Multi/DisplayFullProject/DisplayFullProject.css'
-
+import { Redirect } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 
 class ReviewTheProject extends Component {
@@ -32,7 +33,7 @@ class ReviewTheProject extends Component {
     getProjecById = () => {
         const projId = window.location.pathname
         const str = projId.slice(-24)
-        console.log(str);
+    
         axios.get('http://localhost:3001/api/v1/projects/' + str).then(res => {
             console.log(res.data);
             const projData = {
@@ -56,14 +57,18 @@ class ReviewTheProject extends Component {
     handleCreateReview = () => {
         const projId = window.location.pathname
         const str = projId.slice(-24)
+        console.log(str);
         const labelsToSend = Array.from(this.tags)
         const review = {
             label: labelsToSend,
             grade: this.state.grade
         }
+        console.log(this.state);
         axios.post('http://localhost:3001/api/v1/reviews/' + str, review).then(res => {
-            console.log(res);
+            console.log(review);
+           
         }).catch(err => console.log(err))
+        this.props.history.push('/home/profile/project');
     }
     componentDidMount() {
         this.getProjecById()
@@ -72,7 +77,7 @@ class ReviewTheProject extends Component {
     }
 
     render() {
-            if(this.props.user.data.role==="reviewer"){   
+            if(this.props.user.data.role==="reviewer"||this.props.user.data.role==="admin"){   
         return (
             <div >
                 <br></br>
@@ -89,7 +94,7 @@ class ReviewTheProject extends Component {
                     <h1 style={{ padding: "10px", textAlign: "center", paddingBottom: "20px" }}>Review the project</h1>
                     <p style={{ padding: "10px", textAlign: "center", paddingBottom: "20px", fontSize: "20PX" }}>Grade</p>
                     <div style={{ width: "5%", margin: "auto", marginBottom: '10px' }}>
-                        <select className={buttonClasses.select} onChange={(e) => this.setState({ grade: e.target.value })}>
+                        <select className={buttonClasses.selectBox} onChange={(e) => this.setState({ grade: e.target.value })}>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -110,9 +115,11 @@ class ReviewTheProject extends Component {
                                 }}>{value}</button>)
                         }
                     </div>
+                    
                     <button
                         onClick={this.handleCreateReview}
                         className={buttonClasses.ReviewButton} >Review this project</button>
+                        
                 </div>
 
             </div>
@@ -137,4 +144,4 @@ class ReviewTheProject extends Component {
 
 }
 
-export default ReviewTheProject;
+export default withRouter(ReviewTheProject);
