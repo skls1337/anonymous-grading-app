@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import DisplayShortProject from '../../Multi/DisplayShortProject/DisplayShortProject';
+import DisplayPR from '../../Multi/DisplayProjectsWithReviews/DisplayProjectsWithReviews';
 import subPageClasses from '../SubPage/SubPage.css';
 import barClasses from '../Navbar2/Navbar2.css';
 import loaderClasses from '../../Multi/Extra/Loader.css';
@@ -41,7 +41,7 @@ class SubPageProjectProf extends Component {
                     <h1>This is a Complete List off all Projects</h1>
                 </div>
 
-                {this._isLoaded ? <DisplayShortProject /> : <div style={{margin:'auto', width:'40px'}}><div className={loaderClasses.ldsEllipsis} ><div></div><div></div><div></div><div></div></div></div>}
+                {this._isLoaded ? this.state.projects.map((ctrl) => <DisplayPR project={ctrl}/>) : <div style={{margin:'auto', width:'40px'}}><div className={loaderClasses.ldsEllipsis} ><div></div><div></div><div></div><div></div></div></div>}
 
                 
 

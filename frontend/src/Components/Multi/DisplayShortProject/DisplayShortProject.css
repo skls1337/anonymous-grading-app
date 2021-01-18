@@ -11,6 +11,10 @@
     overflow: auto;
 }
 
+.DisplayShortProject p {
+    font-size: 20px;
+}
+
 .LineOne {
     display: flex;
     margin-left: auto; 

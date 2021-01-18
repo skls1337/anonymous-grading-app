@@ -2,14 +2,14 @@ import React from 'react';
 
 import classes from './DisplayShortProject.css';
 
-const displayShortProject = () => {
+const displayShortProject = (props) => {
     return (
         <div className={classes.DisplayShortProject}>
             <div className={classes.LineOne}>
-                <p>Project Name</p>
-                <p>Project Grade</p>
+                <p><strong>Project Name: </strong>{props.project.title}</p>
+                <p><strong>Project Grade: </strong>{props.project.averageGrade}</p>
             </div>
-            <p>Short Description</p>
+            <p><strong>Short Description: </strong>{props.project.description}</p>
             <div className = {classes.Tags}>
                 Tags
             </div>
