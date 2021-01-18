@@ -4,7 +4,6 @@ import buttonClasses from './ReviewProjects.css'
 import axios from 'axios'
 import DisplayFullProject from '../../Components/Multi/DisplayFullProject/DisplayFullProject'
 import classesDisplay from '../../Components/Multi/DisplayFullProject/DisplayFullProject.css'
-import { Redirect } from 'react-router';
 import { withRouter } from 'react-router-dom';
 
 
