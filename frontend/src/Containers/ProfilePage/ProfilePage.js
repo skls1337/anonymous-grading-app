@@ -18,7 +18,7 @@ class ProfilePage extends Component {
                         group={this.props.user.data.group}
                         year={this.props.user.data.year} />
                     <div className={classes.Placeholder}></div>
-                    <SubPage />
+                    <SubPage user={this.props.user}  projects={this.props.projects}/>
                 </div>
             </Auxiliary>
         );

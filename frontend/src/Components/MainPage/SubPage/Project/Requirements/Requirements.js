@@ -9,8 +9,8 @@ const requirements = (props) => {
             <p>Requirements:</p>
             <ul>
                 {props.controls.map((ctrl) => (
-                    <Requirement key={ctrl.key} status={ctrl.status}>
-                        {ctrl.text}
+                    <Requirement key={ctrl._id} status={ctrl.status}>
+                        {ctrl.requirement}
                     </Requirement>
                 ))}
             </ul>

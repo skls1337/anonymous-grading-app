@@ -1,0 +1,144 @@
+.ReviewButton {
+  width: 200px;
+  margin-left: 550px;
+  margin-top: 250px;
+  background-color: #17252a;
+  border-width: 2px;
+  border-style: dashed;
+  border-color: #17252a;
+  color: #def2f1;
+  outline: none;
+  display: block;
+  padding: 20px 5px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 90%;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  border-radius: 30px;
+  user-select: none;
+}
+
+.tags {
+  margin: 0 0 10px 195px;
+  width: 175px;
+  height: 75px;
+  border-radius: 30px;
+  font-size: 18px;
+  text-align: center;
+  background-color: #17252a;
+  color: #fff;
+}
+
+.SubPage {
+  background-color: #def2f1;
+  width: 600px;
+  margin: 666px;
+  bottom: 0;
+  border-radius: 30px;
+  z-index: 0;
+  -webkit-animation-name: fadeInRightBig;
+  animation-name: fadeInRightBig;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  animation-delay: 0.3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  margin-top: 100px;
+}
+.ReviewButton:hover {
+  color: #17252a;
+  background-color: #def2f1;
+}
+
+.select {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -webkit-padding-end: 20px;
+  -moz-padding-end: 20px;
+  -webkit-padding-start: 2px;
+  -moz-padding-start: 2px;
+  background-color: #def2f1; /* Fallback color if gradients are not supported */
+  background-position: center right;
+  background-repeat: no-repeat;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  color: #555;
+  font-size: inherit;
+  margin: 0;
+  overflow: hidden;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media all and (max-width: 965px) {
+  .ReviewButton {
+    display: block;
+    margin-top: 10px;
+    width: 100px;
+  }
+}
+
+@media (max-height: 1000px) {
+  .ReviewButton {
+    margin-top: 10px;
+  }
+}
+@-webkit-keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .SubPage {
+    width: 520px;
+    margin: 1%;
+    margin-left: 5%;
+  }
+}
+
+@media (max-width: 1400px) {
+  .SubPage {
+    margin-top: 70px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .tags {
+    font-size: 15px;
+    margin-left: 105px;
+    width: 50%;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+}
