@@ -19,6 +19,7 @@
   color: #17252a;
   cursor: pointer;
   font-size: 22px;
+  -webkit-user-drag: none;
 }
 
 .Navbar .LogOut {
