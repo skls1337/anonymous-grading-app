@@ -60,10 +60,8 @@ ReviewSchema.statics.getAverageGrade = async function (projectId) {
         let avg = 0;
         if(obj[0].count > 2){
             avg = (obj[0].mySum-obj[0].myMax-obj[0].myMin)/(obj[0].count-2)
-        } else {
-
-        }
-
+        } 
+        
         await this.model('Projects').findByIdAndUpdate(projectId, {
             averageGrade: obj[0].avg.toFixed(2)
         });

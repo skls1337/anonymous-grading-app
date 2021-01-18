@@ -54,15 +54,20 @@ exports.createReview = async (req, res, next) => {
         // Add user 
         req.body.user = req.user.id;
         req.body.project = req.params.id; // '5fcf92798ab5d003acecdbba' 
-       
+
         const Project = await Projects.findById(req.params.id);
-        console.log(Project.title)
         req.body.projectName = Project.title;
         
         const review = await Review.create(req.body);
-        
 
-        console.log(review.projectName)
+        if(Project.user.toString() === req.body.user) {
+            return next
+            (new ErrorResponse(
+                `The user with ID ${req.user.id} cannot rate his own creation`, 
+                400
+                )
+            );
+        }
 
         res.status(201).json({
             success: true,
