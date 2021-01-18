@@ -22,7 +22,7 @@ class ReviewProjects extends Component {
                 <div >
                    <Link to={"/home/review/"+this.props.projects.data[i]._id}>
                    <br></br>
-                    <button  className={buttonClasses.ReviewButton} style={{margin:"auto"}}>Review: {projects[i].title}</button>
+                    <button  className={buttonClasses.ReviewButton} style={{margin:"auto"}}> {projects[i].title}</button>
                     <br></br>
                     </Link>
                 </div>)

@@ -72,7 +72,7 @@ class ReviewTheProject extends Component {
     }
 
     render() {
-            if(this.props.user.data.role==="reviewer"){   
+            if(this.props.user.data.role==="reviewer"||this.props.user.data.role==="admin"){   
         return (
             <div >
                 <br></br>

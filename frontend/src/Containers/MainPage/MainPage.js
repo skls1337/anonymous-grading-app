@@ -19,7 +19,7 @@ class MainPage extends Component {
                     <Switch>
                         <Route path='/home/profile' render={() => <ProfilePage user={this.props.user}  projects={this.props.projects} />} />
                         <Route path='/home/review' render={() => <Reviews user={this.props.user} projects={this.props.projects} />} />
-                        <Route path='/home/project' render={() => <ProjectPage user={this.props.user} />} />
+                        <Route path='/home/project' render={() => <ProjectPage user={this.props.user} projects={this.props.projects}/>} />
                     </Switch>
                 </Auxiliary>
             );
