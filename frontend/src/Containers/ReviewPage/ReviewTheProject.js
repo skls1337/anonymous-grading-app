@@ -4,7 +4,8 @@ import buttonClasses from './ReviewProjects.css'
 import axios from 'axios'
 import DisplayFullProject from '../../Components/Multi/DisplayFullProject/DisplayFullProject'
 import classesDisplay from '../../Components/Multi/DisplayFullProject/DisplayFullProject.css'
-
+import { Redirect } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 
 class ReviewTheProject extends Component {
@@ -65,7 +66,9 @@ class ReviewTheProject extends Component {
         console.log(this.state);
         axios.post('http://localhost:3001/api/v1/reviews/' + str, review).then(res => {
             console.log(review);
+           
         }).catch(err => console.log(err))
+        this.props.history.push('/home/profile/project');
     }
     componentDidMount() {
         this.getProjecById()
@@ -112,9 +115,11 @@ class ReviewTheProject extends Component {
                                 }}>{value}</button>)
                         }
                     </div>
+                    
                     <button
                         onClick={this.handleCreateReview}
                         className={buttonClasses.ReviewButton} >Review this project</button>
+                        
                 </div>
 
             </div>
@@ -139,4 +144,4 @@ class ReviewTheProject extends Component {
 
 }
 
-export default ReviewTheProject;
+export default withRouter(ReviewTheProject);
