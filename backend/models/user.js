@@ -80,6 +80,7 @@ UserSchema.methods.getResetPasswordToken = function() {
     return resetToken;
 }
 
+// Generate random lucky number to get a chance to become a reviewer
 UserSchema.methods.assignRandomReviewer = function() {
     if (this.role === 'student') {
         const stringRandom = crypto.randomBytes(20).toString('hex');
