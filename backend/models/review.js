@@ -21,6 +21,9 @@ const ReviewSchema = new mongoose.Schema({
         ref: 'projects', 
         required: true
     },
+    projectName: {
+        type: String,
+    },
     createdAt: {
         type: Date,
         default: Date.now
