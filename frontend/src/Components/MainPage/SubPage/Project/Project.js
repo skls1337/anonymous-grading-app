@@ -127,8 +127,8 @@ class project extends Component {
                 }
 
                 <Requirements controls={this.state.requirements} />
-                <p style={{ backgroundColor: '#FEFFFF' }}>Upcoming Deliverable: {datas.nextDel}</p>
-                <p style={{ backgroundColor: '#FEFFFF' }}>Deadline: {this.state.currentDeadline}</p>
+                <p style={{ backgroundColor: '#FEFFFF' }}>Upcoming Deliverable: {this.state.currentDeadline}</p>
+                <p style={{ backgroundColor: '#FEFFFF' }}>Deadline: {}</p>
             </div>
         );
     }
