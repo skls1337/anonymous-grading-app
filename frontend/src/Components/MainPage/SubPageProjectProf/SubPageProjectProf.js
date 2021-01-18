@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
 import axios from 'axios';
+
 import DisplayShortProject from '../../Multi/DisplayShortProject/DisplayShortProject';
 import subPageClasses from '../SubPage/SubPage.css';
 import barClasses from '../Navbar2/Navbar2.css';
