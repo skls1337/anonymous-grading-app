@@ -3,29 +3,6 @@ import axios from 'axios'
 import ReviewsList from '../SubmitedReviews/ReviewsList/ReviewsList';
 import classes from '../SubmitedReviews/SubmitedReviews.css';
 
-const data = [
-    {
-        project: 'Proiectul MEU',
-        label: [{ tag: 'Great' }, { tag: 'Nice' }, {tag: 'Good Job'}],
-        grade: 10,
-    },
-    {
-        project: 'Proiectul MEU',
-        label: [{ tag: 'Not Nice' }],
-        grade: 4,
-    },
-    {
-        project: 'Proiectul MEU',
-        label: [{ tag: 'Badass' }],
-        grade: 5,
-    },
-    {
-        project: 'Proiectul MEU',
-        label: [{ tag: 'Badass' }],
-        grade: 5,
-    }
-]
-
 class yourReviews extends Component {
     
     state={
