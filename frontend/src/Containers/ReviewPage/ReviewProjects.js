@@ -19,7 +19,7 @@ class ReviewProjects extends Component {
                 if (el.user !== this.props.user.data._id) {
                     if (!reviewd.includes(el._id)) {
                         
-                        projects.push({ "id": el._id, "title": el.title })
+                        projects.push({ "id": el._id, "title": el.title,"key":(Math.floor(Math.random() * Math.floor(100))) })
                     }
                 }
             })
@@ -42,7 +42,7 @@ class ReviewProjects extends Component {
         }
         return (
             <div className={classes.SubPage}>
-                {items}
+                {items }
             </div>
         )
 
