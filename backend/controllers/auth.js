@@ -3,6 +3,10 @@ const User = require('../models/user');
 const asyncHandler = require('../middleware/async');
 const sendEmail = require('../utils/sendEmail');
 const ErrorResponse = require('../utils/errorResponse');
+
+let aboveThreshold = 31000000000;
+
+
 // @desc Register user
 // @route POST /api/v1/auth/register
 // @access Public
@@ -18,6 +22,14 @@ exports.register = async (req, res, next) => {
         year,
         group
     });
+    
+    const lucky = await user.assignRandomReviewer();
+    console.log(lucky)
+
+    if(lucky > aboveThreshold) { // #number with 11 digits
+        await User.findByIdAndUpdate(user._id, { role: 'reviewer' })
+        console.log(user.role)
+    }
 
     sendTokenResponse(user, 200, res);
     } catch (err) {
@@ -67,7 +79,7 @@ exports.getMe = async (req, res, next) => {
         res.status(200).json({
             success: true,
             data: user
-        });
+        });       
     } catch (err) {
         next(err);
     }
@@ -82,6 +94,8 @@ exports.logout = asyncHandler( async (req, res, next) => {
         expires: new Date(Date.now() + 10 * 1000),
         httpOnly: true
     })
+
+    res.clearCookie("key");
 
     res.status(200).json({
         success: true,

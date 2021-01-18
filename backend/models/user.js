@@ -80,4 +80,16 @@ UserSchema.methods.getResetPasswordToken = function() {
     return resetToken;
 }
 
+// Generate random lucky number to get a chance to become a reviewer
+UserSchema.methods.assignRandomReviewer = function() {
+    if (this.role === 'student') {
+        const stringRandom = crypto.randomBytes(20).toString('hex');
+
+        this.dateRandom = Date.now() + Math.floor(Math.random() * 10);
+
+        return this.dateRandom / stringRandom.charCodeAt(10);
+    }
+}
+
+
 module.exports = mongoose.model('User', UserSchema);
