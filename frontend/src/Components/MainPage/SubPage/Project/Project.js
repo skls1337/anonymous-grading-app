@@ -11,7 +11,8 @@ class project extends Component {
         deadline:[],
         description:'',
         currentDeadline:'',
-        lastDeadline:''
+        lastDeadline:'',
+        currentDeadlineDate: ''
     }
 
     getProjectRequirments=()=>{
@@ -29,26 +30,101 @@ class project extends Component {
             this.state.deadline.forEach(element => {
                 ddl.push(new Date(element.substr(0,10)))
             });
-
+            
             let dateNew = ddl[2].getFullYear()+'-'+(ddl[2].getMonth()+1)+'-'+ddl[2].getDate();
             console.log(dateNew);
 
             this.setState({
                 lastDeadline: dateNew
-            })
-            ddl.forEach(el=>{
-                if(today>el){
-                    console.log(el);
-                    let date = el.getFullYear()+'-'+(el.getMonth()+1)+'-'+el.getDate();
-                    this.setState({currentDeadline:date});
-                }else{
-                    console.log("clg din else"+ el);
-                    let date = el.getFullYear()+'-'+(el.getMonth()+1)+'-'+el.getDate();
-                    this.setState({currentDeadline:date});
-                    throw 1;
+            })                    
+
+            try {
+                ddl.forEach(el=>{
+                    if(today>el){
+                        this.setState({currentDeadlineDate: el})
+                        console.log(el);
+                        let date = el.getFullYear()+'-'+(el.getMonth()+1)+'-'+el.getDate();
+                        this.setState({currentDeadline:date});
+                    }else{
+                        this.setState({currentDeadlineDate: el})
+                        console.log("clg din else"+ el);
+                        let date = el.getFullYear()+'-'+(el.getMonth()+1)+'-'+el.getDate();
+                        this.setState({currentDeadline:date})
+                        throw 1;
+                    }
+                 })
+    
+            } catch (error) {
+                console.log(error)
+            }
+            
+
+            if(ddl[2].getTime() < today.getTime()) {
+                let newStatus = []
+                this.state.requirements.forEach(element => {
+                    if (element.deadline === '1'){
+                        element.status = 0;
+                        newStatus.push(element);
+                    }
+                    else if (element.deadline === '2'){
+                        element.status = 0;
+                        newStatus.push(element);
+                    } else {
+                        element.status = 0;
+                        newStatus.push(element);
+                    }
+                });
+                console.log(newStatus);
+                this.setState({requirements: newStatus})
+            } else {
+                for(let i = 0; i < ddl.length; i++) {
+                    if(ddl[i].getTime() === this.state.currentDeadlineDate.getTime()) {
+                        
+                        if(i === 1) {                    
+                            let newStatus = []
+                            this.state.requirements.forEach(element => {
+                                if (element.deadline === '1'){
+                                    element.status = 0;
+                                    newStatus.push(element);
+                                }
+                              
+                                else if (element.deadline === '2'){
+                                    element.status = 1;
+                                    newStatus.push(element);
+                                } else {
+                                    element.status = 2;
+                                    newStatus.push(element);
+                                }
+                            });
+                            console.log(newStatus);
+                            this.setState({requirements: newStatus})
+                        }  
+    
+                        else if(i === 2 && ddl[2].getTime() >= today.getTime()) {                    
+                        let newStatus = []
+                        this.state.requirements.forEach(element => {
+                            if (element.deadline === '1'){
+                                element.status=0;
+                                newStatus.push(element);
+                            }
+                          
+                            else if (element.deadline === '2'){
+                                element.status = 0;
+                                newStatus.push(element);
+                            } else {
+                                element.status = 1;
+                                newStatus.push(element);
+                            }
+                        });
+                        console.log(newStatus);
+                        this.setState({requirements: newStatus})
+                    } 
+                    
                 }
-                
-            })
+            }
+        }
+
+
 
             console.log(this.state.currentDeadline);
         }).catch(err=>console.log(err))
