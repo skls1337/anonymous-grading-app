@@ -1,0 +1,24 @@
+.DisplayShortProject {
+    box-sizing: border-box;
+    font-size: medium;
+    background-color: #FEFFFF;
+    border-radius: 30px;
+    padding: 35px;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    overflow: auto;
+}
+
+.LineOne {
+    display: flex;
+    margin-left: auto; 
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.Tags {
+    width: 60%;
+    margin: auto;
+}

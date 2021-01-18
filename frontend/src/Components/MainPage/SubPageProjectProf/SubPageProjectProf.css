@@ -1,0 +1,20 @@
+.SubPageProjectProf {
+    box-sizing: border-box;
+    font-size: medium;
+    background-color: #FEFFFF;
+    border-radius: 30px;
+    padding: 35px;  
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    overflow: auto;
+}
+
+
+.SubPageProjectProf h1 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    text-align: center;
+}

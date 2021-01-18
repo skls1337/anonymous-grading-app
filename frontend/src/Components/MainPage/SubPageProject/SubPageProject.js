@@ -119,7 +119,7 @@ class ProjectPage extends Component {
         this.projectId = id;
     }
 
-    render() {
+    render = () => {
         if (this.props.projectData.projectName !== '') {
             this.title = "Edit Your Project";
             this.projectDisplay = <DisplayFullProject projectData={this.props.projectData} />;
