@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import DisplayReviewsProject from '../DisplayReviewsProject/DisplayReviewsProject';
 import DisplayShortProject from '../DisplayShortProject/DisplayShortProject';
 import classes from './DisplayProjectsWithReviews.css'
 
@@ -36,7 +37,8 @@ class DisplayProjectsWithReviews extends Component {
     render = () => {
         return (
             <div className={classes.DisplayPR}>
-                <DisplayShortProject project={this.props.project} tags={this.state.labels}/>
+                <DisplayShortProject project={this.props.project} tags={this.state.labels} />
+                <DisplayReviewsProject reviews={this.state.reviews} />
             </div>
         );
     }
