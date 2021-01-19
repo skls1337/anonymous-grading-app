@@ -49,7 +49,7 @@ class ProjectPage extends Component {
 
                 this.setState({
                     projectData: {
-                        title: (project.title === undefined) ? '' : project.title,
+                        title: project.title,
                         description: project.description,
                         body: project.body,
                         video: project.video,

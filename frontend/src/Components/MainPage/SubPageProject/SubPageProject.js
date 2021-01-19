@@ -120,7 +120,7 @@ class ProjectPage extends Component {
     }
 
     render = () => {
-        if (this.props.projectData.projectName !== '') {
+        if (this.props.projectData.title !== '') {
             this.title = "Edit Your Project";
             this.projectDisplay = <DisplayFullProject projectData={this.props.projectData} />;
             this.deleteDisplay = <button className={classes.DeleteButton} onClick={this.props.handleDelete}>DELETE PROJECT</button>
