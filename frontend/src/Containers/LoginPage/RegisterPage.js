@@ -87,11 +87,19 @@ class RegisterPage extends Component{
                         ></input>
                         </div>
                         <div className={classes.DrGri}>
-                        <input type="text"
+                        <select 
                         className={classes.inputReg}
                         placeholder="Study Year"
                         onChange={e=>this.studyYear=e.target.value}
-                        ></input>
+                        >
+                            <option>--Select a Study Year--</option>
+                            <option>I</option>
+                            <option>II</option>
+                            <option>III</option>
+                            <option>EX</option>
+
+
+                        </select>
                         </div>
                         <button 
                         className={classes.ButonSignUp}
