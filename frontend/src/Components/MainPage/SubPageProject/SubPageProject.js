@@ -87,7 +87,7 @@ class ProjectPage extends Component {
 
         }
 
-        if (this.props.projectData.projectName !== '') {
+        if (this.props.projectData.title !== '') {
             this.handleUpdate(this.projectData);
         } else {
             axios.post('http://localhost:3001/api/v1/projects', this.projectData).then(
