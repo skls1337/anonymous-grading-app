@@ -2,9 +2,7 @@ import React from 'react';
 
 import classes from './Profile.css';
 
-const profile = (props) => {
-console.log(props.user.role);
-    
+const profile = (props) => {  
     return (
         <div className={classes.Profile}>
             <div>

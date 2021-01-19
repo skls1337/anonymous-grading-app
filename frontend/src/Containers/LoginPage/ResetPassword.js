@@ -18,7 +18,7 @@ class ResetPassword extends Component {
             this.setState({
                 reset: true
             })
-        }).catch(err => { console.log(err); })
+        }).catch(err => { console.log(err); });
 
     }
 
