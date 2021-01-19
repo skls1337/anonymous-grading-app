@@ -30,7 +30,7 @@ const displayFullProject = (props) => {
             </div>
             <div>
                 <h3>Project Link:</h3>
-                <a href={props.projectData.uplaod} target="_blank">Click to go to the Project's Page</a>
+                <a href={props.projectData.upload} target="_blank">Click to go to the Project's Page</a>
             </div>
         </div>
     );
