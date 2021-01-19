@@ -1,8 +1,8 @@
-.ProjectPage {
+.ProjectPage{
     display: flex;
     flex-direction: row;
     width: 90%;
-    margin: auto;
+    margin:auto;
 }
 
 @media (min-width: 1800px) {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { withRouter } from 'react-router-dom';
-import ReviewProjects from '../ReviewPage/ReviewProjects'
+import {withRouter} from 'react-router-dom';
+
 import classes from './ProjectPage.css';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import SubPage from '../../Components/MainPage/SubPageProject/SubPageProject';
@@ -9,11 +9,11 @@ import SubPage from '../../Components/MainPage/SubPageProject/SubPageProject';
 class ProjectPage extends Component {
     state = {
         projectData: {
-            title: '',
-            description: '',
-            body: '',
-            video: '',
-            upload: '',
+            projectName: '',
+            shortDescription: '',
+            fullDescription: '',
+            ytLink: '',
+            ghLink: '',
             images: '',
             projectId: ''
         }
@@ -21,15 +21,15 @@ class ProjectPage extends Component {
     _isMounted = false;
 
     handleDelete = () => {
-        axios.delete(`http://localhost:3001/api/v1/projects/${this.state.projectData.projectId}`).then(res => {
+        axios.delete(`http://localhost:3001/api/v1/projects/${this.state.projectData.projectId}`).then(res=>{
             console.log(res);
             this.setState({
                 projectData: {
-                    title: '',
-                    description: '',
-                    body: '',
-                    video: '',
-                    upload: '',
+                    projectName: '',
+                    shortDescription: '',
+                    fullDescription: '',
+                    ytLink: '',
+                    ghLink: '',
                     images: '',
                     projectId: ''
                 }
@@ -46,14 +46,14 @@ class ProjectPage extends Component {
                 const project = res.data.data[0];
                 console.log(project);
                 console.log(project.video);
-
+                
                 this.setState({
                     projectData: {
-                        title: (project.title === undefined) ? '' : project.title,
-                        description: project.description,
-                        body: project.body,
-                        video: project.video,
-                        upload: project.upload,
+                        projectName: (project.title === undefined) ? '' : project.title,
+                        shortDescription: project.description,
+                        fullDescription: project.body,
+                        ytLink: project.video,
+                        ghLink: project.upload,
                         images: project.images,
                         projectId: project._id
                     }
@@ -68,22 +68,13 @@ class ProjectPage extends Component {
     }
 
     render() {
-        if (this.props.user.data.role === "reviewer" || this.props.user.data.role === "student") {
-            return (
-                <Auxiliary>
-                    <div className={classes.ProjectPage}>
-                        <SubPage projectData={this.state.projectData} user={this.props.user} handleDelete={this.handleDelete} />
-                    </div>
-                </Auxiliary>
-            );
-        }else{
-            return(
+        return (
+            <Auxiliary>
                 <div className={classes.ProjectPage}>
-                    {console.log(this.props.user.data.role)}
-                    <ReviewProjects projects={this.props.projects}/>
+                    <SubPage projectData={this.state.projectData} user={this.props.user} handleDelete={this.handleDelete}/>
                 </div>
-            )
-        }
+            </Auxiliary>
+        );
     }
 }
 

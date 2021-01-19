@@ -2,7 +2,6 @@ const Review = require('../models/review');
 const Projects = require('../models/projects');
 const ErrorResponse = require('../utils/errorResponse');
 
-
 // @desc Get all reviews posted by a user
 // @route GET /api/v1/sentreviews
 // @access Public (only for reviews)
@@ -60,9 +59,6 @@ exports.createReview = async (req, res, next) => {
         req.body.projectName = Project.title;
         
         const review = await Review.create(req.body);
-        
-
-        console.log(review.projectName)
 
         if(Project.user.toString() === req.body.user) {
             return next
