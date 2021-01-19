@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import classes from './ReviewProjects.css'
+import subpeigicesese from '../../Components/MainPage/SubPage/SubPage.css'
+import navClasses from '../../Components/MainPage/Navbar2/Navbar2.css'
+
 import buttonClasses from './ReviewProjects.css'
 import { Link } from 'react-router-dom';
 
@@ -41,7 +44,7 @@ class ReviewProjects extends Component {
                 </div>)
         }
         return (
-            <div className={classes.SubPage}>
+           <div>
                 {items }
             </div>
         )

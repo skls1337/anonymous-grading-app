@@ -82,18 +82,15 @@ class ReviewTheProject extends Component {
                 <br></br>
                 <br></br>
                 <br></br>
-                <div className={classesDisplay.DisplayFullProject}>
+                <div >
                     <DisplayFullProject projectData={this.state.projectData} />
                 </div>
 
-               
-
-                <div className={classes.SubPage}>
+                <div >
                     {/*Review here*/}
                     <h1 style={{ padding: "10px", textAlign: "center", paddingBottom: "20px" }}>Review the project</h1>
-                    <p style={{ padding: "10px", textAlign: "center", paddingBottom: "20px", fontSize: "20PX" }}>Grade</p>
-                    <div style={{ width: "5%", margin: "auto", marginBottom: '10px' }}>
-                        <select className={buttonClasses.selectBox} onChange={(e) => this.setState({ grade: e.target.value })}>
+                    <p style={{ padding: "10px", textAlign: "center", paddingBottom: "20px", fontSize: "20PX" }}>Grade     <select className={buttonClasses.select} onChange={(e) => this.setState({ grade: e.target.value })}>
+                            <option>--Grade this project--</option>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -104,7 +101,9 @@ class ReviewTheProject extends Component {
                             <option>8</option>
                             <option>9</option>
                             <option>10</option>
-                        </select>
+                        </select></p>
+                    <div style={{ width: "5%", margin: "auto", marginBottom: '10px' }}>
+                   
                     </div>
                     <div >
                         {
@@ -117,9 +116,12 @@ class ReviewTheProject extends Component {
                     
                     <button
                         onClick={this.handleCreateReview}
-                        className={buttonClasses.ReviewButton} >Review this project</button>
+                        className={classes.ReviewButton} >Review this project</button>
                         
                 </div>
+                <br></br>
+                <br></br>
+                <br></br>
 
             </div>
         );
