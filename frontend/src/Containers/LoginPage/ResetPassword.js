@@ -32,13 +32,16 @@ class ResetPassword extends Component{
             <div className={classes.DrGri}>
             <input
                 className={classes.inputReg} 
-                 placeholder="New password"
+                placeholder="Password"
+                type="password"
                 onChange={(event) => this.pass=event.target.value}
             />
              </div>
              <div className={classes.DrGri}>
             <input
                 className={classes.inputReg} 
+                 type="password"
+                placeholder="Password"
                  placeholder="Confirm password"
                 onChange={(event) => this.confpass=event.target.value}
             />
