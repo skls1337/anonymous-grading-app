@@ -12,7 +12,7 @@ class ProfilePage extends Component {
         return (
             <Auxiliary>
                 <div className={classes.ProfilePage}>
-                    <Profile user={this.props.user.data}
+                    <Profile
                         img={pp}
                         name={this.props.user.data.fullname}
                         group={this.props.user.data.group}

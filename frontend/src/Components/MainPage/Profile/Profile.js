@@ -3,22 +3,6 @@ import React from 'react';
 import classes from './Profile.css';
 
 const profile = (props) => {
-console.log(props.user.role);
-    if(props.user.role==='prof'){
-        return (
-            <div className={classes.Profile}>
-            <div>
-                <img src={props.img} rel="ProfilePicture" alt="ProfilePicture"></img>
-            </div>
-            <div className={classes.Text}>
-                <p className={classes.Name}>{props.name}</p>
-               <p>Professor</p>
-            </div>
-            <button>EDIT PROFILE</button>
-        </div>
-        )
-    }else{
-
     return (
         <div className={classes.Profile}>
             <div>
@@ -33,8 +17,5 @@ console.log(props.user.role);
         </div>
     );
 }
-
-}
-
 
 export default profile;
