@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import DisplayFullProject from '../DisplayFullProject/DisplayFullProject';
 import DisplayReviewsProject from '../DisplayReviewsProject/DisplayReviewsProject';
 import DisplayShortProject from '../DisplayShortProject/DisplayShortProject';
 import classes from './DisplayProjectsWithReviews.css'
@@ -8,9 +9,11 @@ import classes from './DisplayProjectsWithReviews.css'
 class DisplayProjectsWithReviews extends Component {
     state = {
         labels: [],
-        reviews: []
+        reviews: [],
+        showingFull: ''
     }
     _isMounted = false;
+    bottomDisplay = null;
 
     componentDidMount = () => {
         this._isMounted = true;
@@ -34,11 +37,23 @@ class DisplayProjectsWithReviews extends Component {
         this._isMounted = false;
     }
 
+    handleToggleFull = () => {
+        this.setState({showingFull: !this.state.showingFull})
+        console.log(this.props.project)
+    }
+
     render = () => {
+        if(this.state.showingFull){
+            this.bottomDisplay = <DisplayFullProject projectData={this.props.project}/>
+        } else {
+            this.bottomDisplay = null;
+        }
         return (
             <div className={classes.DisplayPR}>
                 <DisplayShortProject project={this.props.project} tags={this.state.labels} />
                 <DisplayReviewsProject reviews={this.state.reviews} />
+                <button onClick={this.handleToggleFull}>Full Description</button>
+                {this.bottomDisplay}
             </div>
         );
     }

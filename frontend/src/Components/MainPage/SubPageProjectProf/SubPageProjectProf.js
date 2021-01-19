@@ -32,6 +32,16 @@ class SubPageProjectProf extends Component {
         this._isMounted = false;
     }
 
+    makeKey = (length) => {
+        var result = '';
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for (var i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+    }
+
     render = () => {
         return (
             <div className={subPageClasses.SubPage}>
@@ -40,7 +50,7 @@ class SubPageProjectProf extends Component {
                     <h1>This is a Complete List off all Projects</h1>
                 </div>
 
-                {this._isLoaded ? this.state.projects.map((ctrl) => <DisplayPR project={ctrl} key={Math.floor(Math.random() * Math.floor(1009) + 56789)}/>) : <div style={{margin:'auto', width:'40px'}}><div className={loaderClasses.ldsEllipsis} ><div></div><div></div><div></div><div></div></div></div>}
+                {this._isLoaded ? this.state.projects.map((ctrl) => <DisplayPR project={ctrl} key={this.makeKey(10)} />) : <div style={{ margin: 'auto', width: '40px' }}><div className={loaderClasses.ldsEllipsis} ><div></div><div></div><div></div><div></div></div></div>}
             </div>
         );
     }

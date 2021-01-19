@@ -1,11 +1,12 @@
 import React from 'react';
 
-import classes from './DisplayReviewsProject.css'
+import ReviewsList from '../../MainPage/SubPage/SubmitedReviews/ReviewsList/ReviewsList';
+import classes from '../../MainPage/SubPage/SubmitedReviews/ReviewsList/ReviewsList.css';
 
 const displayReviewsProject = (props) => {
     return(
-        <div className={classes.DisplayReviewsProject} >
-
+        <div className={classes.SubRev} >
+            <ReviewsList controls={props.reviews} />
         </div>
     );
 }
