@@ -23,6 +23,19 @@
 }
 
 .Tags {
-    width: 60%;
-    margin: auto;
+    margin-left: auto; 
+    margin-right: 0px;
+}
+
+.Tags p {
+    font-size: 15px;
+    background-color: #17252A;
+    color: #DEF2F1;
+    
+}
+
+.TagsList {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
 }

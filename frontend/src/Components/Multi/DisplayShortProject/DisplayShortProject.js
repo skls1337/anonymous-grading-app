@@ -10,9 +10,16 @@ const displayShortProject = (props) => {
                 <p><strong>Project Grade: </strong>{props.project.averageGrade}</p>
             </div>
             <p><strong>Short Description: </strong>{props.project.description}</p>
-            <div className = {classes.Tags}>
-                Tags
+            <div className={classes.TagsList}>
+                {props.tags.map((inTags) => {
+                    return (
+                        <div className={classes.Tags} key={Math.floor(Math.random() * Math.floor(1009) + 56789)}>
+                            <p>{inTags}</p>
+                        </div>
+                    );
+                })}
             </div>
+
         </div>
     );
 }

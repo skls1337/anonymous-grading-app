@@ -33,7 +33,6 @@ class SubPageProjectProf extends Component {
     }
 
     render = () => {
-
         return (
             <div className={subPageClasses.SubPage}>
                 <div className={barClasses.Navbar2} />
@@ -41,10 +40,7 @@ class SubPageProjectProf extends Component {
                     <h1>This is a Complete List off all Projects</h1>
                 </div>
 
-                {this._isLoaded ? this.state.projects.map((ctrl) => <DisplayPR project={ctrl}/>) : <div style={{margin:'auto', width:'40px'}}><div className={loaderClasses.ldsEllipsis} ><div></div><div></div><div></div><div></div></div></div>}
-
-                
-
+                {this._isLoaded ? this.state.projects.map((ctrl) => <DisplayPR project={ctrl} key={Math.floor(Math.random() * Math.floor(1009) + 56789)}/>) : <div style={{margin:'auto', width:'40px'}}><div className={loaderClasses.ldsEllipsis} ><div></div><div></div><div></div><div></div></div></div>}
             </div>
         );
     }
