@@ -9,11 +9,11 @@ import SubPage from '../../Components/MainPage/SubPageProject/SubPageProject';
 class ProjectPage extends Component {
     state = {
         projectData: {
-            projectName: '',
-            shortDescription: '',
-            fullDescription: '',
-            ytLink: '',
-            ghLink: '',
+            title: '',
+            description: '',
+            body: '',
+            video: '',
+            upload: '',
             images: '',
             projectId: ''
         }
@@ -25,11 +25,11 @@ class ProjectPage extends Component {
             console.log(res);
             this.setState({
                 projectData: {
-                    projectName: '',
-                    shortDescription: '',
-                    fullDescription: '',
-                    ytLink: '',
-                    ghLink: '',
+                    title: '',
+                    description: '',
+                    body: '',
+                    video: '',
+                    upload: '',
                     images: '',
                     projectId: ''
                 }
@@ -49,11 +49,11 @@ class ProjectPage extends Component {
 
                 this.setState({
                     projectData: {
-                        projectName: (project.title === undefined) ? '' : project.title,
-                        shortDescription: project.description,
-                        fullDescription: project.body,
-                        ytLink: project.video,
-                        ghLink: project.upload,
+                        title: (project.title === undefined) ? '' : project.title,
+                        description: project.description,
+                        body: project.body,
+                        video: project.video,
+                        upload: project.upload,
                         images: project.images,
                         projectId: project._id
                     }

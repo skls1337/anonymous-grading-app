@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
-import classes from './ReviewProjects.css'
-import subpeigicesese from '../../Components/MainPage/SubPage/SubPage.css'
-import navClasses from '../../Components/MainPage/Navbar2/Navbar2.css'
 
 import buttonClasses from './ReviewProjects.css'
 import { Link } from 'react-router-dom';
 
 class ReviewProjects extends Component {
+
+    makeKey = (length) => {
+        var result = '';
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for (var i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+    }
 
     render() {
         const projects = []
@@ -22,7 +29,7 @@ class ReviewProjects extends Component {
                 if (el.user !== this.props.user.data._id) {
                     if (!reviewd.includes(el._id)) {
                         
-                        projects.push({ "id": el._id, "title": el.title,"key":(Math.floor(Math.random() * Math.floor(100))) })
+                        projects.push({ "id": el._id, "title": el.title,"key":(this.makeKey(10)) })
                     }
                 }
             })
