@@ -22,7 +22,29 @@
   font-size: 18px;
   color: #60666d;
 }
-
+.ReviewButton {
+  width: 200px;
+  margin:auto;
+  margin-top: 50px;
+  background-color: #17252a;
+  border-width: 2px;
+  border-style: dashed;
+  border-color: #17252a;
+  color: #def2f1;
+  outline: none;
+  display: block;
+  padding: 20px 5px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  border-radius: 30px;
+  user-select: none;
+}
 @-webkit-keyframes fadeInRightBig {
   0% {
     opacity: 0;

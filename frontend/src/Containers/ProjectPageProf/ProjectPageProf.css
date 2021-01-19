@@ -1,4 +1,4 @@
-.ProjectPage {
+.ProjectPageProf {
     display: flex;
     flex-direction: row;
     width: 90%;
@@ -6,7 +6,7 @@
 }
 
 @media (min-width: 1800px) {
-    .ProjectPage {
+    .ProjectPageProf {
         width: 60%;
     }
 }

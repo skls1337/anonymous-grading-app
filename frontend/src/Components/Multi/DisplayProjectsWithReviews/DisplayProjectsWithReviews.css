@@ -1,0 +1,37 @@
+.DisplayPR {
+    box-sizing: border-box;
+    border-style: solid;
+    border-color:  #17252A;
+    border-radius: 50px;
+    margin: 30px;
+    padding: 25px
+}
+
+.DisplayPR button {
+    width: 50%;
+    margin:auto;
+    margin-top: 10px;
+    background-color:  #17252A;
+    border-width: 2px;
+    border-style: dashed;
+    border-color:  #17252A;
+    color: #DEF2F1;
+    outline: none;
+    display: block;
+    padding: 20px 5px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 90%;
+    text-align: center;
+    transition: all 0.2s;
+    cursor: pointer;
+    border-radius: 30px;
+    user-select: none;
+}
+
+.DisplayPR button:hover {
+    color:  #17252A;
+    background-color: #DEF2F1;
+}
