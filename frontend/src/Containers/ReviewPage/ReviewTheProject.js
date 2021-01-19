@@ -36,11 +36,11 @@ class ReviewTheProject extends Component {
         axios.get('http://localhost:3001/api/v1/projects/' + str).then(res => {
             console.log(res.data);
             const projData = {
-                projectName: res.data.data.title,
-                shortDescription: res.data.data.description,
-                fullDescription: res.data.data.body,
-                ytLink: res.data.data.video,
-                ghLink: res.data.data.upload,
+                title: res.data.data.title,
+                description: res.data.data.description,
+                body: res.data.data.body,
+                video: res.data.data.video,
+                upload: res.data.data.upload,
                 images: res.data.data.images
             }
             this.setState({
