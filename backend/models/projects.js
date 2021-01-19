@@ -10,18 +10,18 @@ const ProjectsSchema = new mongoose.Schema({
         maxlength: [40, 'Title should not be more than 40 characters']
     },
     slug: String,
-    author: { //// TODO: only prof can see the name
+    author: { 
         type: String
     },  
     description: {
         type: String,
         required: [true, 'Please add a description'],
-        maxlength: [200, 'Description should not be more than 200 characters']
+        maxlength: [250, 'Description should not be more than 250 characters']
     },
     body: {
         type: String,
         required: [true, 'Please add a body'],
-        maxlength: [5000, 'Body should not be more than 5000 characters']
+        maxlength: [6000, 'Body should not be more than 6000 characters']
     },
     images: {
         type: String,
