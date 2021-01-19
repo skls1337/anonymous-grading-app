@@ -9,7 +9,6 @@ const mongoSanitize = require('express-mongo-sanitize');
 const cors=require('cors')
 const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
-
 // Load config.env
 dotenv.config({ path: './config/config.env'});
 
@@ -64,3 +63,16 @@ process.on('unhandledRejection', (err, promise) => {
     // Close server & exit process
     server.close(() => process.exit(1));
 })
+
+// get proiect/:id
+// get proiects
+// get sentreviews
+// get project requirements 
+// post review 
+// post project
+// post project requirements (prof)
+// put password
+// put project
+// delete project
+// account type: stud, prof
+// account role[stud] = reviewer / nothing
