@@ -1,5 +1,3 @@
-# Echipa i7 mai putin Seby care are i5, dar are pe laptop i7
-
 *Objective:* Developing a web application which allows student projects to be graded by anonymous juries of colleagues.
 
 
